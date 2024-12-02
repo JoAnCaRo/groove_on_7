@@ -26,5 +26,43 @@
   font-size: 0.9rem;
   padding: 0.5rem 1rem; /* Espaciado interno más razonable */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  text-underline-offset: 0.7rem; /* Ajusta la separación del subrayado */
+  position: relative; /* Necesario para los pseudo-elementos */
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* EFECTO HOVER */
+/* Línea gris inicial */
+.navbar a::after {
+  content: ''; /* Línea base gris */
+  position: absolute;
+  bottom: -0.1rem; /* Espaciado debajo del texto */
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho del enlace */
+  height: 1px; /* Grosor de la línea */
+  background-color: var(--secondary-color); /* Color de la línea */
+  opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
+  z-index: 0; /* Línea gris detrás */
+}
+
+/* Línea negra que sobrescribe */
+.navbar a::before {
+  content: ''; /* Línea negra */
+  position: absolute;
+  bottom: -0.1rem; /* Mismo espaciado que la línea gris */
+  left: 0;
+  width: 0; /* Comienza invisible */
+  height: 1px; /* Grosor de la línea */
+  background-color: var(--secondary-color); /* Línea negra */
+  transition: width 1s ease; /* Efecto de escritura */
+  z-index: 1; /* Línea negra encima */
+}
+
+/* Hover: línea negra aparece de izquierda a derecha */
+.navbar a:hover::before {
+  width: 100%; /* Línea negra ocupa todo el ancho */
+}
+
+/* Salir del hover: línea negra retrocede */
+.navbar a:hover::before {
+  transition: width 0.5s ease-out; /* Animación suave al salir */
 }
