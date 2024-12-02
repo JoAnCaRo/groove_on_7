@@ -1,0 +1,144 @@
+/* LIVE SESSION SECTION */
+.live-sessions-section {
+  width: 100%; /* Asegura que ocupe todo el ancho del viewport */
+  max-width: 90rem; /* Ancho máximo */
+  margin: 0 auto; /* Centra horizontalmente la sección */
+  text-align: center; /* Alinea el texto al centro */
+  padding-top: 6rem; /* Espaciado superior */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+}
+
+section.live-sessions-section {
+  padding-bottom: 8rem !important; /* Forzar el espaciado */
+}
+
+.live-sessions-section h3 {
+  text-align: left; /* Justifica el texto a la izquierda */
+  font-size: 1.5rem; /* Tamaño del texto del h3 */
+  font-weight: bold; /* Opcional: hace el texto más prominente */
+  margin-bottom: 0.5rem; /* Espaciado debajo del título */
+  position: relative; /* Necesario para colocar la línea */
+}
+
+.live-sessions-section h3::after {
+  content: ''; /* Genera un pseudo-elemento para la línea */
+  display: block; /* Asegura que ocupe toda la línea */
+  width: 100%; /* La línea ocupa el ancho del contenedor h3 */
+  height: 0.05rem; /* Grosor de la línea */
+  background-color: var(--secondary-color); /* Color de la línea */
+  opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
+  margin-top: 2rem; /* Espaciado entre el texto y la línea */
+  margin-bottom: 2rem; /* Espaciado entre el texto y la línea */
+}
+
+.live-sessions-section {
+  max-width: 87.5rem; /* 1400px en rem */
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+.session {
+  display: flex; /* Organiza en dos columnas */
+  gap: 3rem; /* Espaciado entre imagen y contenido */
+  margin-bottom: 6rem; /* Espaciado entre sesiones */
+  align-items: flex-start; /* Alinea los elementos al inicio */
+  position: relative; /* Necesario para el pseudo-elemento */
+}
+
+.session::after {
+  content: ''; /* Genera el pseudo-elemento para la línea */
+  display: block; /* Asegura que ocupe toda la línea */
+  width: 100%; /* La línea ocupa el ancho del contenedor de la sesión */
+  height: 0.05rem; /* Grosor de la línea */
+  background-color: var(--secondary-color); /* Color de la línea */
+  opacity: 0.2; /* Opacidad de la línea */
+  position: absolute; /* Coloca la línea al final de la sesión */
+  bottom: -3rem; /* Ajusta la posición de la línea */
+  left: 0;
+}
+
+.live-sessions-section .session:last-child::after {
+  display: none; /* Elimina la línea después de la última sesión */
+}
+
+.session-image {
+  flex: 1; /* La imagen ocupa la mitad izquierda */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Asegura que la imagen esté alineada al inicio */
+  overflow: hidden; /* Recorta contenido sobrante si lo hay */
+}
+
+.session-image img {
+  width: 100%; /* Imagen ocupa el ancho completo */
+  height: auto;
+  object-fit: cover; /* Mantiene proporciones */
+}
+
+.session-content {
+  flex: 1; /* Contenido ocupa la mitad derecha */
+  display: flex;
+  flex-direction: column; /* Organiza el contenido verticalmente */
+  justify-content: space-between; /* Separa título/texto del botón */
+  position: relative; /* Necesario para colocar el botón */
+}
+
+.session-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left; /* Alineado a la izquierda */
+  padding-left: 3rem;
+}
+
+.session-content p {
+  font-size: 1rem;
+  margin: 0.5rem 0 15rem; /* Espaciado debajo del texto */
+  text-align: left; /* Alineado a la izquierda */
+  padding-left: 3rem;
+}
+
+.play-button {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  border-radius: 50%; /* Botón redondo */
+  width: 3rem; /* Tamaño del botón */
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  position: absolute; /* Coloca el botón de manera absoluta */
+  bottom: 0; /* Alinea el botón con la parte inferior */
+  left: 2rem; /* Alinea el botón con el padding izquierdo del texto */
+}
+
+.play-button img {
+  width: 3rem; /* Tamaño deseado del SVG (ajusta este valor) */
+  height: auto; /* Tamaño proporcional del SVG */
+}
+
+.see-all-container {
+  text-align: center; /* Centra el contenido del contenedor */
+  margin-top: 4rem; /* Espaciado superior entre las sesiones y el botón */
+}
+
+.see-all-button-live {
+  background-color: var(--secondary-color); /* Color de fondo del botón */
+  color: var(--primary-color); /* Color del texto */
+  width: 15rem; /* Tamaño del botón */
+  height: 4rem;
+  font-size: 1rem; /* Tamaño del texto */
+  padding: 0.75rem 2rem; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animación para el hover */
+}
+
+.see-all-button-live:hover {
+  background-color: var(--primary-color); /* Color de fondo al pasar el mouse */
+  color: var(--secondary-color); /* Cambia el color del texto */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+

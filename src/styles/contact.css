@@ -1,0 +1,84 @@
+/* CONTACT SECTION */
+.contact-section {
+  background-color: var(--secondary-color); /* Fondo oscuro */
+  color: var(--primary-color); /* Texto claro */
+  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+  margin: 0 auto; /* Elimina márgenes automáticos */
+  padding: 12rem var(--spacing); /* Espaciado interno */
+  padding-bottom: 8rem; /* Añade espaciado inferior */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+  display: flex; /* Activa Flexbox */
+  flex-direction: column; /* Organiza elementos en columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+}
+
+.contact-content {
+  max-width: 30rem; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 0 var(--spacing); /* Espaciado interno a los lados */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.create-playlist-content p {
+  font-size: 1rem; /* Tamaño del texto */
+  line-height: 1.8; /* Espaciado entre líneas */
+  color: var(--primary-color); /* Asegura que el texto sea claro */
+  margin-top: 1rem;
+}
+
+.contact-container {
+  display: flex; /* Activa Flexbox */
+  justify-content: center; /* Centra el botón horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente (si es necesario) */
+  margin-top: 2rem; /* Añade espacio entre el botón y el contenido anterior */
+  padding-bottom: 8rem;
+}
+
+.contact-button {
+  background-color: var(--primary-color); /* Color de fondo del botón */
+  color: var(--secondary-color); /* Color del texto */
+  width: 15rem; /* Tamaño del botón */
+  height: 4rem;
+  font-size: 1rem; /* Tamaño del texto */
+  padding: 0.75rem 1rem; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animación para el hover */
+}
+
+.contact-button:hover {
+  background-color: var(--secondary-color); /* Color de fondo al pasar el mouse */
+  color: var(--primary-color); /* Cambia el color del texto */
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
+}
+
+.main-title-black {
+  font-family: var(--font-h1); /* Fuente específica para el título */
+  font-size: clamp(2rem, 8vw, 17rem); /* Tamaño dinámico */
+  line-height: 1.2; /* Espaciado entre líneas */
+  font-weight: 900; /* Peso de la fuente */
+  margin: 0; /* Elimina márgenes adicionales */
+  padding: 0; /* Elimina rellenos adicionales */
+  text-align: center; /* Centra el texto */
+  white-space: nowrap; /* Evita que el texto salte a varias líneas */
+  overflow: hidden; /* Evita que el texto exceda el ancho */
+  width: 100vw; /* Asegura que el título ocupe todo el ancho del viewport */
+  max-width: 100%; /* No limita el ancho del texto */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+}
+
+.social-media {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  padding: 0; /* Elimina el padding */
+  cursor: pointer; /* Cambia el cursor al estilo de botón */
+}
+
+.social-media img {
+  width: 3rem; /* Tamaño del icono */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Asegura que no haya espacios extra */
+}
+

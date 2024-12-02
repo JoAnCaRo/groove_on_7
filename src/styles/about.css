@@ -1,0 +1,17 @@
+/* ABOUT SECTION */
+.about-section {
+  max-width: 45rem; 
+  margin: 0 auto; /* Centra horizontalmente la sección */
+  text-align: center; /* Alinea el texto al centro */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+h2 {
+  font-size: clamp(1rem, 2vw, 5rem); /* Tamaño dinámico */
+}
+
+.about-section p {
+  text-align: center; /* Justifica el texto */
+  line-height: 1.8; /* Ajusta el interlineado (1.8 = 180% del tamaño de la fuente) */
+}

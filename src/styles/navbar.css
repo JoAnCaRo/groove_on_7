@@ -1,0 +1,30 @@
+/* NAVBAR */
+.navbar {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  max-width: 40rem; /* Limita el ancho máximo */
+  margin: 0 auto; /* Centra horizontalmente */
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
+}
+
+.navbar ul {
+  display: flex; /* Pone los <li> en fila */
+  flex-direction: row; /* Mantiene los elementos en una línea horizontal */
+  justify-content: space-between; /* Distribuye el espacio proporcionalmente */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Elimina los puntos de lista */
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar a {
+  color: var(--secondary-color); /* Aplica el color del texto */
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem; /* Espaciado interno más razonable */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  text-underline-offset: 0.7rem; /* Ajusta la separación del subrayado */
+}

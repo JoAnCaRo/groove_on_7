@@ -1,0 +1,23 @@
+/* FOOTER SECTION */
+.footer {
+  background-color: var(--secondary-color); /* Fondo oscuro */
+  color: var(--primary-color); /* Texto claro */
+  padding: 2rem; /* Espaciado interno */
+  text-align: center; /* Centra el contenido del texto */
+  position: relative; /* Necesario para el pseudo-elemento */
+  display: flex; /* Activa Flexbox */
+  flex-direction: column; /* Coloca los elementos en columna */
+  align-items: center; /* Centra horizontalmente el contenido */
+  justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.footer::before {
+  content: ''; /* Genera un pseudo-elemento para la línea */
+  display: block; /* Asegura que ocupe toda la línea */
+  width: 100%; /* La línea ocupa el 50% del ancho del footer */
+  height: 0.05rem; /* Grosor de la línea */
+  background-color: var(--primary-color); /* Línea clara */
+  margin-bottom: 2rem; /* Espaciado entre la línea y el contenido del footer */
+  opacity: 0.5; /* Opacidad de la línea */
+}
+

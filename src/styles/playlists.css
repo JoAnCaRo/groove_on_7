@@ -1,0 +1,65 @@
+/* LIVE SESSION SECTION */
+.playlists-section {
+  max-width: 45rem; 
+  margin: 0 auto; /* Centra horizontalmente la sección */
+  text-align: center; /* Alinea el texto al centro */
+  padding-top: 6rem;
+}
+
+section.playlists-section {
+  padding-bottom: 8rem !important; /* Forzar el espaciado */
+}
+
+.playlists-section {
+  width: 100%; /* Asegura que ocupe todo el ancho del viewport */
+  max-width: 90rem; 
+  margin: 0 auto; /* Centra horizontalmente la sección */
+  padding: var(--spacing); /* Espaciado interno */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+}
+
+.playlists-section h3 {
+  text-align: left; /* Justifica el texto a la izquierda */
+  font-size: 1.5rem; /* Tamaño del texto del h3 */
+  font-weight: bold; /* Opcional: hace el texto más prominente */
+  margin-bottom: 0.5rem; /* Espaciado debajo del título */
+  position: relative; /* Necesario para colocar la línea */
+}
+
+.playlists-section h3::after {
+  content: ''; /* Genera un pseudo-elemento para la línea */
+  display: block; /* Asegura que ocupe toda la línea */
+  width: 100%; /* La línea ocupa el ancho del contenedor h3 */
+  height: 0.05rem; /* Grosor de la línea */
+  background-color: var(--secondary-color); /* Color de la línea */
+  opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
+  margin-top: 2rem; /* Espaciado entre el texto y la línea */
+  margin-bottom: 2rem; /* Espaciado entre el texto y la línea */
+}
+
+.mixcloud-embed {
+  padding-top: 6rem;
+}
+
+.mixcloud-embed {
+  padding-top: 6rem;
+}
+
+.see-all-button-playlist {
+  background-color: var(--secondary-color); /* Color de fondo del botón */
+  color: var(--primary-color); /* Color del texto */
+  width: 15rem; /* Tamaño del botón */
+  height: 4rem;
+  font-size: 1rem; /* Tamaño del texto */
+  padding: 0.75rem 2rem; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animación para el hover */
+}
+
+.see-all-button-playlist:hover {
+  background-color: var(--primary-color); /* Color de fondo al pasar el mouse */
+  color: var(--secondary-color); /* Cambia el color del texto */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
