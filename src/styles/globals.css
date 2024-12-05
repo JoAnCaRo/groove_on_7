@@ -20,6 +20,32 @@ body {
   align-items: stretch; /* Permite que los hijos ocupen todo el ancho */
   min-height: 100vh;
   padding: 0; /* Elimina cualquier relleno innecesario */
+  position: relative; /* Necesario para el contenedor de líneas */
+  overflow-x: hidden; /* Evita desplazamiento horizontal por líneas animadas */
+}
+
+/* Contenedor de las líneas */
+.lines-container {
+  position: fixed; /* Permite que las líneas sigan el viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho del viewport */
+  height: 100%; /* Ocupa todo el alto del viewport */
+  z-index: 10; /* Debajo del contenido principal */
+  pointer-events: none; /* Evita que interfiera con la interacción del usuario */
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo gris claro con transparencia */
+
+}
+
+/* Líneas individuales */
+.line {
+  position: absolute;
+  height: 3px; /* Grosor de la línea */
+  background-color: red; /* Color rojo */
+  opacity: 1; /* Completamente visible */
+  top: 50%; /* Aparece en el medio vertical */
+  left: 0; /* Comienza desde el borde izquierdo */
+  pointer-events: none; /* No interfiere con interacciones del usuario */
 }
 
 

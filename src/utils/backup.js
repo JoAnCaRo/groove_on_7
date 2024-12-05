@@ -1,5 +1,6 @@
-const gsap = window.gsap;
-const ScrollTrigger = window.ScrollTrigger;
+// Importaciones al inicio
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,43 +48,42 @@ export const smoothScroll = () => {
 /* ANIMACIÓN LINEAS */
 export const animateLines = () => {
   const linesContainer = document.querySelector('.lines-container');
+  const createLines = (count) => {
+    for (let i = 0; i < count; i++) {
+      const line = document.createElement('div');
+      line.classList.add('line');
+      linesContainer.appendChild(line);
+    }
+  };
 
-  if (!linesContainer) {
-    console.error('No se encontró el contenedor .lines-container en el DOM.');
-    return;
-  }
+  createLines(10); // Cambia la cantidad según lo que necesites
+  const lines = document.querySelectorAll('.line');
 
-  // Crear la línea roja
-  const line = document.createElement('div');
-  line.classList.add('line');
-  linesContainer.appendChild(line);
+  lines.forEach((line) => {
+    const startX = Math.random() * window.innerWidth;
+    const direction = Math.random() > 0.5 ? 1 : -1;
 
-  // Configuración inicial para GSAP
-gsap.set(line, {
-  x: '0%', // Comienza visible en el borde izquierdo
-  y: '50%', // En la mitad vertical del contenedor
-  width: '0%', // Comienza sin ancho
-  height: '3px', // Grosor de la línea
-  backgroundColor: 'red', // Color rojo
-  opacity: 1, // Completamente visible
-  position: 'absolute',
-});
-
-
-  // ScrollTrigger para vincular el movimiento de la línea al scroll
-  ScrollTrigger.create({
-    trigger: '#about', // Se activa en la sección about
-    start: 'top center', // Cuando la sección about llega al centro del viewport
-    end: 'bottom center', // Hasta que la sección about salga del centro
-    scrub: true, // Vincula la velocidad al scroll
-    onUpdate: (self) => {
-      // Calcula el progreso del scroll y ajusta el ancho de la línea
-      const progress = self.progress * 100; // Progreso en porcentaje
-      gsap.to(line, {
-        width: `${progress}%`, // Expande la línea en proporción al progreso
-        ease: 'none', // Sin animación suave
-      });
-    },
+    gsap.fromTo(
+      line,
+      {
+        x: startX,
+        y: -100,
+        opacity: 0,
+      },
+      {
+        x: startX + direction * 200,
+        y: '100%',
+        opacity: 1,
+        duration: 4 + Math.random() * 3,
+        ease: 'power2.inOut',
+        repeat: -1,
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      }
+    );
   });
 };
-
