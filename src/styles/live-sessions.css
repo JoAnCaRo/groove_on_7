@@ -180,32 +180,9 @@ section.live-sessions-section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column; /* Coloca los elementos verticalmente */
-  align-items: center; /* Asegura que los hijos estén centrados */
+  align-items: center;
+  gap: 1rem; /* Espaciado entre el iframe y el botón */
 }
-
-.video-popup-overlay {
-  pointer-events: none; /* Evita que el overlay bloquee la interacción */
-}
-
-.video-popup-content {
-  position: relative;
-  z-index: 999;
-  height: auto;
-  display: flex;
-  flex-direction: column; /* Cambia a disposición en columna */
-  align-items: center; /* Asegura que los elementos estén centrados horizontalmente */
-  gap: 1rem; /* Añade un espacio entre el iframe y el botón */
-}
-
-
-
-
-/* .video-player iframe {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-}
- */
 
 iframe {
   width: 1280px; /* Ancho fijo */
@@ -215,8 +192,6 @@ iframe {
   border: none;
   border-radius: 4px;
 }
-
-
 
 .close-video-button {
   display: block;
@@ -236,21 +211,9 @@ iframe {
   margin-top: 1rem; /* Añade espacio entre el video y el botón */
 }
 
-/* Botón de cierre */
-.close-button {
-  padding: 0.5rem 1rem;
-  background: #ff5e57;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+
+.close-video-button:hover {
+    background: white;
+    color: #ff3d3d;
 }
-
-.close-button:hover {
-  background: #ff3d3d;
-}
-
-
-
 
