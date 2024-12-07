@@ -13,29 +13,35 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@chakra-ui/react": "^3.2.3",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/material": "^6.1.10",
+    "antd": "^5.22.3",
+    "bootstrap": "^5.3.3",
     "framer-motion": "^11.13.1",
     "gsap": "^3.12.5",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.6",
     "react-dom": "^18.3.1",
     "react-scripts": "^5.0.1"
   },
   "browserslist": {
-  "production": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all",
-    "last 2 chrome versions",  
-    "last 2 firefox versions",
-    "last 2 safari versions",
-    "last 2 edge versions",
-    "ios_saf >= 10",      
-    "android >= 5"           
-  ],
-  "development": [
-    "last 1 chrome version",    
-    "last 1 firefox version",
-    "last 1 safari version"
-  ]
-}
-
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 safari versions",
+      "last 2 edge versions",
+      "ios_saf >= 10",
+      "android >= 5"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

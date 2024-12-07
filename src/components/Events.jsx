@@ -1,8 +1,11 @@
 import React from 'react';
+import { useScrollContext } from '../context/ScrollContext';
 
 const Events = () => {
+  const { sections } = useScrollContext(); // Obtener las referencias del contexto
+
   return (
-    <section id="events" className="events-section">
+    <section id="events" className="events-section" ref={sections.events}>
       <div className="events-title">
         <h3>Events</h3>
       </div>

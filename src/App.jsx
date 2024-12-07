@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import HeaderTitle from './components/HeaderTitle';
 import Hero from './components/Hero';
 import About from './components/About';
 import LiveSessions from './components/LiveSessions';
@@ -8,6 +9,7 @@ import CreatePlaylist from './components/CreatePlaylist';
 import Events from './components/Events';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { ScrollProvider } from './context/ScrollContext';
 
 import './styles/globals.css';
 import './styles/navbar.css';
@@ -23,8 +25,9 @@ import './styles/playlists.css';
 
 const App = () => {
   return (
-    <div>
+    <ScrollProvider>
       <Navbar />
+      <HeaderTitle />
       <Hero />
       <About />
       <LiveSessions />
@@ -33,7 +36,7 @@ const App = () => {
       <Events />
       <Contact />
       <Footer />
-    </div>
+    </ScrollProvider>
   );
 };
 

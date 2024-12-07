@@ -77,8 +77,13 @@
 }
 
 .social-media img {
-  width: 3rem; /* Tamaño del icono */
+  width: clamp(2rem, 5vw, 4rem); /* Tamaño dinámico: mínimo 2rem, máximo 4rem */
   height: auto; /* Mantiene la proporción */
-  display: block; /* Asegura que no haya espacios extra */
+  transition: transform 0.3s ease; /* Suaviza los efectos de hover */
 }
+
+.social-media img:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el ratón */
+}
+
 

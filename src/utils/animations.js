@@ -45,7 +45,8 @@ export const smoothScroll = () => {
 };
 
 /* ANIMACIÓN LINEAS */
-export const animateLines = () => {
+
+/* export const animateLines = () => {
   const linesContainer = document.querySelector('.lines-container');
 
   if (!linesContainer) {
@@ -86,4 +87,4 @@ gsap.set(line, {
     },
   });
 };
-
+ */
