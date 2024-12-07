@@ -45,22 +45,6 @@ section.live-sessions-section {
   position: relative; /* Necesario para el pseudo-elemento */
 }
 
-.session::after {
-  content: ''; /* Genera el pseudo-elemento para la línea */
-  display: block; /* Asegura que ocupe toda la línea */
-  width: 100%; /* La línea ocupa el ancho del contenedor de la sesión */
-  height: 0.05rem; /* Grosor de la línea */
-  background-color: var(--secondary-color); /* Color de la línea */
-  opacity: 0.2; /* Opacidad de la línea */
-  position: absolute; /* Coloca la línea al final de la sesión */
-  bottom: -3rem; /* Ajusta la posición de la línea */
-  left: 0;
-}
-
-.live-sessions-section .session:last-child::after {
-  display: none; /* Elimina la línea después de la última sesión */
-}
-
 .session-image {
   flex: 1; /* La imagen ocupa la mitad izquierda */
   display: flex;
@@ -142,84 +126,6 @@ section.live-sessions-section {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
 
-/* VIDEOS */
-.video-player {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #000;
-  padding: 1rem;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.video-player iframe {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.close-video-button {
-  display: block;
-  margin: 1rem auto 0;
-  padding: 0.5rem 1rem;
-  background: #d82e45;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-
-/* Estilos para la ventana emergente */
-.video-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.video-popup-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 998;
-}
-
-.video-popup-content {
-  position: relative;
-  z-index: 999;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.close-video-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
 .sessions {
   display: flex;
   flex-direction: column;
@@ -242,4 +148,109 @@ section.live-sessions-section {
   padding: 1rem; /* Espaciado interno para el contenido */
   text-align: left; /* Alinea el texto a la izquierda */
 }
+
+/* VIDEOS */
+/* Ventana emergente para el video */
+.video-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+.video-popup.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Contenedor del iframe */
+.video-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  padding: 1rem;
+  background: #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column; /* Coloca los elementos verticalmente */
+  align-items: center; /* Asegura que los hijos estén centrados */
+}
+
+.video-popup-overlay {
+  pointer-events: none; /* Evita que el overlay bloquee la interacción */
+}
+
+.video-popup-content {
+  position: relative;
+  z-index: 999;
+  height: auto;
+  display: flex;
+  flex-direction: column; /* Cambia a disposición en columna */
+  align-items: center; /* Asegura que los elementos estén centrados horizontalmente */
+  gap: 1rem; /* Añade un espacio entre el iframe y el botón */
+}
+
+
+
+
+/* .video-player iframe {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+ */
+
+iframe {
+  width: 1280px; /* Ancho fijo */
+  height: 720px; /* Alto fijo */
+  max-width: 100%;
+  max-height: 100%;
+  border: none;
+  border-radius: 4px;
+}
+
+
+
+.close-video-button {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.5rem 1rem;
+  background: #d82e45;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+/* Contenedor del botón de cierre */
+.close-button-container {
+  margin-top: 1rem; /* Añade espacio entre el video y el botón */
+}
+
+/* Botón de cierre */
+.close-button {
+  padding: 0.5rem 1rem;
+  background: #ff5e57;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-button:hover {
+  background: #ff3d3d;
+}
+
+
+
 

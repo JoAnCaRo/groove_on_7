@@ -39,10 +39,10 @@ const LiveSessions = () => {
         <div className="video-popup">
           <div className="video-popup-overlay" onClick={() => setCurrentVideo(null)}></div>
           <div className="video-popup-content">
-            <iframe src={currentVideo} width="640" height="360" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Live Session Video"></iframe>
-            <button onClick={() => setCurrentVideo(null)} className="close-video-button">
+            <iframe src={currentVideo} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Live Session Video"></iframe>
+            {<button onClick={() => setCurrentVideo(null)} className="close-video-button">
               Close
-            </button>
+            </button>}
           </div>
         </div>
       )}
