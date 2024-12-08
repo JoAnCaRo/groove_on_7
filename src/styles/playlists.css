@@ -3,11 +3,12 @@
   max-width: 45rem; 
   margin: 0 auto; /* Centra horizontalmente la sección */
   text-align: center; /* Alinea el texto al centro */
-  padding-top: 6rem;
+  padding-top: 3rem; /* Reduce el espacio superior */
+  padding-bottom: 3rem; /* Reduce el espacio inferior */
 }
 
 section.playlists-section {
-  padding-bottom: 8rem !important; /* Forzar el espaciado */
+  padding-bottom: 8rem !important;
 }
 
 .playlists-section {
@@ -33,16 +34,14 @@ section.playlists-section {
   height: 0.05rem; /* Grosor de la línea */
   background-color: var(--secondary-color); /* Color de la línea */
   opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
-  margin-top: 2rem; /* Espaciado entre el texto y la línea */
-  margin-bottom: 2rem; /* Espaciado entre el texto y la línea */
+  margin-top: 1rem; /* Espaciado entre el texto y la línea */
+  margin-bottom: 1rem; /* Espaciado entre el texto y la línea */
 }
 
 .mixcloud-embed {
-  padding-top: 6rem;
-}
-
-.mixcloud-embed {
-  padding-top: 6rem;
+  padding: 6rem 0;
+  margin: 0;
+  max-height: 100px;
 }
 
 .see-all-button-playlist {

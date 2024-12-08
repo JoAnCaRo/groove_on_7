@@ -14,7 +14,7 @@ const VideoPopup = ({ videoUrl, onClose }) => {
     >
       <div className="video-popup-content">
         <iframe src={videoUrl} width="1280" height="720" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Live Session Video"></iframe>
-        {/* El botón Close está justo debajo del iframe */}
+        {}
         <button className="close-button" onClick={onClose}>
           Close
         </button>
@@ -23,4 +23,5 @@ const VideoPopup = ({ videoUrl, onClose }) => {
   );
 };
 
+export default VideoPopup;
 

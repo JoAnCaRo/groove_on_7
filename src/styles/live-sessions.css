@@ -164,10 +164,6 @@ section.live-sessions-section {
   z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
 
-.video-popup.show {
-  opacity: 1;
-  transform: scale(1);
-}
 
 /* Contenedor del iframe */
 .video-container {
