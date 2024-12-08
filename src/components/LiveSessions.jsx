@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
+import VideoPopup from './VideoPopup';
 
 const LiveSessions = () => {
   const { sections } = useScrollContext();
-  const [currentVideo, setCurrentVideo] = useState(null);
+  const [currentVideo, setCurrentVideo] = useState(null); // Estado para el video actual
 
   // Videos disponibles con sus miniaturas y URLs de Vimeo
   const videos = [
@@ -34,22 +35,7 @@ const LiveSessions = () => {
     <section ref={sections.liveSessions} id="live-sessions" className="live-sessions-section">
       <h3>Live Sessions</h3>
 
-      {/* Reproductor emergente de video */}
-      {currentVideo && (
-        <div className="video-popup">
-          <div className="video-popup-overlay" onClick={() => setCurrentVideo(null)}></div>
-          <div className="video-popup-content">
-            <iframe src={currentVideo} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Live Session Video"></iframe>
-            {
-              <button onClick={() => setCurrentVideo(null)} className="close-video-button">
-                Close
-              </button>
-            }
-          </div>
-        </div>
-      )}
-
-      {/* Lista de sesiones */}
+      {}
       <div className="sessions">
         {videos.map((video) => (
           <div key={video.id} className="session">
@@ -67,14 +53,20 @@ const LiveSessions = () => {
         ))}
       </div>
 
-      {/* Lista de live sessions */}
+      {}
       <div className="see-all-container">
         <a href="https://vimeo.com/jausejones" target="_blank" rel="noopener noreferrer" className="see-all-button-live">
           SEE ALL
         </a>
       </div>
+
+      {}
+      <VideoPopup videoUrl={currentVideo} onClose={() => setCurrentVideo(null)} />
     </section>
   );
 };
 
 export default LiveSessions;
+
+
+

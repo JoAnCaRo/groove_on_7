@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PlaylistPopup from './PlaylistPopup'; // Ajusta la ruta si es necesario.
 
 const CreatePlaylist = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -17,22 +18,11 @@ const CreatePlaylist = () => {
       </div>
 
       {/* Ventana emergente */}
-      {isPopupOpen && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h4>Create Your Playlist</h4>
-            <p>Here you can add details to create your own playlist!</p>
-            <button className="close-popup-button" onClick={() => setIsPopupOpen(false)}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   );
 };
 
 export default CreatePlaylist;
-
 
 
