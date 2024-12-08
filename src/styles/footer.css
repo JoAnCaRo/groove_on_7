@@ -21,4 +21,24 @@
   opacity: 0.5; /* Opacidad de la línea */
 }
 
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.privacy-link {
+  display: block; /* Asegura que esté debajo del texto del copyright */
+  margin-top: 0.5rem; /* Espaciado superior */
+  color: var(--primary-color);
+  text-decoration: none; /* Elimina el subrayado */
+  font-size: 0.8rem; /* Tamaño más pequeño para el enlace */
+}
+
+.privacy-link:hover {
+  text-decoration: underline; /* Subraya al pasar el mouse */
+}
+
+
 

@@ -22,13 +22,10 @@ const Playlists = () => {
       </div>
 
       <div className="see-all-container">
-        <a href="https://vimeo.com/jausejones" target="_blank" rel="noopener noreferrer" className="see-all-button-live">
+        <a href="https://www.mixcloud.com/JauseJones/" target="_blank" rel="noopener noreferrer" className="see-all-button-play">
           SEE ALL
         </a>
       </div>
-
-
-      
     </section>
   );
 };

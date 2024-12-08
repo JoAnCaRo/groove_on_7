@@ -2,7 +2,6 @@
 .create-playlist-section {
   background-color: var(--secondary-color); /* Fondo oscuro */
   color: var(--primary-color); /* Texto claro */
-  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
   margin: 0; /* Elimina márgenes automáticos */
   padding: 6rem var(--spacing); /* Espaciado interno */
   padding-bottom: 8rem; /* Añade espaciado inferior */
@@ -10,7 +9,7 @@
 }
 
 .create-playlist-content {
-  max-width: 90rem; /* Ancho máximo del contenido */
+  max-width: 90rem; 
   margin: 0 auto; /* Centra el contenido horizontalmente */
   padding: 0 var(--spacing); /* Espaciado interno a los lados */
   text-align: center; /* Alinea el texto al centro */
@@ -44,10 +43,8 @@
 }
 
 .create-playlist-container {
-  display: flex; /* Activa Flexbox */
-  justify-content: center; /* Centra el botón horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente (si es necesario) */
-  margin-top: 2rem; /* Añade espacio entre el botón y el contenido anterior */
+  margin-top: 2rem;  
+  text-align: center;
 }
 
 .create-playlist-button {
@@ -67,5 +64,61 @@
   background-color: var(--secondary-color); /* Color de fondo al pasar el mouse */
   color: var(--primary-color); /* Cambia el color del texto */
   box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
+}
+
+
+
+
+/* Fondo oscuro de la ventana emergente */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+/*   opacity: 0 !important;
+  transform: scale(0.9) !important;
+  transition: opacity 0.5s ease, transform 0.5s ease; */
+}
+
+/* .popup-overlay.show {
+  opacity: 1!important;
+  transform: scale(1) !important;
+}
+ */
+/* Contenido de la ventana emergente */
+.popup-content {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 1280px; /* Ancho fijo */
+  height: 720px; /* Alto fijo */
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de cierre */
+.close-popup-button {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  /* transition: background-color 0.3s ease; */
+}
+
+.close-popup-button:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
 }
 

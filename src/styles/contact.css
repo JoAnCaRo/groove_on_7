@@ -10,13 +10,10 @@
   display: flex; /* Activa Flexbox */
   flex-direction: column; /* Organiza elementos en columna */
   align-items: center; /* Centra horizontalmente */
-  justify-content: center; /* Centra verticalmente */
 }
 
 .contact-content {
   max-width: 30rem; /* Ancho máximo del contenido */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 0 var(--spacing); /* Espaciado interno a los lados */
   text-align: center; /* Alinea el texto al centro */
 }
 
@@ -59,14 +56,9 @@
   font-size: clamp(2rem, 8vw, 17rem); /* Tamaño dinámico */
   line-height: 1.2; /* Espaciado entre líneas */
   font-weight: 900; /* Peso de la fuente */
-  margin: 0; /* Elimina márgenes adicionales */
-  padding: 0; /* Elimina rellenos adicionales */
   text-align: center; /* Centra el texto */
-  white-space: nowrap; /* Evita que el texto salte a varias líneas */
-  overflow: hidden; /* Evita que el texto exceda el ancho */
   width: 100vw; /* Asegura que el título ocupe todo el ancho del viewport */
   max-width: 100%; /* No limita el ancho del texto */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
 }
 
 .social-media {
@@ -87,3 +79,139 @@
 }
 
 
+
+
+/* Fondo oscuro de la ventana emergente */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenido de la ventana emergente */
+/* .popup-content {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 1280px; 
+  height: 1000px; 
+  max-width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+/* Contenido de la ventana emergente */
+.popup-content {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%; /* Usa un porcentaje para mayor flexibilidad */
+  max-width: 800px; /* Limita el ancho máximo */
+  max-height: 90%; /* Limita la altura máxima */
+  overflow-y: auto; /* Habilita el desplazamiento si el contenido excede la altura */
+  text-align: left; /* Alinea el contenido del formulario a la izquierda */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Asegura que el contenido esté apilado verticalmente */
+  gap: 1rem; /* Espaciado entre los elementos */
+}
+
+
+/* Botón de cierre */
+.close-popup-button {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  /* transition: background-color 0.3s ease; */
+}
+
+.close-popup-button:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+
+
+
+/* Formulario Contacto */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form fieldset {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.contact-form fieldset {
+  border: 1px solid var(--secondary-color);
+  padding: 0.75rem;
+}
+
+.contact-form legend {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.submit-button {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}

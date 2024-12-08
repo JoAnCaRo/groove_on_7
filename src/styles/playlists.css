@@ -44,3 +44,22 @@ section.playlists-section {
   max-height: 100px;
 }
 
+.see-all-container .see-all-button-play {
+  background-color: var(--secondary-color); /* Color de fondo del botón */
+  color: var(--primary-color); /* Color del texto */
+  text-decoration: none; /* Elimina la línea de subrayado */
+  /* width: 15rem;
+  height: 4rem; */
+  font-size: 1rem; /* Tamaño del texto */
+  padding: 1.3rem 5rem; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animación para el hover */
+}
+
+.see-all-container .see-all-button-play:hover {
+  background-color: var(--primary-color); /* Color de fondo al pasar el mouse */
+  color: var(--secondary-color); /* Cambia el color del texto */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
