@@ -40,9 +40,11 @@ const LiveSessions = () => {
           <div className="video-popup-overlay" onClick={() => setCurrentVideo(null)}></div>
           <div className="video-popup-content">
             <iframe src={currentVideo} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Live Session Video"></iframe>
-            {<button onClick={() => setCurrentVideo(null)} className="close-video-button">
-              Close
-            </button>}
+            {
+              <button onClick={() => setCurrentVideo(null)} className="close-video-button">
+                Close
+              </button>
+            }
           </div>
         </div>
       )}
@@ -63,6 +65,13 @@ const LiveSessions = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Lista de live sessions */}
+      <div className="see-all-container">
+        <a href="https://vimeo.com/jausejones" target="_blank" rel="noopener noreferrer" className="see-all-button-live">
+          SEE ALL
+        </a>
       </div>
     </section>
   );

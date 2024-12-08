@@ -20,6 +20,15 @@ const Playlists = () => {
       <div class="mixcloud-embed">
         <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Ffunkywankenoby%2F" frameborder="0"></iframe>
       </div>
+
+      <div className="see-all-container">
+        <a href="https://vimeo.com/jausejones" target="_blank" rel="noopener noreferrer" className="see-all-button-live">
+          SEE ALL
+        </a>
+      </div>
+
+
+      
     </section>
   );
 };
