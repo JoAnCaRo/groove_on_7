@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/JoAnCaRo/groove_on_7/static/css/main.732861f2.css",
+    "main.js": "/JoAnCaRo/groove_on_7/static/js/main.cb50a08b.js",
+    "index.html": "/JoAnCaRo/groove_on_7/index.html",
+    "main.732861f2.css.map": "/JoAnCaRo/groove_on_7/static/css/main.732861f2.css.map",
+    "main.cb50a08b.js.map": "/JoAnCaRo/groove_on_7/static/js/main.cb50a08b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.732861f2.css",
+    "static/js/main.cb50a08b.js"
+  ]
+}
