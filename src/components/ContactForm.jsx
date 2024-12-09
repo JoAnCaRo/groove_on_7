@@ -252,33 +252,32 @@ const ContactForm = ({ onClose }) => {
     e.preventDefault();
 
     // Configura los datos para EmailJS
-    emailjs
-      .send(
-        'service_xsf72mq', //  ID de servicio
-        'template_xp5hfvk', //  ID de plantilla
-        {
-          eventLocation: formData.eventLocation,
-          city: formData.city,
-          date: formData.date,
-          contactPerson: formData.contactPerson,
-          email: formData.email,
-          cell: formData.cell,
-          musicStyle: formData.musicStyle.join(', '), // Convierte la lista en texto
-          additionalInfo: formData.additionalInfo,
-        },
-        'HF-xxiAVFtmRZ0Snv' //  Public Key de EmailJS
-      )
-      .then(
-        (result) => {
-          console.log('Email enviado:', result.text);
-          alert('Email enviado exitosamente.');
-        },
-        (error) => {
-          console.error('Error al enviar el email:', error);
-          alert('Hubo un problema al enviar el email. Inténtalo de nuevo.');
-        }
-      );
-  };
+emailjs.send(
+  'service_d7giud3', // El nuevo Service ID para iCloud
+  'template_xp5hfvk', // Tu Template ID
+  {
+    eventLocation: formData.eventLocation,
+    city: formData.city,
+    date: formData.date,
+    contactPerson: formData.contactPerson,
+    email: formData.email,
+    cell: formData.cell,
+    musicStyle: formData.musicStyle.join(', '),
+    additionalInfo: formData.additionalInfo,
+  },
+  'HF-xxiAVFtmRZ0Snv' // Tu Public Key de EmailJS
+)
+.then(
+  (result) => {
+    console.log('Email enviado:', result.text);
+    alert('Email enviado exitosamente.');
+  },
+  (error) => {
+    console.error('Error al enviar el email:', error);
+    alert('Hubo un problema al enviar el email. Inténtalo de nuevo.');
+  }
+);
+
 
   return (
     <Box
