@@ -180,6 +180,7 @@ section.live-sessions-section {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1rem;
+  font-family: var(--font-stack);
 }
 
 .close-button:hover {

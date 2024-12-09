@@ -38,11 +38,12 @@
   border-radius: 8px;
   width: 100%;
   height: auto;
-  max-width: 1280px;
+  max-width: 520px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .contact-button {
+  font-family: var(--font-stack);
   background-color: var(--primary-color); /* Color de fondo del botón */
   color: var(--secondary-color); /* Color del texto */
   width: 15rem; /* Tamaño del botón */

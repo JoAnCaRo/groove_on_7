@@ -68,6 +68,7 @@
 }
 
 .add-to-calendar-button {
+  font-family: var(--font-stack);
   background-color: var(--secondary-color); /* Fondo oscuro */
   color: var(--primary-color); /* Texto claro */
   padding: 0.75rem 1.5rem; /* Espaciado interno */
