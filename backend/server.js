@@ -6,14 +6,16 @@ require('dotenv').config();
 
 const app = express();
 
+// Configuración de conexión a la base de datos usando las variables de Railway
 const pool = new Pool({
-  host: process.env.PG_HOST,
-  port: process.env.PG_PORT,
-  user: process.env.PG_USER,
-  password: process.env.PG_PASSWORD,
-  database: process.env.PG_DATABASE,
+  host: process.env.PGHOST, // Cambiado de PG_HOST a PGHOST
+  port: process.env.PGPORT, // Cambiado de PG_PORT a PGPORT
+  user: process.env.PGUSER, // Cambiado de PG_USER a PGUSER
+  password: process.env.PGPASSWORD, // Cambiado de PG_PASSWORD a PGPASSWORD
+  database: process.env.PGDATABASE, // Cambiado de PG_DATABASE a PGDATABASE
 });
 
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -49,6 +51,7 @@ app.delete('/events/:id', async (req, res) => {
   }
 });
 
+// Configuración del puerto
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
