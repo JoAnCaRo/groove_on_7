@@ -134,7 +134,7 @@ export default Events;
 
 
 
-
+/* 
 import React, { useState, useEffect } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 
@@ -217,6 +217,60 @@ const Events = () => {
               <div className="add-to-calendar-container">
                 <button className="add-to-calendar-button">ADD EVENT TO YOUR CALENDAR</button>
               </div>
+            </div>
+          ))
+        ) : (
+          <div className="no-events">
+            <p>Next sessions coming soon...</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Events; */
+
+
+import React, { useState, useEffect } from 'react';
+import { useScrollContext } from '../context/ScrollContext';
+
+const Events = () => {
+  const { sections } = useScrollContext(); // Obtener las referencias del contexto
+  const [events, setEvents] = useState([]); // Estado para almacenar eventos
+
+  // Cargar eventos desde el backend
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch('https://grooveon7-production.up.railway.app/events'); // URL del backend en producción
+        if (!response.ok) throw new Error('Error al obtener los eventos');
+        const data = await response.json();
+        setEvents(data); // Actualiza el estado con los eventos del backend
+      } catch (error) {
+        console.error('Error al cargar eventos:', error);
+      }
+    };
+
+    fetchEvents();
+  }, []); // Solo se ejecuta al montar el componente
+
+  return (
+    <section id="events" className="events-section" ref={sections.events}>
+      <div className="events-title">
+        <h3>Events</h3>
+      </div>
+
+      <div className="events-content">
+        {events.length > 0 ? (
+          events.map((event, index) => (
+            <div key={index} className="event">
+              <p>{event.date}</p>
+              <p>{event.name}</p>
+              <p>{event.location}</p>
+              <a href={event.map_link} target="_blank" rel="noopener noreferrer" className="add-to-calendar-button">
+                View on Map
+              </a>
             </div>
           ))
         ) : (
