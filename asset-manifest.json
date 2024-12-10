@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/groove_on_7/static/css/main.732861f2.css",
-    "main.js": "/groove_on_7/static/js/main.d669ffd7.js",
+    "main.css": "/groove_on_7/static/css/main.289fbb22.css",
+    "main.js": "/groove_on_7/static/js/main.233188bd.js",
     "index.html": "/groove_on_7/index.html",
-    "main.732861f2.css.map": "/groove_on_7/static/css/main.732861f2.css.map",
-    "main.d669ffd7.js.map": "/groove_on_7/static/js/main.d669ffd7.js.map"
+    "main.289fbb22.css.map": "/groove_on_7/static/css/main.289fbb22.css.map",
+    "main.233188bd.js.map": "/groove_on_7/static/js/main.233188bd.js.map"
   },
   "entrypoints": [
-    "static/css/main.732861f2.css",
-    "static/js/main.d669ffd7.js"
+    "static/css/main.289fbb22.css",
+    "static/js/main.233188bd.js"
   ]
 }
