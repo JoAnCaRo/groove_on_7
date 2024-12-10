@@ -2,7 +2,7 @@
   "name": "groove_on_7",
   "version": "1.0.0",
   "main": "main.js",
-  "homepage": "https://joancaro.github.io/groove_on_7",
+  "homepage": "/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
