@@ -45,7 +45,7 @@
 .contact-button {
   font-family: var(--font-stack);
   background-color: var(--primary-color); /* Color de fondo del botón */
-  color: var(--secondary-color); /* Color del texto */
+  color: var(--primary-color); /* Color del texto */
   width: 15rem; /* Tamaño del botón */
   height: 4rem;
   font-size: 1rem; /* Tamaño del texto */
