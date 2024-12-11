@@ -157,25 +157,29 @@
   transform: scale(1.2); /* Agranda el icono al pasar el cursor */
 }
 
+
 .icons-container {
   display: flex;
-  gap:25px; /* Espaciado entre iconos */
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.5rem;
+  gap: 1rem; /* Espaciado uniforme entre los iconos */
+  justify-content: center; /* Centra los iconos horizontalmente */
+  align-items: center; /* Alinea los iconos verticalmente */
 }
 
-.icon-link {
-  text-decoration: none;
+.icons-container .icon-link {
+  border: none;
+  background: none;
+  cursor: pointer;
   display: inline-block;
+  text-decoration: none;
 }
 
-.icon {
+.icons-container .icon-link img {
   width: 24px;
   height: 24px;
   transition: transform 0.2s ease;
 }
 
-.icon:hover {
+.icons-container .icon-link:hover img {
   transform: scale(1.2); /* Agranda el icono al pasar el cursor */
 }
+

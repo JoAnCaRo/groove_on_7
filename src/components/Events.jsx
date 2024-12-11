@@ -36,6 +36,50 @@ const Events = () => {
     return `${day}-${month}-${year}`;
   };
 
+  // Función para formatear la hora
+  const formatTime = (timeString) => {
+    const [hours, minutes] = timeString.split(':');
+    return `${hours}:${minutes}`;
+  };
+
+
+
+
+  
+  // Función para generar el archivo .ics
+  const handleAddToCalendar = (event) => {
+    const startDate = new Date(event.date).toISOString().replace(/[-:]/g, '').split('.')[0]; // Formato compatible con iCalendar
+    const endDate = new Date(new Date(event.date).getTime() + 2 * 60 * 60 * 1000) // Evento de 2 horas
+      .toISOString()
+      .replace(/[-:]/g, '')
+      .split('.')[0];
+
+    const calendarEvent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:${event.name}
+DESCRIPTION:${event.name} - ${event.location}
+DTSTART:${startDate}Z
+DTEND:${endDate}Z
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`;
+
+    // Crear un blob y descargarlo
+    const blob = new Blob([calendarEvent], { type: 'text/calendar' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${event.name.replace(/\s+/g, '_')}.ics`; // Nombre del archivo basado en el nombre del evento
+    link.click();
+  };
+
+
+
+
+
+
   return (
     <section id="events" className="events-section" ref={sections.events}>
       <div className="events-title">
@@ -48,6 +92,7 @@ const Events = () => {
             <div key={index} className="event">
               <p className="event-name">{event.name}</p>
               <p>{formatDate(event.date)}</p>
+              <p>{formatTime(event.time)}</p>
               <p>{event.location}</p>
               <div className="icons-container">
                 <a href={event.map_link} target="_blank" rel="noopener noreferrer" className="icon-link" aria-label="View on Map">
@@ -57,17 +102,13 @@ const Events = () => {
                     className="icon"
                   />
                 </a>
-                <a
-                  href="#!" // Función específica para este icono pendiente de definir
-                  className="icon-link"
-                  aria-label="Add to Calendar"
-                >
+                <button onClick={() => handleAddToCalendar(event)} className="icon-link" aria-label="Add to Calendar">
                   <img
                     src="img/icons/calendar.svg" // Ruta al icono del calendario
                     alt="Add to Calendar"
                     className="icon"
                   />
-                </a>
+                </button>
               </div>
             </div>
           ))
