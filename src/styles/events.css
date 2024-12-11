@@ -61,6 +61,13 @@
 
 .event p {
   margin: 0.5rem 0; /* Espaciado entre las líneas */
+  /* font-family: var(--font-h1); */
+}
+
+.event-name {
+  font-family: var(--font-h1);
+  font-size: 1.1rem; /* Ajusta el tamaño si es necesario */
+  font-weight: bold; /* Si necesitas hacerlo más prominente */
 }
 
 .add-to-calendar-container {
@@ -140,4 +147,35 @@
   border-radius: 0.5rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   margin: 1rem auto;
+}
+
+.map-link img {
+  transition: transform 0.3s ease;
+}
+
+.map-link img:hover {
+  transform: scale(1.2); /* Agranda el icono al pasar el cursor */
+}
+
+.icons-container {
+  display: flex;
+  gap:25px; /* Espaciado entre iconos */
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.icon-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2); /* Agranda el icono al pasar el cursor */
 }
