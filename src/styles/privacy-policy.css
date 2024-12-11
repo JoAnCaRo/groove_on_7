@@ -1,0 +1,52 @@
+/* privacy-policy.css */
+/* .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+} */
+
+.popup-content {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.privacy-content ul {
+  list-style: none; /* Elimina los puntos */
+  padding: 0;
+}
+
+.privacy-content a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.privacy-content a:hover {
+  text-decoration: underline;
+}
+
+.close-popup-button {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+/*   padding: 1rem 1rem; */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-top: 2rem; */
+}
+
+.close-popup-button:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
