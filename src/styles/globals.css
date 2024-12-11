@@ -48,6 +48,10 @@ body {
   pointer-events: none; /* No interfiere con interacciones del usuario */
 }
 
+/* Sin borde en los iframes */
+iframe {
+  border: none;
+}
 
 
 
