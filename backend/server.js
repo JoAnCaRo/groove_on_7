@@ -2,19 +2,41 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Pool } = require('pg');
+
 require('dotenv').config();
+console.log('PGHOST:', process.env.PGHOST);
+console.log('PGPORT:', process.env.PGPORT);
+console.log('PGUSER:', process.env.PGUSER);
+console.log('PGPASSWORD:', process.env.PGPASSWORD ? '****' : 'NOT SET'); // Oculta la contraseña
+console.log('PGDATABASE:', process.env.PGDATABASE);
 
 const app = express(); // Inicializa la aplicación antes de usarla
 
+// Bloque temporal poara verificación
+/* console.log('Configuración del pool:', {
+  host: process.env.PGHOST,
+  port: process.env.PGPORT,
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
+}); */
+
 // Configuración de conexión a la base de datos usando las variables de Railway
-const pool = new Pool({
+/* const pool = new Pool({
   host: process.env.PGHOST, // Cambiado de PG_HOST a PGHOST
   port: process.env.PGPORT, // Cambiado de PG_PORT a PGPORT
   user: process.env.PGUSER, // Cambiado de PG_USER a PGUSER
   password: process.env.PGPASSWORD, // Cambiado de PG_PASSWORD a PGPASSWORD
   database: process.env.PGDATABASE, // Cambiado de PG_DATABASE a PGDATABASE
-});
+}); */
 
+const pool = new Pool({
+  host: 'junction.proxy.rlwy.net',
+  port: 45870,
+  user: 'postgres',
+  password: 'YFZvBRQCLhLiRPnqbvjIoMUSoqtFCKve',
+  database: 'railway',
+});
 
 // Prueba conexión
 pool.query('SELECT NOW()', (err, res) => {
@@ -24,8 +46,6 @@ pool.query('SELECT NOW()', (err, res) => {
     console.log('Conexión exitosa:', res.rows);
   }
 });
-
-
 
 
 // Middlewares
