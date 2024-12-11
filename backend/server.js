@@ -4,7 +4,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const app = express();
+const app = express(); // Inicializa la aplicación antes de usarla
 
 // Configuración de conexión a la base de datos usando las variables de Railway
 const pool = new Pool({
@@ -16,7 +16,7 @@ const pool = new Pool({
 });
 
 // Middlewares
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' })); // Permite solicitudes solo desde el frontend local
 app.use(bodyParser.json());
 
 // Ruta para obtener eventos
@@ -31,9 +31,9 @@ app.get('/events', async (req, res) => {
 
 // Ruta para añadir un evento
 app.post('/events', async (req, res) => {
-  const { date, name, location } = req.body;
+  const { date, name, location, map_link } = req.body;
   try {
-    const result = await pool.query('INSERT INTO events (date, name, location) VALUES ($1, $2, $3) RETURNING *', [date, name, location]);
+    const result = await pool.query('INSERT INTO events (date, name, location, map_link) VALUES ($1, $2, $3, $4) RETURNING *', [date, name, location, map_link]);
     res.json(result.rows[0]);
   } catch (err) {
     res.status(500).json({ error: err.message });
