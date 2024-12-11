@@ -15,6 +15,19 @@ const pool = new Pool({
   database: process.env.PGDATABASE, // Cambiado de PG_DATABASE a PGDATABASE
 });
 
+
+// Prueba conexión
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('Error al conectar con la base de datos:', err.message);
+  } else {
+    console.log('Conexión exitosa:', res.rows);
+  }
+});
+
+
+
+
 // Middlewares
 app.use(cors({ origin: 'http://localhost:3000' })); // Permite solicitudes solo desde el frontend local
 app.use(bodyParser.json());
