@@ -20,17 +20,17 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
           <h2>What Data We Collect</h2>
           <p>When you use our app, we may collect the following data from you:</p>
           <ul>
-            <li>Basic profile information (name, email, etc.)</li>
-            <li>Playlist information from Tidal</li>
-            <li>Tracks selected for playlist creation</li>
+            <li>- Basic profile information (name, email, etc.)</li>
+            <li>- Playlist information from Tidal</li>
+            <li>- Tracks selected for playlist creation</li>
           </ul>
 
           <h2>How We Use Your Data</h2>
           <p>The data collected is used exclusively for the following purposes:</p>
           <ul>
-            <li>To allow you to view and interact with your playlists</li>
-            <li>To create custom playlists based on your preferences</li>
-            <li>To improve the app functionality</li>
+            <li>- To allow you to view and interact with your playlists</li>
+            <li>- To create custom playlists based on your preferences</li>
+            <li>- To improve the app functionality</li>
           </ul>
 
           <h2>How We Protect Your Data</h2>
@@ -48,9 +48,9 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
           <h2>Your Rights</h2>
           <p>You have the right to:</p>
           <ul>
-            <li>Access your data</li>
-            <li>Request data deletion</li>
-            <li>Withdraw consent for data processing</li>
+            <li>- Access your data</li>
+            <li>- Request data deletion</li>
+            <li>- Withdraw consent for data processing</li>
           </ul>
 
           <h2>Contact Us</h2>
@@ -65,7 +65,7 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
             <a href="/">Return to Home</a>
           </p>
         </div>
-        <button className="close-popup-button" onClick={onClose}>
+        <button className="close-popup-button-privacy" onClick={onClose}>
           Close
         </button>
       </div>

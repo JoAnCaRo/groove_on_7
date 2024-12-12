@@ -41,19 +41,6 @@
 }
 
 /* Estilo texto privacy policy */
-.popup-title {
-  font-family: var(--font-h1);
-  font-size: 1.2rem; /* Ajusta el tamaño según sea necesario */
-  text-align: center;
-  margin: auto;
-  color: var(--secondary-color); /* Usa tus variables de color */
-}
-.privacy-content {
-  max-height: 40rem;
-  overflow-y: auto;
-  color: var(--secondary-color);
-}
-
 .privacy-link {
   background: none;
   color: var(--primary-color);

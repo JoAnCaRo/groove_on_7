@@ -67,9 +67,6 @@
   box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
 }
 
-
-
-
 /* Fondo oscuro de la ventana emergente */
 .popup-overlay {
   position: fixed;
@@ -103,7 +100,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin: 25px 0;
   font-family: var(--font-stack);
 }
 

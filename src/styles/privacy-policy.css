@@ -1,5 +1,5 @@
 /* privacy-policy.css */
-/* .popup-overlay {
+.popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-} */
+}
 
 .popup-content {
   background: var(--primary-color);
@@ -18,13 +18,52 @@
   border-radius: 8px;
   width: 90%;
   max-width: 800px;
+  /* max-height: 90vh; */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+.popup-title {
+  font-family: var(--font-h1);
+  font-size: 1.3rem; /* Ajusta el tamaño según sea necesario */
+  text-align: center;
+  margin: auto;
+  color: var(--secondary-color); /* Usa tus variables de color */
+}
+
+.privacy-content {
+  display: block; /* Elimina Flexbox para evitar el centrado innecesario */
+  max-width: 650px; /* Limita el ancho máximo del contenido */
+  margin: 0 auto; /* Centra horizontalmente */
+  text-align: center; /* Asegura alineación del texto */
+  max-height: 40rem;
+  overflow-y: auto;
+  color: var(--secondary-color);
+}
+
+.privacy-content h2 {
+  font-family: var(--font-h1);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.privacy-content p {
+  line-height: 1.6;
+  margin: 1rem 0;
 }
 
 .privacy-content ul {
   list-style: none; /* Elimina los puntos */
+  line-height: 1.4;
   padding: 0;
+  margin: 1rem 0;
+}
+
+.privacy-content ul li {
+  margin-left: 1.5rem;
+  text-indent: -1.5rem; /* Alineación con estilo visual */
 }
 
 .privacy-content a {
@@ -36,17 +75,19 @@
   text-decoration: underline;
 }
 
-.close-popup-button {
+.close-popup-button-privacy {
   background: var(--secondary-color);
   color: var(--primary-color);
-/*   padding: 1rem 1rem; */
   border: none;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
-  /* margin-top: 2rem; */
+  margin: 27px 0;
 }
 
 .close-popup-button:hover {
   background: var(--primary-color);
   color: var(--secondary-color);
 }
+
+
