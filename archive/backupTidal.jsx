@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PlaylistPopup from './PlaylistPopup';
+import PlaylistPopup from '../src/components/PlaylistPopup';
 
 const CreatePlaylist = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

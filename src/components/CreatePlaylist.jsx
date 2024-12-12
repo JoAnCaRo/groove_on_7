@@ -7,7 +7,7 @@ const CreatePlaylist = () => {
   const handleTidalLogin = () => {
     // Redirige al flujo de autenticación de Tidal
     const clientId = 'FsvXoX8IZ52EWmOV';
-    const redirectUri = 'https://6407-78-54-111-204.ngrok-free.app/callback'; // Usa ngrok o tu dominio en producción
+    const redirectUri = 'https://00f1-77-183-190-220.ngrok-free.app/callback'; // Usa ngrok o tu dominio en producción
     const tidalAuthUrl = new URL('https://login.tidal.com/oauth2/authorize');
     tidalAuthUrl.searchParams.append('response_type', 'token');
     tidalAuthUrl.searchParams.append('client_id', clientId);
