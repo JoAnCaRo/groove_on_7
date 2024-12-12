@@ -37,26 +37,18 @@ section.live-sessions-section {
   padding: var(--spacing);
 }
 
-.session {
-  display: flex; /* Organiza en dos columnas */
-  gap: 3rem; /* Espaciado entre imagen y contenido */
-  margin-bottom: 6rem; /* Espaciado entre sesiones */
-  align-items: flex-start; /* Alinea los elementos al inicio */
-  position: relative; /* Necesario para el pseudo-elemento */
-}
-
 .session-image {
-  flex: 1; /* La imagen ocupa la mitad izquierda */
+  width: 60%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Asegura que la imagen esté alineada al inicio */
-  overflow: hidden; /* Recorta contenido sobrante si lo hay */
+/*   justify-content: center;
+  align-items: center; */
+ /*  overflow: hidden;  */
 }
 
 .session-image img {
-  width: 100%; /* Imagen ocupa el ancho completo */
+  width: 100%; 
   height: auto;
-  object-fit: cover; /* Mantiene proporciones */
+  object-fit: cover; 
 }
 
 .session-content {
@@ -134,8 +126,11 @@ section.live-sessions-section {
 }
 
 .session {
+  display: flex; 
+  /* gap: 1rem;  */
+  align-items: center; 
+  position: relative; 
   width: 100%; /* Asegura que cada sesión ocupe todo el ancho */
-  max-width: 100%; /* No limita el ancho */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 

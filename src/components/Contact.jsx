@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import ContactPopup from './ContactPopup'; // Ajusta la ruta si es necesario.
+import InstagramIcon from '../assets/icons/instagram.svg';
 
 const Contact = () => {
   const { sections } = useScrollContext(); // Obtener las referencias del contexto
@@ -24,7 +25,10 @@ const Contact = () => {
         <h1 className="main-title-black">GROOVE ON 7"</h1>
       </div>
       <button className="social-media">
-        <img src="img/icons/instagram.svg" alt="Instagram" />
+        <img
+          src={InstagramIcon} // Import directo del icono de ubicación
+          alt="Instagram"
+        />
       </button>
 
       {/* Ventana emergente */}
@@ -34,6 +38,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-

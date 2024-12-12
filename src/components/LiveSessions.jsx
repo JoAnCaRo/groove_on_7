@@ -12,21 +12,21 @@ const LiveSessions = () => {
       id: 1,
       title: 'Disco',
       description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-      thumbnail: 'img/thumbnails/thumbnail1.png',
+      thumbnail: 'img/thumbnails/session-01.png',
       vimeoUrl: 'https://player.vimeo.com/video/290642100', // Asegúrate de usar el embed URL de Vimeo
     },
     {
       id: 2,
       title: 'Funk',
       description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-      thumbnail: 'img/thumbnails/thumbnail2.png',
+      thumbnail: 'img/thumbnails/session-02.png',
       vimeoUrl: 'https://player.vimeo.com/video/580266492', // Asegúrate de usar el embed URL de Vimeo
     },
     {
       id: 3,
       title: 'House',
       description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.',
-      thumbnail: 'img/thumbnails/thumbnail3.png',
+      thumbnail: 'img/thumbnails/session-03.png',
       vimeoUrl: 'https://player.vimeo.com/video/290642100', // Asegúrate de usar el embed URL de Vimeo
     },
   ];
