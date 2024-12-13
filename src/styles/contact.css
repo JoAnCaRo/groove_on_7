@@ -32,7 +32,6 @@
   padding-bottom: 8rem;
 }
 
-
 .popup-content-form{
   background: var(--primary-color);
   color: var(--secondary-color);
@@ -42,8 +41,6 @@
   max-width: 520px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .contact-button {
   font-family: var(--font-stack);
@@ -93,15 +90,13 @@
 
 /* Responsive: ajustes para móviles */
 @media (max-width: 950px) {
-
   .contact-section {
   padding: 5rem var(--spacing); /* Espaciado interno */
   padding-bottom: 5rem; /* Añade espaciado inferior */
-
-}
+  }
 
   .popup-content-form {
-     display: flex; /* Flexbox para centrar */
+    display: flex; /* Flexbox para centrar */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     background: var(--primary-color);
@@ -109,7 +104,6 @@
     border-radius: 8px;
     height: auto;
     max-width: 100%; /* Asegura que ocupe todo el ancho */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   /* Ajustar tamaño del texto en los campos del formulario */
@@ -138,5 +132,37 @@
 
   .popup-content-form .MuiFormControlLabel-label {
     font-size: 0.8rem; /* Tamaño del texto en los labels de los checkboxes */
+  }
+}
+
+/* Ajustes específicos para móviles en horizontal */
+@media (max-width: 950px) and (max-height: 500px) {
+  .popup-overlay {
+    position: fixed; /* Ocupa toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: auto; /* Habilita scroll si el contenido supera el tamaño */
+  }
+
+  .popup-content-form {
+    display: flex;
+    flex-direction: column; /* Organización vertical */
+    justify-content: flex-start; /* Evita superposición */
+    align-items: center;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 8px;
+    width: 90%; /* Adapta el ancho al viewport */
+    max-height: 90%; /* Restringe la altura al 90% del viewport */
+    overflow-y: auto; /* Activa scroll vertical si el contenido excede el contenedor */
+    padding: 1rem; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho/alto */
   }
 }
