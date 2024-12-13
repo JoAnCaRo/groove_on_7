@@ -63,3 +63,16 @@ section.playlists-section {
   color: var(--secondary-color); /* Cambia el color del texto */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
+
+/* Responsive: ajustes para móviles */
+@media (max-width: 767px) {
+  
+.mixcloud-embed {
+  padding: 3rem 0;
+  margin: 0;
+  max-height: 100px;
+}
+
+
+
+}
