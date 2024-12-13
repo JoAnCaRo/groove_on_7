@@ -9,9 +9,34 @@
 
 h2 {
   font-size: clamp(1rem, 2vw, 5rem); /* Tamaño dinámico */
+  margin: 0 auto; /* Centra el h2 horizontalmente */
 }
 
 .about-section p {
   text-align: center; /* Justifica el texto */
   line-height: 1.8; /* Ajusta el interlineado (1.8 = 180% del tamaño de la fuente) */
+  /* margin: 0 auto;  */
+}
+
+/* Responsive para móviles */
+@media (max-width: 767px) {
+  .about-section {
+    padding-top: 4rem;
+    padding-bottom: 6rem; /* Reduce los espacios verticales en móviles */
+  }
+
+  h2 {
+    font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
+    max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
+    
+  }
+
+  .about-section p {
+    font-size: 0.9rem; /* Ajusta el tamaño del texto en móviles */
+    line-height: 2; /* Reduce ligeramente el interlineado */
+    max-width: 21rem; /* Reduce ligeramente el ancho máximo en móviles */
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
