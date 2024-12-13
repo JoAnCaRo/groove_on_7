@@ -13,8 +13,15 @@ export const ScrollProvider = ({ children }) => {
 
   const scrollToSection = (sectionId) => {
     const target = sections[sectionId]?.current;
+    const adjustment = 50; // Avanza 10px más
+
     if (target) {
-      const targetPosition = target.offsetTop;
+      // Obtén la altura del encabezado fijo
+      const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+
+      // Ajusta la posición objetivo
+      const targetPosition = target.offsetTop - headerHeight + adjustment;
+
       const duration = 1700;
       const startPosition = window.scrollY;
       let startTime = null;

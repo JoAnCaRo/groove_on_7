@@ -94,7 +94,7 @@
 /* Responsive: eventos en columna para móviles */
 @media (max-width: 950px) {
   .events-section {
-   padding:  var(--spacing); /* Espaciado superior e inferior */
+   padding: 40px var(--spacing); /* Espaciado superior e inferior */
   }
 
   .events-content {
