@@ -13,7 +13,7 @@ export const ScrollProvider = ({ children }) => {
 
   const scrollToSection = (sectionId) => {
     const target = sections[sectionId]?.current;
-    const adjustment = 50; // Avanza 10px más
+    const adjustment = 60; // Avanza 10px más
 
     if (target) {
       // Obtén la altura del encabezado fijo
