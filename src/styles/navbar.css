@@ -66,3 +66,28 @@
 .navbar a:hover::before {
   transition: width 0.5s ease-out; /* Animación suave al salir */
 }
+
+/* Responsive: ajustes para móviles */
+@media (max-width: 767px) {
+  .navbar ul {
+    flex-direction: column; /* Cambia a columna en móviles */
+    justify-content: center; /* Centra los elementos */
+    align-items: center; /* Alinea horizontalmente */
+  }
+
+  .navbar li {
+    font-size: 0.8rem; /* Reduce el tamaño del texto */
+    margin-bottom: 0.5rem; /* Espaciado entre los elementos */
+  }
+
+  .navbar a {
+    font-size: 0.8rem; /* Ajusta el tamaño del texto */
+    padding: 0.5rem 0.5rem; /* Reduce el padding */
+  }
+
+  /* Elimina las líneas debajo de los enlaces */
+  .navbar a::after, 
+  .navbar a::before {
+    content: none; /* No muestra los pseudo-elementos en móviles */
+  }
+}

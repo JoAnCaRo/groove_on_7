@@ -45,9 +45,9 @@ const LiveSessions = () => {
             <div className="session-content">
               <h4>{video.title}</h4>
               <p>{video.description}</p>
-              <button className="play-button" onClick={() => setCurrentVideo(video.vimeoUrl)}>
+              {/* <button className="play-button" onClick={() => setCurrentVideo(video.vimeoUrl)}>
                 <img src="img/icons/fullscreen.svg" alt="Play" />
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

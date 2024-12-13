@@ -91,6 +91,18 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
 }
 
+/* Responsive: eventos en columna para móviles */
+@media (max-width: 767px) {
+  .events-content {
+    flex-direction: column; /* Cambia el diseño a columna */
+    gap: 2rem; /* Reduce el espacio entre eventos */
+  }
+
+  .event {
+    width: 100%; /* Cada evento ocupa todo el ancho del contenedor */
+    padding: 0; 
+  }
+}
 
 /* ADMIN PANEL para introducir eventos */
 /* Panel de administración */
