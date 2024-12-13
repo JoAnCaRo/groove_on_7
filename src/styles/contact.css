@@ -32,6 +32,7 @@
   padding-bottom: 8rem;
 }
 
+
 .popup-content-form{
   background: var(--primary-color);
   color: var(--secondary-color);
@@ -41,6 +42,8 @@
   max-width: 520px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
 
 .contact-button {
   font-family: var(--font-stack);
@@ -88,4 +91,45 @@
   transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el ratón */
 }
 
+/* Responsive: ajustes para móviles */
+@media (max-width: 767px) {
+  .popup-content-form {
+     display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 8px;
+    height: auto;
+    max-width: 100%; /* Asegura que ocupe todo el ancho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 
+  /* Ajustar tamaño del texto en los campos del formulario */
+  .popup-content-form input,
+  .popup-content-form textarea,
+  .popup-content-form select {
+    font-size: 0.9rem; /* Tamaño del texto en los campos */
+    padding: 0.5rem; /* Espaciado interno en los campos */
+  }
+
+  /* Ajustar tamaño del texto en las etiquetas */
+  .popup-content-form label {
+    font-size: 0.8rem; /* Tamaño del texto en las etiquetas */
+  }
+
+  /* Botones en el formulario */
+  .popup-content-form button {
+    font-size: 0.9rem; /* Tamaño del texto en los botones */
+    padding: 0.8rem 1rem; /* Ajuste del espaciado interno */
+  }
+
+  /* Ajustar los elementos de grupo de checkbox */
+  .popup-content-form .MuiFormLabel-root {
+    font-size: 0.8rem; /* Tamaño del texto en los labels de los grupos */
+  }
+
+  .popup-content-form .MuiFormControlLabel-label {
+    font-size: 0.8rem; /* Tamaño del texto en los labels de los checkboxes */
+  }
+}
