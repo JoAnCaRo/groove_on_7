@@ -92,7 +92,7 @@
 }
 
 /* Responsive: ajustes para móviles */
-@media (max-width: 767px) {
+@media (max-width: 950px) {
   .popup-content-form {
      display: flex; /* Flexbox para centrar */
     justify-content: center; /* Centra horizontalmente */

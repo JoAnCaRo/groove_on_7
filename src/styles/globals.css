@@ -55,7 +55,7 @@ iframe {
 /* Breakpoints */
 
 /* Móviles (pantallas pequeñas) */
-@media (max-width: 767px) {
+@media (max-width: 950px) {
   :root {
     --spacing: 1rem; /* Espaciado reducido */
     --container-width: 90%; /* Contenedor más estrecho */
@@ -79,7 +79,7 @@ iframe {
 }
 
 /* Tablets (pantallas medianas) */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 955px) and (max-width: 1023px) {
   :root {
     --spacing: 1.5rem; /* Espaciado intermedio */
     --container-width: 40rem; /* Ajuste del ancho del contenedor */

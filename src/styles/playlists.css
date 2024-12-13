@@ -65,7 +65,7 @@ section.playlists-section {
 }
 
 /* Responsive: ajustes para móviles */
-@media (max-width: 767px) {
+@media (max-width: 950px) {
   
 .mixcloud-embed {
   padding: 3rem 0;

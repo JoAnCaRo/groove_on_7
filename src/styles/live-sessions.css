@@ -182,7 +182,7 @@ section.live-sessions-section {
 
 
 /* Responsivo: diseño en columna para pantallas pequeñas */
-@media (max-width: 767px) {
+@media (max-width: 950px) {
   .session {
     width: 100%; /* La imagen ocupa todo el ancho en móviles */
     flex-direction: column; /* Video arriba y descripción abajo */

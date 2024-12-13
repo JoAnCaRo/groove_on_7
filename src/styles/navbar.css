@@ -1,93 +1,139 @@
 /* NAVBAR */
 .navbar {
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  max-width: 40rem; /* Limita el ancho máximo */
-  margin: 0 auto; /* Centra horizontalmente */
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
+  position: relative; /* Necesario para posicionar el icono de hamburguesa */
 }
 
-.navbar ul {
-  display: flex; /* Pone los <li> en fila */
-  flex-direction: row; /* Mantiene los elementos en una línea horizontal */
-  justify-content: space-between; /* Distribuye el espacio proporcionalmente */
+/* Icono de hamburguesa (solo en móviles) */
+.hamburger-icon {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001; /* Asegura que esté encima del menú */
+  cursor: pointer;
+}
+
+.hamburger-icon img {
+  width: 24px; /* Tamaño del icono */
+  height: 24px;
+}
+
+/* Menú en desktop */
+.menu {
+  display: flex; /* Siempre visible en desktop */
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none; /* Elimina los puntos de lista */
 }
 
-.navbar li {
+.menu li {
   list-style: none;
 }
 
-.navbar a {
-  color: var(--secondary-color); /* Aplica el color del texto */
+.menu a {
+  color: var(--secondary-color);
   font-size: 0.9rem;
-  padding: 0.5rem 1rem; /* Espaciado interno más razonable */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  position: relative; /* Necesario para los pseudo-elementos */
-  text-decoration: none; /* Sin subrayado */
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  position: relative;
+  text-decoration: none;
 }
 
-/* EFECTO HOVER */
-/* Línea gris inicial */
-.navbar a::after {
-  content: ''; /* Línea base gris */
+/* Efecto de línea bajo los enlaces */
+.menu a::after {
+  content: '';
   position: absolute;
-  bottom: -0.1rem; /* Espaciado debajo del texto */
+  bottom: -0.1rem;
   left: 0;
-  width: 100%; /* Ocupa todo el ancho del enlace */
-  height: 1px; /* Grosor de la línea */
-  background-color: var(--secondary-color); /* Color de la línea */
-  opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
-  z-index: 0; /* Línea gris detrás */
+  width: 100%;
+  height: 1px;
+  background-color: var(--secondary-color);
+  opacity: 0.2;
 }
 
-/* Línea negra que sobrescribe */
-.navbar a::before {
-  content: ''; /* Línea negra */
+.menu a::before {
+  content: '';
   position: absolute;
-  bottom: -0.1rem; /* Mismo espaciado que la línea gris */
+  bottom: -0.1rem;
   left: 0;
-  width: 0; /* Comienza invisible */
-  height: 1px; /* Grosor de la línea */
-  background-color: var(--secondary-color); /* Línea negra */
-  transition: width 1s ease; /* Efecto de escritura */
-  z-index: 1; /* Línea negra encima */
+  width: 0;
+  height: 1px;
+  background-color: var(--secondary-color);
+  transition: width 1s ease;
 }
 
-/* Hover: línea negra aparece de izquierda a derecha */
-.navbar a:hover::before {
-  width: 100%; /* Línea negra ocupa todo el ancho */
-}
-
-/* Salir del hover: línea negra retrocede */
-.navbar a:hover::before {
-  transition: width 0.5s ease-out; /* Animación suave al salir */
+.menu a:hover::before {
+  width: 100%;
 }
 
 /* Responsive: ajustes para móviles */
-@media (max-width: 767px) {
-  .navbar ul {
-    flex-direction: column; /* Cambia a columna en móviles */
-    justify-content: center; /* Centra los elementos */
-    align-items: center; /* Alinea horizontalmente */
+@media (max-width: 950px) {
+  .hamburger-icon {
+    display: block; /* Muestra el icono de hamburguesa */
   }
 
-  .navbar li {
-    font-size: 0.8rem; /* Reduce el tamaño del texto */
-    margin-bottom: 0.5rem; /* Espaciado entre los elementos */
+  .menu {
+    display: none; /* Oculta el menú por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    background: var(--primary-color);
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
 
-  .navbar a {
-    font-size: 0.8rem; /* Ajusta el tamaño del texto */
-    padding: 0.5rem 0.5rem; /* Reduce el padding */
+  .menu.open {
+    display: flex; /* Muestra el menú cuando está abierto */
   }
 
-  /* Elimina las líneas debajo de los enlaces */
-  .navbar a::after, 
-  .navbar a::before {
-    content: none; /* No muestra los pseudo-elementos en móviles */
+  .menu li {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .menu a {
+    font-size: 1rem; /* Ajusta el tamaño del texto */
+  }
+    /* Quitar líneas decorativas en móviles */
+  .menu a::after,
+  .menu a::before {
+    content: none;
+  }
+
+  .main-title {
+  margin: 2rem 0;
+  width: 100vw; 
+  }
+}
+
+/* Ajustes específicos para móviles en horizontal */
+@media (max-width: 950px) and (max-height: 500px) {
+  .hamburger-icon {
+    position:absolute; /* Elimina la influencia del contenido circundante */
+    right: -3.5rem; /* Mueve el icono más a la derecha */
+    top: 1.5rem; /* Asegura que esté alineado correctamente */
+  }
+
+  .menu {
+    position:relative; /* Asegura que el menú ocupe toda la pantalla */
+    top: 0; /* Ajusta la posición del menú si es necesario */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+    .menu li {
+    padding: 1.4rem; /* Espaciado uniforme entre los elementos */
+    text-align: center; /* Centra los textos */
   }
 }

@@ -92,7 +92,7 @@
 }
 
 /* Responsive: eventos en columna para móviles */
-@media (max-width: 767px) {
+@media (max-width: 950px) {
   .events-content {
     flex-direction: column; /* Cambia el diseño a columna */
     gap: 2rem; /* Reduce el espacio entre eventos */
