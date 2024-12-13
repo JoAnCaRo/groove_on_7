@@ -93,6 +93,13 @@
 
 /* Responsive: ajustes para móviles */
 @media (max-width: 950px) {
+
+  .contact-section {
+  padding: 5rem var(--spacing); /* Espaciado interno */
+  padding-bottom: 5rem; /* Añade espaciado inferior */
+
+}
+
   .popup-content-form {
      display: flex; /* Flexbox para centrar */
     justify-content: center; /* Centra horizontalmente */

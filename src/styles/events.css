@@ -93,9 +93,13 @@
 
 /* Responsive: eventos en columna para móviles */
 @media (max-width: 950px) {
+  .events-section {
+   padding:  var(--spacing); /* Espaciado superior e inferior */
+  }
+
   .events-content {
-    flex-direction: column; /* Cambia el diseño a columna */
-    gap: 2rem; /* Reduce el espacio entre eventos */
+   flex-direction: column; /* Cambia el diseño a columna */
+     gap: 2rem; /* Reduce el espacio entre eventos */
   }
 
   .event {
