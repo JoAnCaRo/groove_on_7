@@ -7,36 +7,57 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const { sections } = useScrollContext();
-  const lineRef = useRef(null); // Referencia a la línea
+  const lineRef = useRef(null); // Referencia a la línea horizontal
+  const verticalLineRef = useRef(null); // Referencia a la línea vertical
 
-useEffect(() => {
-  if (lineRef.current) {
-    const aboutSection = document.querySelector('.about-section'); // Sección About
+  useEffect(() => {
+    if (lineRef.current && verticalLineRef.current) {
+      const aboutSection = document.querySelector('.about-section'); // Sección About
 
-    gsap.fromTo(
-      lineRef.current,
-      {
-        scaleX: 0, // Comienza sin ancho
-      },
-      {
-        scaleX: 1, // Se expande completamente
-        scrollTrigger: {
-          trigger: aboutSection, // La animación está vinculada al contenedor About
-          start: 'top center', // Comienza cuando About llega al centro del viewport
-          end: 'bottom center', // Termina cuando About sale del viewport
-          scrub: true, // Sincroniza con el scroll
+      // Animación de la línea horizontal
+      gsap.fromTo(
+        lineRef.current,
+        {
+          scaleX: 0, // Comienza sin ancho
         },
-      }
-    );
-  }
-}, []);
+        {
+          scaleX: 1, // Se expande completamente
+          scrollTrigger: {
+            trigger: aboutSection, // La animación está vinculada al contenedor About
+            start: 'top center', // Comienza cuando About llega al centro del viewport
+            end: 'bottom center', // Termina cuando About sale del viewport
+            scrub: true, // Sincroniza con el scroll
+          },
+        }
+      );
 
+      // Animación de la línea vertical
+      gsap.fromTo(
+        verticalLineRef.current,
+        {
+          scaleY: 0, // Comienza sin altura
+        },
+        {
+          scaleY: 1, // Se expande completamente
+          scrollTrigger: {
+            trigger: aboutSection, // La animación está vinculada al contenedor About
+            start: 'top center', // Comienza cuando About llega al centro del viewport
+            end: 'bottom center', // Termina cuando About sale del viewport
+            scrub: true, // Sincroniza con el scroll
+          },
+        }
+      );
+    }
+  }, []);
 
   return (
     <section ref={sections.about} id="about" className="about-section">
-      {/* Contenedor para la línea animada */}
+      {/* Contenedor para las líneas animadas */}
       <div className="line-container">
         <div ref={lineRef} className="scroll-line"></div>
+      </div>
+      <div className="vertical-line-container">
+        <div ref={verticalLineRef} className="vertical-scroll-line"></div>
       </div>
 
       {/* Contenedor para el contenido del texto */}
@@ -50,7 +71,6 @@ useEffect(() => {
       </div>
     </section>
   );
-
 };
 
 export default About;

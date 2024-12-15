@@ -1,32 +1,63 @@
 /* ABOUT SECTION */
 /* Contenedor de la línea animada */
+/* Contenedor de la línea animada horizontal */
 .line-container {
-  position: absolute; /* Asegura que la línea se posicione correctamente */
-  height: 4px; /* Solo ocupa el espacio de la línea */
-  width: 100vw; /* Abarca todo el ancho del viewport */
-  top: 50%; /* Mueve el contenedor al 50% de la altura de la sección */
-  left: 0; /* Asegura que empiece desde el borde izquierdo */
-  transform: translateY(-50%); /* Centra verticalmente el contenedor */
+  position: absolute;
+  height: 4px;
+  width: 100vw;
+  top: 90%; /* Ajusta según tu diseño */
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .scroll-line {
-  position: absolute; /* Posiciona la línea relativa al contenedor About */
-  top: 50%; /* Centra la línea verticalmente en la sección */
-  left: 0; /* Comienza desde el lado izquierdo */
-  width: 100vw; /* Ocupa todo el ancho del contenedor */
-  height: 5px; /* Grosor de la línea */
-  background-color: #e277b9; /* Color de la línea */
-  transform-origin: left center; /* Punto de referencia para la expansión */
-  transform: scaleX(0); /* Comienza sin ancho */
-  z-index: -1; /* Detrás del contenido */
-  pointer-events: none; /* Evita que interfiera con el scroll o clics */
-
-  
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100vw;
+  height: 5px;
+  background-color: #e277b9;
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: -1;
+  pointer-events: none;
 }
 
+/* Contenedor de la línea animada vertical */
+.vertical-line-container {
+  position: absolute;
+  height: 100%; /* Abarca toda la altura de la sección */
+  width: 5px;
+  top: 0;
+  left: 70%; /* Ajusta según la posición deseada */
+  transform: translateX(-50%);
+}
+
+.vertical-scroll-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #4caf50; /* Color de la línea vertical */
+  transform-origin: top center;
+  transform: scaleY(0);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ajustes para la sección About */
 .about-section {
   position: relative;
 }
+
+
+
+
+
+
+
+
 
 /* Mantén el CSS existente de About */
 .text-container {
@@ -64,6 +95,7 @@ h2 {
     margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    background-color: var(--primary-color);
   }
 }
 
