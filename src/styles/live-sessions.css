@@ -282,3 +282,24 @@ section.live-sessions-section {
     border: none; /* Elimina bordes del iframe */
   }
 }
+
+/* Ajustes específicos para tablets en vertical */
+@media (max-width: 1025px) {
+
+  .video-popup-content {
+    display: flex; /* Asegura que el contenido se alinee */
+    flex-direction: column; /* Organiza el iframe y el botón en columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    padding: 1rem; /* Espaciado interno opcional */
+  }
+
+  .video-popup-content iframe {
+    width: 90%; /* Ajusta el ancho al 90% del contenedor */
+    height: auto; /* Mantiene la proporción del video */
+    aspect-ratio: 16 / 9; /* Mantiene proporciones estándar de video */
+    border: none; /* Elimina bordes del iframe */
+  }
+}
