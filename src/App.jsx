@@ -30,11 +30,10 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          {/* Rutas principales */}
           <Route
             path="/"
             element={
-              <>
+              <div className="app-container">
                 <HeaderTitle />
                 <Hero />
                 <About />
@@ -44,11 +43,9 @@ const App = () => {
                 <Events />
                 <Contact />
                 <Footer />
-              </>
+              </div>
             }
           />
-
-          {/* Ruta para manejar el callback de Tidal */}
           <Route path="/callback" element={<Callback />} />
         </Routes>
       </Router>
@@ -57,5 +54,7 @@ const App = () => {
 };
 
 export default App;
+
+
 
 

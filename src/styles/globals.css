@@ -9,6 +9,15 @@
   --container-width: 50rem; /* Ancho máximo del contenedor */
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Asegura que ocupe toda la altura de la ventana */
+  overflow-x: hidden; /* Evita scroll lateral */
+}
+
+
+
 body {
   font-family: var(--font-stack);
   color: var(--secondary-color);

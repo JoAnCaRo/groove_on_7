@@ -1,21 +1,47 @@
 /* ABOUT SECTION */
+/* Contenedor de la línea animada */
+.line-container {
+  position: absolute; /* Asegura que la línea se posicione correctamente */
+  height: 4px; /* Solo ocupa el espacio de la línea */
+  width: 100vw; /* Abarca todo el ancho del viewport */
+  top: 50%; /* Mueve el contenedor al 50% de la altura de la sección */
+  left: 0; /* Asegura que empiece desde el borde izquierdo */
+  transform: translateY(-50%); /* Centra verticalmente el contenedor */
+}
+
+.scroll-line {
+  position: absolute; /* Posiciona la línea relativa al contenedor About */
+  top: 50%; /* Centra la línea verticalmente en la sección */
+  left: 0; /* Comienza desde el lado izquierdo */
+  width: 100vw; /* Ocupa todo el ancho del contenedor */
+  height: 5px; /* Grosor de la línea */
+  background-color: #e277b9; /* Color de la línea */
+  transform-origin: left center; /* Punto de referencia para la expansión */
+  transform: scaleX(0); /* Comienza sin ancho */
+  z-index: -1; /* Detrás del contenido */
+  pointer-events: none; /* Evita que interfiera con el scroll o clics */
+
+  
+}
+
 .about-section {
-  max-width: 45rem; 
+  position: relative;
+}
+
+/* Mantén el CSS existente de About */
+.text-container {
+  max-width: 45rem;
   margin: 0 auto; /* Centra horizontalmente la sección */
   text-align: center; /* Alinea el texto al centro */
   padding-top: 6rem;
   padding-bottom: 6rem;
+  position: relative; /* Necesario para posicionar la línea dentro */
+  line-height: 1.8;
 }
 
 h2 {
   font-size: clamp(1rem, 2vw, 5rem); /* Tamaño dinámico */
   margin: 0 auto; /* Centra el h2 horizontalmente */
-}
-
-.about-section p {
-  text-align: center; /* Justifica el texto */
-  line-height: 1.8; /* Ajusta el interlineado (1.8 = 180% del tamaño de la fuente) */
-  /* margin: 0 auto;  */
 }
 
 /* Responsive para móviles en vertical */
@@ -43,7 +69,7 @@ h2 {
 
 /* Ajustes específicos para móviles en horizontal */
 @media (max-width: 950px) and (max-height: 500px) {
-   h2 {
+  h2 {
     font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
     max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
     
