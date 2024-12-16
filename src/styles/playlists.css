@@ -1,11 +1,7 @@
 /* LIVE SESSION SECTION */
-
-
 section.playlists-section {
   padding-bottom: 8rem !important;
 }
-
-
 
 .playlists-section h3 {
   text-align: left; /* Justifica el texto a la izquierda */
@@ -60,11 +56,24 @@ section.playlists-section {
   margin: 0;
   max-height: 100px;
 }
+
+.scroll-line-playlists, .reverse-scroll-line-playlists {
+  opacity: 0;
+}
 }
 
+@media (max-width: 1025px) {
+.scroll-line-playlists, .reverse-scroll-line-playlists {
+  opacity: 0;
+}
+}
 
-
-
+/* Ajustes específicos para tablets en horizontal */
+@media (max-width: 1366px) {
+.scroll-line-playlists, .reverse-scroll-line-playlists {
+  opacity: 0;
+}
+}
 
 /* PLAYLISTS Lines */
 .playlists-section {

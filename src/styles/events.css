@@ -100,14 +100,26 @@
   }
 
   .events-content {
-   flex-direction: column; /* Cambia el diseño a columna */
-     gap: 2rem; /* Reduce el espacio entre eventos */
+    flex-direction: column; /* Cambia el diseño a columna */
+    gap: 2rem; /* Reduce el espacio entre eventos */
   }
 
   .event {
     width: 100%; /* Cada evento ocupa todo el ancho del contenedor */
     padding: 0; 
     z-index: 1;
+  }
+
+  .vertical-line.line-1 {
+    left: 30%; 
+  }
+
+  .vertical-line.line-2 {
+    left: 50%; 
+  }
+
+  .vertical-line.line-3 {
+    left: 70%; 
   }
 }
 

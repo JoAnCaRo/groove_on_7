@@ -43,6 +43,11 @@ h2 {
     padding-bottom: 1rem;
     background-color: var(--primary-color);
   }
+
+  .scroll-line-about, .vertical-line-container-about {
+    opacity: 0;
+  }
+
 }
 
 /* Ajustes específicos para móviles en horizontal */
@@ -51,8 +56,36 @@ h2 {
     font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
     max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
   }
+
+  .line-container-about {
+    height: 3px; /* Ajusta el grosor de la línea horizontal */
+    top: 70%; /* Ajusta la posición de la línea horizontal */
+  }
+
+  .vertical-line-container-about {
+    left: 40%; /* Ajusta la posición de la línea vertical */
+    height: 90%; /* Controla la altura total de la línea vertical */
+  }
+
+  .scroll-line-about, .vertical-line-container-about {
+    opacity: 0;
+  }
+  
 }
 
+/* Ajustes específicos para tablets en vertical */
+@media (max-width: 1025px) {
+  .scroll-line-about, .vertical-line-container-about {
+    opacity: 0;  
+  }
+}
+
+/* Ajustes específicos para tablets en horizontal */
+@media (max-width: 1366px) {
+  .scroll-line-about, .vertical-line-container-about {
+    opacity: 0;  
+  }
+}
 
 /* Lineas Estilos */
 .about-section {

@@ -185,7 +185,7 @@ section.live-sessions-section {
 
 
 /* Responsive para móviles en vertical */
-@media (max-width: 950px) {
+@media (max-width: 767px) {
   .session {
     width: 100%; /* La imagen ocupa todo el ancho en móviles */
     flex-direction: column; /* Video arriba y descripción abajo */
@@ -256,6 +256,11 @@ section.live-sessions-section {
     height: auto;
     aspect-ratio: 16 / 9; 
   }
+
+.first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
+    opacity: 0;
+  }
+
 }
 
 /* Ajustes específicos para móviles en horizontal */
@@ -283,6 +288,9 @@ section.live-sessions-section {
     aspect-ratio: 16 / 9; /* Mantiene proporciones estándar de video */
     border: none; /* Elimina bordes del iframe */
   }
+  .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
+    opacity: 0;
+  }
 }
 
 /* Ajustes específicos para tablets en vertical */
@@ -303,6 +311,17 @@ section.live-sessions-section {
     height: auto; /* Mantiene la proporción del video */
     aspect-ratio: 16 / 9; /* Mantiene proporciones estándar de video */
     border: none; /* Elimina bordes del iframe */
+  }
+
+  .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
+    opacity: 0;
+  }
+}
+
+/* Ajustes específicos para tablets en horizontal */
+@media (max-width: 1366px) {
+  .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
+    opacity: 0;
   }
 }
 
