@@ -23,9 +23,13 @@ h2 {
 
 /* Responsive para móviles en vertical */
 @media (max-width: 767px) {
+  .text-container {
+    padding: 0!important;
+  }
+
   .about-section {
     padding-top: 4rem;
-    padding-bottom: 6rem; /* Reduce los espacios verticales en móviles */
+    padding-bottom: 3rem; 
   }
 
   h2 {

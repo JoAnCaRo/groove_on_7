@@ -14,7 +14,6 @@
   position: relative; 
 }
 
-
 section.live-sessions-section {
   padding-bottom: 8rem !important; /* Forzar el espaciado */
 }
@@ -94,8 +93,13 @@ section.live-sessions-section {
 }
 
 .see-all-container {
-  text-align: center; /* Centra el contenido del contenedor */
-  margin-top: 4rem; /* Espaciado superior entre las sesiones y el botón */
+  text-align: center;
+  height: 100%;
+  display: flex; /* Activa Flexbox */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  padding: 30px 0; /* Espaciado interno */
+  margin-top: 4rem; /* Separación superior */
 }
 
 .see-all-container .see-all-button-live {
@@ -121,8 +125,11 @@ section.live-sessions-section {
   display: flex;
   flex-direction: column;
   gap: 5rem;
-    z-index: 0; /* Mantiene el contenido por encima de la línea */
+  z-index: 0; /* Mantiene el contenido por encima de la línea */
+}
 
+.sessions h3 {
+  margin: 0;
 }
 
 .session {

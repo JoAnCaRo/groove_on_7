@@ -4,7 +4,7 @@
   color: var(--primary-color); /* Texto claro */
   width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
   margin: 0 auto; /* Elimina márgenes automáticos */
-  padding: 12rem var(--spacing); /* Espaciado interno */
+  padding: 20rem var(--spacing); /* Espaciado interno */
   padding-bottom: 8rem; /* Añade espaciado inferior */
   box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
   display: flex; /* Activa Flexbox */

@@ -89,7 +89,7 @@ section.playlists-section {
 .playlists-content-container {
   max-width: 90rem; /* Limita el ancho del contenido */
   margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 0 var(--spacing); /* Espaciado horizontal */
+  padding: 20px var(--spacing); /* Espaciado horizontal */
   box-sizing: border-box;
 }
 
