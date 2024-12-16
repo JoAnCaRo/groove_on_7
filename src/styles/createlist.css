@@ -139,3 +139,45 @@
   height: auto; /* Permite que la altura se ajuste automáticamente */
 }
 }
+
+/* Contenedor de la sección */
+.create-playlist-section {
+  position: relative;
+  overflow: hidden; /* Evita que las líneas sobresalgan */
+  padding: 4rem 0;
+}
+
+/* Contenedor de las líneas */
+.line-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Línea izquierda */
+.vertical-line-left {
+  position: absolute;
+  top: 0;
+  left: 38%;
+  width: 4px;
+  height: 100%;
+  background-color: #0035B9;
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+/* Línea derecha (horizontal) */
+.horizontal-line-right {
+  position: absolute;
+  bottom: 10%; /* Ajusta la posición vertical */
+  right: 0; /* Empieza desde el borde derecho */
+  width: 100%; /* Ancho completo del contenedor */
+  height: 4px; /* Grosor de la línea */
+  background-color: #e277b9;
+  transform: scaleX(0);
+  transform-origin: right center;
+}
