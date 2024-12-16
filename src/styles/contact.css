@@ -94,7 +94,7 @@
 /* Responsive: ajustes para móviles */
 @media (max-width: 950px) {
   .contact-section {
-  padding: 5rem var(--spacing); /* Espaciado interno */
+  padding: 6rem !important; /* Espaciado interno */
   padding-bottom: 5rem; /* Añade espaciado inferior */
   }
 
@@ -175,7 +175,7 @@
 .contact-section {
  /*  position: relative; */
   overflow: hidden; /* Evita que las líneas sobresalgan */
-  padding: 4rem 0;
+  padding: 12rem 0;
 }
 
 /* Contenedor de las líneas horizontales */
