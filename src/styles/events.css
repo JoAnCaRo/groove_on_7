@@ -235,7 +235,7 @@
 /* Primera línea */
 .line-1 {
   left: 38%; /* Ajusta la posición */
-  background-color: #4CAF50; /* Verde */
+  background-color: #4caf50; /* Verde */
   transform-origin: top center;
 }
 

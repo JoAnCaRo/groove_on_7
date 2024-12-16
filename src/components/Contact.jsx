@@ -1,14 +1,104 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
-import ContactPopup from './ContactPopup'; // Ajusta la ruta si es necesario.
+import ContactPopup from './ContactPopup';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import InstagramIcon from '../assets/icons/instagram.svg';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const { sections } = useScrollContext(); // Obtener las referencias del contexto
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  const contactLine1Ref = useRef(null);
+  const contactLine2Ref = useRef(null);
+  const contactLine3Ref = useRef(null);
+  const contactLine4Ref = useRef(null);
+
+  useEffect(() => {
+    const contactSection = document.querySelector('.contact-section');
+
+    // Primera línea (derecha a izquierda)
+    gsap.fromTo(
+      contactLine1Ref.current,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 2,
+        transformOrigin: 'right center',
+        scrollTrigger: {
+          trigger: contactSection,
+          start: 'top center-=150',
+          end: 'bottom center-=100',
+          scrub: true,
+        },
+      }
+    );
+
+    // Segunda línea (izquierda a derecha)
+    gsap.fromTo(
+      contactLine2Ref.current,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 2,
+        transformOrigin: 'left center',
+        scrollTrigger: {
+          trigger: contactSection,
+          start: 'top center-=50',
+          end: 'bottom center-=200',
+          scrub: true,
+        },
+      }
+    );
+
+    // Tercera línea (derecha a izquierda)
+    gsap.fromTo(
+      contactLine3Ref.current,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 2,
+        transformOrigin: 'right center',
+        scrollTrigger: {
+          trigger: contactSection,
+          start: 'top center',
+          end: 'bottom center-=300',
+          scrub: true,
+        },
+      }
+    );
+
+    // Cuarta línea (izquierda a derecha)
+    gsap.fromTo(
+      contactLine4Ref.current,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 2,
+        transformOrigin: 'left center',
+        scrollTrigger: {
+          trigger: contactSection,
+          start: 'top center-=200',
+          end: 'bottom center',
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   return (
     <section id="contact" className="contact-section" ref={sections.contact}>
+      {/* Contenedor para las líneas */}
+      <div className="contact-lines-container">
+        <div ref={contactLine1Ref} className="contact-horizontal-line contact-line-1"></div>
+        <div ref={contactLine2Ref} className="contact-horizontal-line contact-line-2"></div>
+        <div ref={contactLine3Ref} className="contact-horizontal-line contact-line-3"></div>
+        <div ref={contactLine4Ref} className="contact-horizontal-line contact-line-4"></div>
+      </div>
+
+      {/* Contenido */}
       <div className="contact-content">
         <h2>
           DISCOVER THE BEST MUSIC IN 7” FORMAT CURATED AND MIXED WITH LOVE <br />
@@ -25,10 +115,7 @@ const Contact = () => {
         <h1 className="main-title-black">GROOVE ON 7"</h1>
       </div>
       <button className="social-media">
-        <img
-          src={InstagramIcon} // Import directo del icono de ubicación
-          alt="Instagram"
-        />
+        <img src={InstagramIcon} alt="Instagram" />
       </button>
 
       {/* Ventana emergente */}
@@ -38,3 +125,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

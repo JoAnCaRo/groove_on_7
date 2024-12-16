@@ -107,7 +107,7 @@ section.playlists-section {
   position: absolute;
   width: 100vw; /* La línea cubre todo el ancho del contenedor */
   height: 6px; /* Grosor de la línea inversa */
-  background-color: #4CAF50; /* Color de la línea (derecha a izquierda) */
+  background-color: #4caf50; /* Color de la línea (derecha a izquierda) */
   transform-origin: right center; /* La animación se expande desde la derecha */
   transform: scaleX(0); /* Comienza invisible */
   bottom: -700px; /* Ajusta la altura de forma independiente respecto a la otra línea */

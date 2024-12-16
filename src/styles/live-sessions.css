@@ -323,7 +323,7 @@ section.live-sessions-section {
   /* left: 50%; */
   width: 6px;
   height: 100%;
-  background-color: #0035B9; /* Color azul */
+  background-color: #3498db; /* Color azul */
   transform-origin: top center;
   transform: scaleY(0);
   pointer-events: none;
