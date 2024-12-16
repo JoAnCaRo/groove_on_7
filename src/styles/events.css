@@ -44,6 +44,7 @@
   justify-content: space-between; /* Espacia uniformemente los elementos */
   align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
   gap: 2rem; /* Espaciado uniforme entre los elementos */
+  
 }
 
 .event {
@@ -57,6 +58,7 @@
   flex-direction: column; /* Organiza los elementos verticalmente */
   align-items: center; /* Centra el contenido horizontalmente */
   text-align: center; /* Alinea el texto en el centro */
+  z-index: 1;
 }
 
 .event p {
@@ -105,6 +107,7 @@
   .event {
     width: 100%; /* Cada evento ocupa todo el ancho del contenedor */
     padding: 0; 
+    z-index: 1;
   }
 }
 
@@ -199,3 +202,53 @@
   transform: scale(1.2); /* Agranda el icono al pasar el cursor */
 }
 
+
+
+/* Estilo Lineas */
+
+/* Sección de eventos */
+.events-section {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+/* Contenedor de las líneas */
+.lines-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Líneas verticales */
+.vertical-line {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  transform: scaleY(0);
+}
+
+/* Primera línea */
+.line-1 {
+  left: 38%; /* Ajusta la posición */
+  background-color: #4CAF50; /* Verde */
+  transform-origin: top center;
+}
+
+/* Segunda línea */
+.line-2 {
+  left: 50%; /* Ajusta la posición */
+  background-color: #FBF1A9; /* Rosa */
+  transform-origin: bottom center;
+}
+
+/* Tercera línea */
+.line-3 {
+  left: 62%; /* Ajusta la posición */
+  background-color: #D82E45; /* Naranja */
+  transform-origin: top center;
+}

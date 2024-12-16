@@ -1,80 +1,112 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LocationIcon from '../assets/icons/location.svg';
 import CalendarIcon from '../assets/icons/calendar.svg';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Events = () => {
   const { sections } = useScrollContext(); // Obtener las referencias del contexto
   const [events, setEvents] = useState([]); // Estado para almacenar eventos
 
-  // Determinar la URL del backend
-  const backendURL =
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:5001/events' // URL del backend local durante desarrollo
-      : 'https://grooveon7-production.up.railway.app/events'; // URL del backend en producción
+  const verticalLine1Ref = useRef(null);
+  const verticalLine2Ref = useRef(null);
+  const verticalLine3Ref = useRef(null);
 
-  // Cargar eventos desde el backend
+  const backendURL = process.env.NODE_ENV === 'development' ? 'http://localhost:5001/events' : 'https://grooveon7-production.up.railway.app/events';
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const response = await fetch(backendURL);
         if (!response.ok) throw new Error('Error al obtener los eventos');
         const data = await response.json();
-        setEvents(data); // Actualiza el estado con los eventos del backend
+        setEvents(data);
       } catch (error) {
         console.error('Error al cargar eventos:', error);
       }
     };
 
     fetchEvents();
-  }, [backendURL]); // Solo se ejecuta al montar el componente o si cambia la URL del backend
+  }, [backendURL]);
 
-  // Función para formatear la fecha
+  useEffect(() => {
+    const eventsSection = document.querySelector('.events-section');
+
+    // Primera línea (arriba a abajo)
+    gsap.fromTo(
+      verticalLine1Ref.current,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        duration: 2,
+        transformOrigin: 'top center',
+        scrollTrigger: {
+          trigger: eventsSection,
+          start: 'top center+=25',
+          end: 'bottom center',
+          scrub: true,
+        },
+      }
+    );
+
+    // Segunda línea (abajo a arriba)
+    gsap.fromTo(
+      verticalLine2Ref.current,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        duration: 2,
+        transformOrigin: 'bottom center',
+        scrollTrigger: {
+          trigger: eventsSection,
+          start: 'top center+=250',
+          end: 'bottom cente+=350',
+          scrub: true,
+        },
+      }
+    );
+
+    // Tercera línea (arriba a abajo)
+    gsap.fromTo(
+      verticalLine3Ref.current,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        duration: 2,
+        transformOrigin: 'top center',
+        scrollTrigger: {
+          trigger: eventsSection,
+          start: 'top center-=150',
+          end: 'bottom center-=150',
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Los meses empiezan en 0
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+    return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
   };
 
-  // Función para formatear la hora
   const formatTime = (timeString) => {
     const [hours, minutes] = timeString.split(':');
     return `${hours}:${minutes}`;
   };
 
-  // Función para generar el archivo .ics
-  const handleAddToCalendar = (event) => {
-    const startDate = new Date(event.date).toISOString().replace(/[-:]/g, '').split('.')[0]; // Formato compatible con iCalendar
-    const endDate = new Date(new Date(event.date).getTime() + 2 * 60 * 60 * 1000) // Evento de 2 horas
-      .toISOString()
-      .replace(/[-:]/g, '')
-      .split('.')[0];
-
-    const calendarEvent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-CALSCALE:GREGORIAN
-BEGIN:VEVENT
-SUMMARY:${event.name}
-DESCRIPTION:${event.name} - ${event.location}
-DTSTART:${startDate}Z
-DTEND:${endDate}Z
-LOCATION:${event.location}
-END:VEVENT
-END:VCALENDAR`;
-
-    // Crear un blob y descargarlo
-    const blob = new Blob([calendarEvent], { type: 'text/calendar' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${event.name.replace(/\s+/g, '_')}.ics`; // Nombre del archivo basado en el nombre del evento
-    link.click();
-  };
-
   return (
     <section id="events" className="events-section" ref={sections.events}>
+      {/* Líneas verticales */}
+      <div className="lines-container">
+        <div ref={verticalLine1Ref} className="vertical-line line-1"></div>
+        <div ref={verticalLine2Ref} className="vertical-line line-2"></div>
+        <div ref={verticalLine3Ref} className="vertical-line line-3"></div>
+      </div>
+
+      {/* Contenido */}
       <div className="events-title">
         <h3>Events</h3>
       </div>
@@ -89,18 +121,10 @@ END:VCALENDAR`;
               <p>{event.location}</p>
               <div className="icons-container">
                 <a href={event.map_link} target="_blank" rel="noopener noreferrer" className="icon-link" aria-label="View on Map">
-                  <img
-                    src={LocationIcon} // Import directo del icono de ubicación
-                    alt="View on Map"
-                    className="icon"
-                  />
+                  <img src={LocationIcon} alt="View on Map" className="icon" />
                 </a>
                 <button onClick={() => handleAddToCalendar(event)} className="icon-link" aria-label="Add to Calendar">
-                  <img
-                    src={CalendarIcon} // Import directo del icono del calendario
-                    alt="Add to Calendar"
-                    className="icon"
-                  />
+                  <img src={CalendarIcon} alt="Add to Calendar" className="icon" />
                 </button>
               </div>
             </div>
