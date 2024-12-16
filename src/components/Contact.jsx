@@ -29,8 +29,8 @@ const Contact = () => {
         transformOrigin: 'right center',
         scrollTrigger: {
           trigger: contactSection,
-          start: 'top center-=150',
-          end: 'bottom center-=100',
+          start: 'top center+=100',
+          end: 'bottom center+=700',
           scrub: true,
         },
       }
@@ -46,8 +46,8 @@ const Contact = () => {
         transformOrigin: 'left center',
         scrollTrigger: {
           trigger: contactSection,
-          start: 'top center-=50',
-          end: 'bottom center-=200',
+          start: 'top center+=300',
+          end: 'bottom center+=700',
           scrub: true,
         },
       }
@@ -63,8 +63,8 @@ const Contact = () => {
         transformOrigin: 'right center',
         scrollTrigger: {
           trigger: contactSection,
-          start: 'top center',
-          end: 'bottom center-=300',
+          start: 'top center+=200',
+          end: 'bottom center+=700',
           scrub: true,
         },
       }
@@ -80,8 +80,8 @@ const Contact = () => {
         transformOrigin: 'left center',
         scrollTrigger: {
           trigger: contactSection,
-          start: 'top center-=200',
-          end: 'bottom center',
+          start: 'top center+=150',
+          end: 'bottom center+=700',
           scrub: true,
         },
       }
@@ -91,12 +91,6 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section" ref={sections.contact}>
       {/* Contenedor para las líneas */}
-      <div className="contact-lines-container">
-        <div ref={contactLine1Ref} className="contact-horizontal-line contact-line-1"></div>
-        <div ref={contactLine2Ref} className="contact-horizontal-line contact-line-2"></div>
-        <div ref={contactLine3Ref} className="contact-horizontal-line contact-line-3"></div>
-        <div ref={contactLine4Ref} className="contact-horizontal-line contact-line-4"></div>
-      </div>
 
       {/* Contenido */}
       <div className="contact-content">
@@ -107,6 +101,13 @@ const Contact = () => {
         <p>Get in touch for collaborations or bookings.</p>
       </div>
       <div className="contact-container">
+        <div className="contact-lines-container">
+          <div ref={contactLine1Ref} className="contact-horizontal-line contact-line-1"></div>
+          <div ref={contactLine2Ref} className="contact-horizontal-line contact-line-2"></div>
+          <div ref={contactLine3Ref} className="contact-horizontal-line contact-line-3"></div>
+          <div ref={contactLine4Ref} className="contact-horizontal-line contact-line-4"></div>
+        </div>
+
         <button className="contact-button" onClick={() => setIsPopupOpen(true)}>
           CONTACT
         </button>

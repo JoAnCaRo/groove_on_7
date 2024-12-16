@@ -25,6 +25,8 @@
 }
 
 .contact-container {
+  position: relative;
+  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
   display: flex; /* Activa Flexbox */
   justify-content: center; /* Centra el botón horizontalmente */
   align-items: center; /* Centra el contenido verticalmente (si es necesario) */
@@ -171,7 +173,7 @@
 /* Estilo lineas */
 /* Sección de contacto */
 .contact-section {
-  position: relative;
+ /*  position: relative; */
   overflow: hidden; /* Evita que las líneas sobresalgan */
   padding: 4rem 0;
 }
@@ -197,28 +199,28 @@
 
 /* Primera línea */
 .contact-line-1 {
-  top: 53%; /* Ajusta la posición vertical */
+  top: 30%; /* Ajusta la posición vertical */
   background-color: #4caf50; /* Rojo */
   transform-origin: right center;
 }
 
 /* Segunda línea */
 .contact-line-2 {
-  top: 53%; /* Ajusta la posición vertical */
+  top: 43%; /* Ajusta la posición vertical */
   background-color: #FBF1A9; /* Verde */
   transform-origin: left center;
 }
 
 /* Tercera línea */
 .contact-line-3 {
-  top: 55.5%; /* Ajusta la posición vertical */
+  top: 57%; /* Ajusta la posición vertical */
   background-color: #e277b9; /* Naranja */
   transform-origin: right center;
 }
 
 /* Cuarta línea */
 .contact-line-4 {
-  top: 55.5%; /* Ajusta la posición vertical */
+  top: 70%; /* Ajusta la posición vertical */
   background-color: #3498db; /* Azul */
   transform-origin: left center;
 }

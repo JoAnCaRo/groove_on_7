@@ -86,6 +86,7 @@ section.playlists-section {
 
 /* Contenedor de las líneas animadas */
 .line-container-playlists {
+
   position: absolute;
   width: 100vw; /* La línea ocupa todo el ancho del viewport */
   left: 0; /* La línea empieza desde el borde izquierdo */
@@ -97,7 +98,7 @@ section.playlists-section {
   position: absolute;
   width: 100vw; /* La línea cubre todo el ancho del contenedor */
   height: 6px; /* Grosor de la línea principal */
-  background-color: #ceb919; /* Color de la línea (izquierda a derecha) */
+  background-color: #fce853; /* Color de la línea (izquierda a derecha) */
   transform-origin: left center; /* La animación se expande desde la izquierda */
   transform: scaleX(0); /* Comienza invisible */
   top: 400px; /* Altura específica de la línea */
