@@ -9,49 +9,48 @@ gsap.registerPlugin(ScrollTrigger);
 const LiveSessions = () => {
   const { sections } = useScrollContext();
   const [currentVideo, setCurrentVideo] = useState(null);
-  const verticalLineRef = useRef(null);
-  const horizontalLineRef = useRef(null);
 
-useEffect(() => {
-  const liveSessionsSection = document.querySelector('.live-sessions-section');
+  // Referencias para las líneas verticales
+  const firstVerticalLineRef = useRef(null);
+  const secondVerticalLineRef = useRef(null);
 
-  // Animación para la primera línea vertical (azul)
-  if (verticalLineRef.current) {
-    gsap.fromTo(
-      verticalLineRef.current,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        scrollTrigger: {
-          trigger: liveSessionsSection,
-          start: 'top center',
-          end: 'bottom center',
-          scrub: true,
-        },
-      }
-    );
-  }
+  useEffect(() => {
+    const liveSessionsSection = document.querySelector('.live-sessions-section');
 
-  // Animación para la segunda línea vertical (rojo)
-  const secondVerticalLine = document.querySelector('.second-scroll-line');
-  if (secondVerticalLine) {
-    gsap.fromTo(
-      secondVerticalLine,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        scrollTrigger: {
-          trigger: liveSessionsSection,
-          start: 'top center-=900',
-          end: 'bottom center-=1000',
-          scrub: true,
-        },
-      }
-    );
-  }
-}, []);
+    // Animación para la primera línea vertical (azul)
+    if (firstVerticalLineRef.current) {
+      gsap.fromTo(
+        firstVerticalLineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: liveSessionsSection,
+            start: 'top center+=20',
+            end: 'bottom center',
+            scrub: true,
+          },
+        }
+      );
+    }
 
-
+    // Animación para la segunda línea vertical (rojo)
+    if (secondVerticalLineRef.current) {
+      gsap.fromTo(
+        secondVerticalLineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: liveSessionsSection,
+            start: 'top center-=900',
+            end: 'bottom center-=1000',
+            scrub: true,
+          },
+        }
+      );
+    }
+  }, []);
 
   const videos = [
     { id: 1, title: 'Disco', description: 'Lorem ipsum dolor sit amet.', thumbnail: 'img/thumbnails/session-01.png', vimeoUrl: 'https://player.vimeo.com/video/290642100' },
@@ -62,13 +61,13 @@ useEffect(() => {
   return (
     <section ref={sections.liveSessions} id="live-sessions" className="live-sessions-section">
       {/* Primera línea vertical */}
-      <div className="vertical-line-container-livesessions first-vertical-line">
-        <div ref={verticalLineRef} className="vertical-scroll-line-livesessions"></div>
+      <div className="first-vertical-line-container-livesessions">
+        <div ref={firstVerticalLineRef} className="first-vertical-scroll-line-livesessions"></div>
       </div>
 
       {/* Segunda línea vertical */}
-      <div className="vertical-line-container-livesessions second-vertical-line">
-        <div className="vertical-scroll-line-livesessions second-scroll-line"></div>
+      <div className="second-vertical-line-container-livesessions">
+        <div ref={secondVerticalLineRef} className="second-vertical-scroll-line-livesessions"></div>
       </div>
 
       <div className="sessions">

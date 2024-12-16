@@ -306,51 +306,48 @@ section.live-sessions-section {
 }
 
 
+/* Estilos para las líneas verticales */
 
 /* Primera línea vertical */
-.first-vertical-line {
+.first-vertical-line-container-livesessions {
   position: absolute;
-  width: 6px;
-  left: 91.15%; /* Posición original (a la derecha) */
-  height: 100%;
-  top: 0;
-  z-index: -1;
+  width: 6px; /* Grosor de la línea */
+  left: 91.15%; /* Posición al 91.15% del ancho */
+  height: 100%; /* Abarca toda la altura de la sección */
+  top: 0; /* Comienza desde la parte superior */
+  z-index: -1; /* Detrás del contenido */
 }
 
-.first-vertical-line .vertical-scroll-line-livesessions {
+.first-vertical-scroll-line-livesessions {
   position: absolute;
   top: 0;
-  /* left: 50%; */
-  width: 6px;
-  height: 100%;
+  width: 100%; /* Ajusta al ancho del contenedor */
+  height: 100%; /* Altura total del contenedor */
   background-color: #3498db; /* Color azul */
-  transform-origin: top center;
-  transform: scaleY(0);
-  pointer-events: none;
-  transition: height 0.3s linear; /* Optimiza la animación */
+  transform-origin: top center; /* Animación desde la parte superior */
+  transform: scaleY(0); /* Escala inicial */
+  pointer-events: none; /* No interactúa con el cursor */
 }
 
 /* Segunda línea vertical */
-.second-vertical-line {
+.second-vertical-line-container-livesessions{
   position: absolute;
-  width: 6px;
-  left: 15%; /* Posición al 10% del ancho */
-  height: 100%;
-  top: 0;
-  z-index: -1;
+  width: 6px; /* Grosor de la línea */
+  left: 15%; /* Posición al 15% del ancho */
+  height: 100%; /* Abarca toda la altura de la sección */
+  top: 0; /* Comienza desde la parte superior */
+  z-index: -1; /* Detrás del contenido */
 }
 
-.second-vertical-line .second-scroll-line {
+.second-vertical-scroll-line-livesessions {
   position: absolute;
   top: 0;
-  /* left: 50%; */
-  width: 6px;
-  height: 100%;
-  background-color: #D82E45; /* Color naranja */
-  transform-origin: top center;
-  transform: scaleY(0);
-  pointer-events: none;
-  transition: height 0.3s linear; /* Optimiza la animación */
+  width: 100%; /* Ajusta al ancho del contenedor */
+  height: 100%; /* Altura total del contenedor */
+  background-color: #D82E45; /* Color rojo */
+  transform-origin: top center; /* Animación desde la parte superior */
+  transform: scaleY(0); /* Escala inicial */
+  pointer-events: none; /* No interactúa con el cursor */
 }
 
 
