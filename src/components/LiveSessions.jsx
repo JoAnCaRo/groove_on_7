@@ -43,7 +43,7 @@ useEffect(() => {
         scrollTrigger: {
           trigger: liveSessionsSection,
           start: 'top center-=1000',
-          end: 'bottom center',
+          end: 'bottom center-=1000',
           scrub: true,
         },
       }

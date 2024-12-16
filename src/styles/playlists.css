@@ -1,23 +1,11 @@
 /* LIVE SESSION SECTION */
-.playlists-section {
-  max-width: 45rem; 
-  margin: 0 auto; /* Centra horizontalmente la sección */
-  text-align: center; /* Alinea el texto al centro */
-  padding-top: 3rem; /* Reduce el espacio superior */
-  padding-bottom: 3rem; /* Reduce el espacio inferior */
-}
+
 
 section.playlists-section {
   padding-bottom: 8rem !important;
 }
 
-.playlists-section {
-  width: 100%; /* Asegura que ocupe todo el ancho del viewport */
-  max-width: 90rem; 
-  margin: 0 auto; /* Centra horizontalmente la sección */
-  padding: var(--spacing); /* Espaciado interno */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-}
+
 
 .playlists-section h3 {
   text-align: left; /* Justifica el texto a la izquierda */
@@ -72,7 +60,59 @@ section.playlists-section {
   margin: 0;
   max-height: 100px;
 }
-
-
-
 }
+
+
+
+
+
+/* PLAYLISTS Lines */
+.playlists-section {
+  position: relative; /* Necesario para que la línea animada sea relativa a esta sección */
+}
+
+/* Contenedor para el contenido de Playlists */
+.playlists-section {
+  position: relative; /* Necesario para que la línea animada sea relativa a esta sección */
+}
+
+/* Contenedor para el contenido de Playlists */
+.playlists-content-container {
+  max-width: 90rem; /* Limita el ancho del contenido */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 0 var(--spacing); /* Espaciado horizontal */
+  box-sizing: border-box;
+}
+
+/* Contenedor de las líneas animadas */
+.line-container-playlists {
+  position: absolute;
+  width: 100vw; /* La línea ocupa todo el ancho del viewport */
+  left: 0; /* La línea empieza desde el borde izquierdo */
+  pointer-events: none; /* La línea no interactúa con el cursor */
+  z-index: -1; /* Coloca la línea detrás del contenido */
+}
+
+.scroll-line-playlists {
+  position: absolute;
+  width: 100vw; /* La línea cubre todo el ancho del contenedor */
+  height: 6px; /* Grosor de la línea principal */
+  background-color: #ceb919; /* Color de la línea (izquierda a derecha) */
+  transform-origin: left center; /* La animación se expande desde la izquierda */
+  transform: scaleX(0); /* Comienza invisible */
+  top: 400px; /* Altura específica de la línea */
+}
+
+.reverse-scroll-line-playlists {
+  position: absolute;
+  width: 100vw; /* La línea cubre todo el ancho del contenedor */
+  height: 6px; /* Grosor de la línea inversa */
+  background-color: #4CAF50; /* Color de la línea (derecha a izquierda) */
+  transform-origin: right center; /* La animación se expande desde la derecha */
+  transform: scaleX(0); /* Comienza invisible */
+  bottom: -700px; /* Ajusta la altura de forma independiente respecto a la otra línea */
+}
+
+
+
+
