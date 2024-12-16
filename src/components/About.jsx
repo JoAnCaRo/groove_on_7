@@ -53,11 +53,11 @@ const About = () => {
   return (
     <section ref={sections.about} id="about" className="about-section">
       {/* Contenedor para las líneas animadas */}
-      <div className="line-container">
-        <div ref={lineRef} className="scroll-line"></div>
+      <div className="line-container-about">
+        <div ref={lineRef} className="scroll-line-about"></div>
       </div>
-      <div className="vertical-line-container">
-        <div ref={verticalLineRef} className="vertical-scroll-line"></div>
+      <div className="vertical-line-container-about">
+        <div ref={verticalLineRef} className="vertical-scroll-line-about"></div>
       </div>
 
       {/* Contenedor para el contenido del texto */}

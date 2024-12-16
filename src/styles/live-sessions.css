@@ -6,7 +6,14 @@
   text-align: center; /* Alinea el texto al centro */
   padding-top: 6rem; /* Espaciado superior */
   box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+  z-index: 10; /* Asegura que esté encima de todo */
+  max-width: 87.5rem; 
+  padding: var(--spacing);
+  background-color: transparent;
+  /* overflow: visible; */
+  position: relative; 
 }
+
 
 section.live-sessions-section {
   padding-bottom: 8rem !important; /* Forzar el espaciado */
@@ -29,12 +36,6 @@ section.live-sessions-section {
   opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
   margin-top: 2rem; /* Espaciado entre el texto y la línea */
   margin-bottom: 2rem; /* Espaciado entre el texto y la línea */
-}
-
-.live-sessions-section {
-  max-width: 87.5rem; /* 1400px en rem */
-  margin: 0 auto;
-  padding: var(--spacing);
 }
 
 .session-image {
@@ -100,8 +101,6 @@ section.live-sessions-section {
   background-color: var(--secondary-color); /* Color de fondo del botón */
   color: var(--primary-color); /* Color del texto */
   text-decoration: none; /* Elimina la línea de subrayado */
-  /* width: 15rem;
-  height: 4rem; */
   font-size: 1rem; /* Tamaño del texto */
   padding: 1.3rem 5rem; /* Espaciado interno */
   border: none; /* Sin bordes */
@@ -117,18 +116,21 @@ section.live-sessions-section {
 }
 
 .sessions {
+  position: relative; /* Necesario para contener la línea */
   display: flex;
   flex-direction: column;
   gap: 5rem;
+    z-index: 0; /* Mantiene el contenido por encima de la línea */
+
 }
 
 .session {
   display: flex; 
-  /* gap: 1rem;  */
   align-items: center; 
   position: relative; 
   width: 100%; /* Asegura que cada sesión ocupe todo el ancho */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--primary-color);
 }
 
 .session img {
@@ -154,7 +156,7 @@ section.live-sessions-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Asegura que esté encima de otros elementos */
+  z-index: 10; /* Asegura que esté encima de otros elementos */
 }
 
 .video-popup-content {
@@ -234,7 +236,7 @@ section.live-sessions-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Asegura que esté encima de todo */
+    z-index: 10; /* Asegura que esté encima de todo */
   }
 
     .video-popup-content {
@@ -260,7 +262,6 @@ section.live-sessions-section {
   h2 {
     font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
     max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
-    
   }
 
   .video-popup-content {
@@ -303,3 +304,55 @@ section.live-sessions-section {
     border: none; /* Elimina bordes del iframe */
   }
 }
+
+
+
+/* Primera línea vertical */
+.first-vertical-line {
+  position: absolute;
+  width: 6px;
+  left: 90%; /* Posición original (a la derecha) */
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.first-vertical-line .vertical-scroll-line-livesessions {
+  position: absolute;
+  top: 0;
+  /* left: 50%; */
+  width: 6px;
+  height: 100%;
+  background-color: #0035B9; /* Color azul */
+  transform-origin: top center;
+  transform: scaleY(0);
+  pointer-events: none;
+  transition: height 0.3s linear; /* Optimiza la animación */
+}
+
+/* Segunda línea vertical */
+.second-vertical-line {
+  position: absolute;
+  width: 6px;
+  left: 10%; /* Posición al 10% del ancho */
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.second-vertical-line .second-scroll-line {
+  position: absolute;
+  top: 0;
+  /* left: 50%; */
+  width: 6px;
+  height: 100%;
+  background-color: #FF5733; /* Color naranja */
+  transform-origin: top center;
+  transform: scaleY(0);
+  pointer-events: none;
+  transition: height 0.3s linear; /* Optimiza la animación */
+}
+
+
+
+

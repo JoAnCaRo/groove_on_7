@@ -1,7 +1,6 @@
 /* ABOUT SECTION */
-/* Contenedor de la línea animada */
 /* Contenedor de la línea animada horizontal */
-.line-container {
+.line-container-about {
   position: absolute;
   height: 4px;
   width: 100vw;
@@ -10,12 +9,12 @@
   transform: translateY(-50%);
 }
 
-.scroll-line {
+.scroll-line-about {
   position: absolute;
   top: 50%;
   left: 0;
   width: 100vw;
-  height: 5px;
+  height: 6px;
   background-color: #e277b9;
   transform-origin: left center;
   transform: scaleX(0);
@@ -24,20 +23,20 @@
 }
 
 /* Contenedor de la línea animada vertical */
-.vertical-line-container {
+.vertical-line-container-about {
   position: absolute;
   height: 100%; /* Abarca toda la altura de la sección */
-  width: 5px;
+  width: 4px;
   top: 0;
   left: 70%; /* Ajusta según la posición deseada */
   transform: translateX(-50%);
 }
 
-.vertical-scroll-line {
+.vertical-scroll-line-about {
   position: absolute;
   left: 50%;
   top: 0;
-  width: 4px;
+  width: 6px;
   height: 100%;
   background-color: #4caf50; /* Color de la línea vertical */
   transform-origin: top center;
