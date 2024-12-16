@@ -28,8 +28,8 @@
   display: flex; /* Activa Flexbox */
   justify-content: center; /* Centra el botón horizontalmente */
   align-items: center; /* Centra el contenido verticalmente (si es necesario) */
-  margin-top: 2rem; /* Añade espacio entre el botón y el contenido anterior */
-  padding-bottom: 8rem;
+  padding: 30px; /* Añade espacio entre el botón y el contenido anterior */
+  
 }
 
 .popup-content-form{
@@ -167,7 +167,6 @@
     box-sizing: border-box; /* Incluye padding en el cálculo del ancho/alto */
   }
 }
-
 
 /* Estilo lineas */
 /* Sección de contacto */

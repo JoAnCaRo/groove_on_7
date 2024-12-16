@@ -54,10 +54,21 @@ h2 {
 }
 
 
+/* Lineas Estilos */
 .about-section {
   position: relative;
 }
-/* Lineas Estilos */
+
+.text-container {
+  max-width: 87.5rem; 
+  margin: 0 auto; /* Centra horizontalmente la sección */
+  text-align: center; /* Alinea el texto al centro */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  position: relative; /* Necesario para posicionar la línea dentro */
+  line-height: 1.8;
+}
+
 .line-container-about {
   position: absolute;
   height: 4px;
@@ -84,9 +95,11 @@ h2 {
 .vertical-line-container-about {
   position: absolute;
   height: 100%; /* Abarca toda la altura de la sección */
-  width: 4px;
   top: 0;
-  left: 70%; /* Ajusta según la posición deseada */
+  width: 6px;
+  right: 30%; 
+  /* left: calc((100% - 87.5rem) / 2 + 70% * 87.5rem);  */
+  
   transform: translateX(-50%);
 }
 

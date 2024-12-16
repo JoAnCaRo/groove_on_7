@@ -1,16 +1,16 @@
 /* LIVE SESSION SECTION */
 .live-sessions-section {
-  width: 100%; /* Asegura que ocupe todo el ancho del viewport */
-  max-width: 90rem; /* Ancho máximo */
+  /* Ancho máximo para el diseño */
+  max-width: 87.5rem; 
   margin: 0 auto; /* Centra horizontalmente la sección */
   text-align: center; /* Alinea el texto al centro */
-  padding-top: 6rem; /* Espaciado superior */
   box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-  z-index: 10; /* Asegura que esté encima de todo */
-  max-width: 87.5rem; 
-  padding: var(--spacing);
+  z-index: 1; /* Asegura que esté encima de todo */
+  padding-top: 6rem; /* Espaciado superior */
+  padding-bottom: var(--spacing); /* Mantiene el padding inferior */
+  padding-left: 0; /* Quita el padding lateral izquierdo */
+  padding-right: 0; /* Quita el padding lateral derecho */
   background-color: transparent;
-  /* overflow: visible; */
   position: relative; 
 }
 
@@ -25,6 +25,7 @@ section.live-sessions-section {
   font-weight: bold; /* Opcional: hace el texto más prominente */
   margin-bottom: 0.5rem; /* Espaciado debajo del título */
   position: relative; /* Necesario para colocar la línea */
+  padding: 0 30px;
 }
 
 .live-sessions-section h3::after {
@@ -312,7 +313,7 @@ section.live-sessions-section {
 .first-vertical-line-container-livesessions {
   position: absolute;
   width: 6px; /* Grosor de la línea */
-  left: 91.15%; /* Posición al 91.15% del ancho */
+  right: 8.85%;     
   height: 100%; /* Abarca toda la altura de la sección */
   top: 0; /* Comienza desde la parte superior */
   z-index: -1; /* Detrás del contenido */
@@ -333,7 +334,7 @@ section.live-sessions-section {
 .second-vertical-line-container-livesessions{
   position: absolute;
   width: 6px; /* Grosor de la línea */
-  left: 15%; /* Posición al 15% del ancho */
+  left: 15%;
   height: 100%; /* Abarca toda la altura de la sección */
   top: 0; /* Comienza desde la parte superior */
   z-index: -1; /* Detrás del contenido */
