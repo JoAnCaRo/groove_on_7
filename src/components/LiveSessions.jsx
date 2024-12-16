@@ -15,7 +15,7 @@ const LiveSessions = () => {
 useEffect(() => {
   const liveSessionsSection = document.querySelector('.live-sessions-section');
 
-  // Animación para la primera línea vertical
+  // Animación para la primera línea vertical (azul)
   if (verticalLineRef.current) {
     gsap.fromTo(
       verticalLineRef.current,
@@ -32,7 +32,7 @@ useEffect(() => {
     );
   }
 
-  // Animación para la segunda línea vertical
+  // Animación para la segunda línea vertical (rojo)
   const secondVerticalLine = document.querySelector('.second-scroll-line');
   if (secondVerticalLine) {
     gsap.fromTo(
@@ -42,7 +42,7 @@ useEffect(() => {
         scaleY: 1,
         scrollTrigger: {
           trigger: liveSessionsSection,
-          start: 'top center',
+          start: 'top center-=1000',
           end: 'bottom center',
           scrub: true,
         },

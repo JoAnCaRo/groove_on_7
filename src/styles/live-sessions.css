@@ -311,7 +311,7 @@ section.live-sessions-section {
 .first-vertical-line {
   position: absolute;
   width: 6px;
-  left: 90%; /* Posición original (a la derecha) */
+  left: 91.15%; /* Posición original (a la derecha) */
   height: 100%;
   top: 0;
   z-index: -1;
@@ -334,7 +334,7 @@ section.live-sessions-section {
 .second-vertical-line {
   position: absolute;
   width: 6px;
-  left: 10%; /* Posición al 10% del ancho */
+  left: 15%; /* Posición al 10% del ancho */
   height: 100%;
   top: 0;
   z-index: -1;
@@ -346,7 +346,7 @@ section.live-sessions-section {
   /* left: 50%; */
   width: 6px;
   height: 100%;
-  background-color: #FF5733; /* Color naranja */
+  background-color: #D82E45; /* Color naranja */
   transform-origin: top center;
   transform: scaleY(0);
   pointer-events: none;
