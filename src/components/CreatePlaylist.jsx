@@ -22,10 +22,9 @@ const handleSpotifyLogin = () => {
 
   const clientId = 'a1a40ff261a74446b82d30c304c3717b';
   const redirectUri = 'https://joancaro.github.io/groove_on_7/';
-
   const scope = 'playlist-read-private playlist-modify-private user-top-read';
-
   const spotifyAuthUrl = new URL('https://accounts.spotify.com/authorize');
+ 
   spotifyAuthUrl.searchParams.append('response_type', 'token');
   spotifyAuthUrl.searchParams.append('client_id', clientId);
   spotifyAuthUrl.searchParams.append('redirect_uri', redirectUri);
@@ -65,7 +64,6 @@ useEffect(() => {
 
   cleanUpToken();
 }, []);
-
 
   // Fetch Top Tracks and Create Playlist
   const fetchTopTracks = async () => {
@@ -116,13 +114,21 @@ useEffect(() => {
     }
   };
 
-  const handleGeneratePlaylist = async () => {
-    if (!accessToken) return;
-    const { tracksUri } = await fetchTopTracks();
-    if (tracksUri) {
-      await createPlaylistWithTopTracks(tracksUri);
-    }
-  };
+const handleGeneratePlaylist = async () => {
+  if (!accessToken) return;
+
+  // Obtener las URIs de las canciones
+  const { tracksUri } = await fetchTopTracks();
+
+  if (tracksUri && tracksUri.length > 0) {
+    // Construir un link embed temporal usando las URIs
+    const trackIds = tracksUri.map((uri) => uri.split(':')[2]).join(',');
+    const embedUrl = `https://open.spotify.com/embed?uri=spotify:trackset:Top 10 Tracks:${trackIds}`;
+
+    setEmbedPlaylistId(embedUrl);
+  }
+};
+
 
   useEffect(() => {
     const createPlaylistSection = document.querySelector('.generate-playlist-section');
@@ -193,7 +199,7 @@ useEffect(() => {
         {embedPlaylistId && (
           <iframe
             title="Spotify Playlist Embed"
-            src={`https://open.spotify.com/embed/playlist/${embedPlaylistId}`}
+            src={embedPlaylistId}
             width="100%"
             height="510"
             style={{ marginTop: '20px', border: 'none' }}
