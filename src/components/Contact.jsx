@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import ContactPopup from './ContactPopup';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import InstagramIcon from '../assets/icons/instagram.svg';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const { sections } = useScrollContext(); // Obtener las referencias del contexto
@@ -17,75 +13,84 @@ const Contact = () => {
   const contactLine4Ref = useRef(null);
 
   useEffect(() => {
-    const contactSection = document.querySelector('.contact-section');
+    const { gsap } = window; // Accede a GSAP globalmente
+    const { ScrollTrigger } = window;
 
-    // Primera línea (derecha a izquierda)
-    gsap.fromTo(
-      contactLine1Ref.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        duration: 2,
-        transformOrigin: 'right center',
-        scrollTrigger: {
-          trigger: contactSection,
-          start: 'top center+=100',
-          end: 'bottom center+=700',
-          scrub: true,
-        },
-      }
-    );
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
 
-    // Segunda línea (izquierda a derecha)
-    gsap.fromTo(
-      contactLine2Ref.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        duration: 2,
-        transformOrigin: 'left center',
-        scrollTrigger: {
-          trigger: contactSection,
-          start: 'top center+=300',
-          end: 'bottom center+=700',
-          scrub: true,
-        },
-      }
-    );
+      const contactSection = document.querySelector('.contact-section');
 
-    // Tercera línea (derecha a izquierda)
-    gsap.fromTo(
-      contactLine3Ref.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        duration: 2,
-        transformOrigin: 'right center',
-        scrollTrigger: {
-          trigger: contactSection,
-          start: 'top center+=200',
-          end: 'bottom center+=700',
-          scrub: true,
-        },
-      }
-    );
+      // Primera línea (derecha a izquierda)
+      gsap.fromTo(
+        contactLine1Ref.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          transformOrigin: 'right center',
+          scrollTrigger: {
+            trigger: contactSection,
+            start: 'top center+=100',
+            end: 'bottom center+=700',
+            scrub: true,
+          },
+        }
+      );
 
-    // Cuarta línea (izquierda a derecha)
-    gsap.fromTo(
-      contactLine4Ref.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        duration: 2,
-        transformOrigin: 'left center',
-        scrollTrigger: {
-          trigger: contactSection,
-          start: 'top center+=150',
-          end: 'bottom center+=700',
-          scrub: true,
-        },
-      }
-    );
+      // Segunda línea (izquierda a derecha)
+      gsap.fromTo(
+        contactLine2Ref.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          transformOrigin: 'left center',
+          scrollTrigger: {
+            trigger: contactSection,
+            start: 'top center+=300',
+            end: 'bottom center+=700',
+            scrub: true,
+          },
+        }
+      );
+
+      // Tercera línea (derecha a izquierda)
+      gsap.fromTo(
+        contactLine3Ref.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          transformOrigin: 'right center',
+          scrollTrigger: {
+            trigger: contactSection,
+            start: 'top center+=200',
+            end: 'bottom center+=700',
+            scrub: true,
+          },
+        }
+      );
+
+      // Cuarta línea (izquierda a derecha)
+      gsap.fromTo(
+        contactLine4Ref.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          transformOrigin: 'left center',
+          scrollTrigger: {
+            trigger: contactSection,
+            start: 'top center+=150',
+            end: 'bottom center+=700',
+            scrub: true,
+          },
+        }
+      );
+    } else {
+      console.error('GSAP or ScrollTrigger not found!');
+    }
   }, []);
 
   return (
@@ -96,7 +101,7 @@ const Contact = () => {
       <div className="contact-content">
         <h2>
           DISCOVER THE BEST MUSIC IN 7” FORMAT CURATED AND MIXED WITH LOVE <br />
-          ☮︎
+          ☮ȷ
         </h2>
         <p>Get in touch for collaborations or bookings.</p>
       </div>
@@ -128,4 +133,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
