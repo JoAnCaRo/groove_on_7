@@ -175,7 +175,7 @@ useEffect(() => {
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
         <h3>Check My Top-Ten Tracks</h3>
-        <p>Check, play or save my top 10 tracks in your Spotify profile!</p>
+        <p>Check, play or save my top 10 tracks in your Spotify !</p>
       </div>
 
       <div className="create-playlist-container">
@@ -195,7 +195,7 @@ useEffect(() => {
             title="Spotify Playlist Embed"
             src={`https://open.spotify.com/embed/playlist/${embedPlaylistId}`}
             width="100%"
-            height="100%"
+            height="580"
             style={{ marginTop: '20px', border: 'none' }}
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"

@@ -62,8 +62,8 @@
 }
 
 .create-playlist-button {
-  background-color: var(--secondary-color); /* Color de fondo al pasar el mouse */
-  color: var(--primary-color); /* Cambia el color del texto */
+  background-color: var(--primary-color); /* Color de fondo al pasar el mouse */
+  color: var(--secondary-color); /* Cambia el color del texto */
   box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
 }
 
