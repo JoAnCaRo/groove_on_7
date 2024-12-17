@@ -47,10 +47,12 @@
   text-align: center;
 }
 
-.generate-playlist-button .login-spotify-button {
+/* Estilo base para ambos botones */
+.generate-playlist-button,
+.login-spotify-button {
   font-family: var(--font-stack);
-  background-color: var(--primary-color); /* Color de fondo del botón */
-  color: var(--secondary-color); /* Color del texto */
+  background-color: var(--primary-color); /* Color de fondo base */
+  color: var(--secondary-color); /* Color del texto base */
   width: 15rem; /* Tamaño del botón */
   height: 4rem;
   font-size: 1rem; /* Tamaño del texto */
@@ -58,14 +60,17 @@
   border: none; /* Sin bordes */
   border-radius: 0.5rem; /* Bordes ligeramente redondeados */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Animación para el hover */
-   box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); 
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animación suave */
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
 }
 
-.generate-playlist-button .login-spotify-button:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
+/* Hover: se invierten los colores */
+.generate-playlist-button:hover,
+.login-spotify-button:hover {
+  background-color: var(--secondary-color); /* Nuevo fondo */
+  color: var(--primary-color); /* Texto invertido */
 }
+
 
 /* Fondo oscuro de la ventana emergente */
 .popup-overlay {
