@@ -1,11 +1,11 @@
 /* ABOUT SECTION */
 .text-container {
   max-width: 87.5rem; 
-  margin: 0 auto; /* Centra horizontalmente la sección */
-  text-align: center; /* Alinea el texto al centro */
+  margin: 0 auto; 
+  text-align: center; 
   padding-top: 6rem;
   padding-bottom: 6rem;
-  position: relative; /* Necesario para posicionar la línea dentro */
+  position: relative; 
   line-height: 1.8;
 }
 
