@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/groove_on_7/static/css/main.94f30c29.css",
-    "main.js": "/groove_on_7/static/js/main.8e9226ac.js",
+    "main.css": "/groove_on_7/static/css/main.266a7a6f.css",
+    "main.js": "/groove_on_7/static/js/main.336c88ab.js",
     "static/media/instagram.svg": "/groove_on_7/static/media/instagram.607b03e77912c020e5a95cbafa6feea4.svg",
     "static/media/calendar.svg": "/groove_on_7/static/media/calendar.3810ce3bc0e8712af05d032f21a2c35d.svg",
     "static/media/location.svg": "/groove_on_7/static/media/location.9fddc5632f2892f84d97e365b1e02d74.svg",
     "index.html": "/groove_on_7/index.html",
     "static/media/hamburger.svg": "/groove_on_7/static/media/hamburger.be7c0f78671869d092b5d6d3f5d14260.svg",
     "static/media/close.svg": "/groove_on_7/static/media/close.bb3bf37b281967849cd0236730b4bcfc.svg",
-    "main.94f30c29.css.map": "/groove_on_7/static/css/main.94f30c29.css.map",
-    "main.8e9226ac.js.map": "/groove_on_7/static/js/main.8e9226ac.js.map"
+    "main.266a7a6f.css.map": "/groove_on_7/static/css/main.266a7a6f.css.map",
+    "main.336c88ab.js.map": "/groove_on_7/static/js/main.336c88ab.js.map"
   },
   "entrypoints": [
-    "static/css/main.94f30c29.css",
-    "static/js/main.8e9226ac.js"
+    "static/css/main.266a7a6f.css",
+    "static/js/main.336c88ab.js"
   ]
 }
