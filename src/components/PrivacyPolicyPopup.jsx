@@ -7,8 +7,8 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
 
   return (
     <motion.div className="popup-overlay" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.5 }}>
-      <div className="popup-content">
-        <h4 className="popup-title">Privacy Policy</h4>
+      <div className="privacy-popup-content">
+        <h4 className="privacy-popup-title">Privacy Policy</h4>
         <div className="privacy-content">
           <p>Effective Date: December 2024</p>
 
