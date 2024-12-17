@@ -3,6 +3,8 @@ import { useScrollContext } from '../context/ScrollContext';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+console.log('GSAP Version:', gsap.version); // Fuerza la inclusión en el build
+
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
