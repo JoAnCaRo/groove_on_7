@@ -1,6 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import VideoPopup from './VideoPopup';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LiveSessions = () => {
   const { sections } = useScrollContext();
@@ -11,49 +15,40 @@ const LiveSessions = () => {
   const secondVerticalLineRef = useRef(null);
 
   useEffect(() => {
-    const { gsap } = window; // Accede a GSAP globalmente
-    const { ScrollTrigger } = window;
+    const liveSessionsSection = document.querySelector('.live-sessions-section');
 
-    if (gsap && ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
+    // Animación para la primera línea vertical (azul)
+    if (firstVerticalLineRef.current) {
+      gsap.fromTo(
+        firstVerticalLineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: liveSessionsSection,
+            start: 'top center+=20',
+            end: 'bottom center',
+            scrub: true,
+          },
+        }
+      );
+    }
 
-      const liveSessionsSection = document.querySelector('.live-sessions-section');
-
-      // Animación para la primera línea vertical (azul)
-      if (firstVerticalLineRef.current) {
-        gsap.fromTo(
-          firstVerticalLineRef.current,
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            scrollTrigger: {
-              trigger: liveSessionsSection,
-              start: 'top center+=20',
-              end: 'bottom center',
-              scrub: true,
-            },
-          }
-        );
-      }
-
-      // Animación para la segunda línea vertical (rojo)
-      if (secondVerticalLineRef.current) {
-        gsap.fromTo(
-          secondVerticalLineRef.current,
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            scrollTrigger: {
-              trigger: liveSessionsSection,
-              start: 'top center-=900',
-              end: 'bottom center-=1000',
-              scrub: true,
-            },
-          }
-        );
-      }
-    } else {
-      console.error('GSAP or ScrollTrigger not found!');
+    // Animación para la segunda línea vertical (rojo)
+    if (secondVerticalLineRef.current) {
+      gsap.fromTo(
+        secondVerticalLineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: liveSessionsSection,
+            start: 'top center-=900',
+            end: 'bottom center-=1000',
+            scrub: true,
+          },
+        }
+      );
     }
   }, []);
 
