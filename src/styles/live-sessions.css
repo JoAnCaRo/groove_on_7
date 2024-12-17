@@ -300,13 +300,6 @@ section.live-sessions-section {
     margin: 0; 
   }
 
-/*   .live-sessions-section {
-    padding-top: 6rem !important; 
-    padding-bottom: 3rem !important;
-  } */
-
-
-
   .video-popup-content {
     display: flex; /* Asegura que el contenido se alinee */
     flex-direction: column; /* Organiza el iframe y el botón en columna */
@@ -332,7 +325,6 @@ section.live-sessions-section {
 
 /* Ajustes específicos para tablets en vertical */
 @media (max-width: 1025px) {
-
   .video-popup-content {
     display: flex; /* Asegura que el contenido se alinee */
     flex-direction: column; /* Organiza el iframe y el botón en columna */
@@ -349,6 +341,30 @@ section.live-sessions-section {
     aspect-ratio: 16 / 9; /* Mantiene proporciones estándar de video */
     border: none; /* Elimina bordes del iframe */
   }
+
+  .session-content {
+    display: flex; /* Activa Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: left; /* Centra verticalmente */
+
+  }
+
+  .session-content h4 {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  .session-content p {
+    margin: 0; 
+  }
+
+
+
+
+
+
 
   .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
     opacity: 0;
