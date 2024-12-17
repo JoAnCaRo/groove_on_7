@@ -148,12 +148,12 @@
 
 /* Contenido de la ventana emergente */
   .popup-content {
-    background: var(--primary-color);
-    color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: var(--primary-color);
     border-radius: 8px;
     width: 100vw; /* Ajusta el ancho al 90% del viewport */
-    max-width: 1280px; /* Limita el ancho máximo */
-    height: auto; /* Permite que la altura se ajuste automáticamente */
+    max-width: 1280px;
+    height: 100vh; /* Permite que la altura se ajuste automáticamente */
   }
 
   .vertical-line-left {
