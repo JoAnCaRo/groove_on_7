@@ -33,27 +33,22 @@ pool.query('SELECT NOW()', (err, res) => {
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Permite localhost, dominios ngrok y GitHub Pages
-      const allowedOrigins = [
-        'http://localhost:3000',
-        /^https:\/\/.*\.ngrok-free\.app$/,
-        'https://joancaro.github.io'
-      ];
+      const allowedOrigins = ['http://localhost:3000', /^https:\/\/.*\.ngrok-free\.app$/, 'https://joancaro.github.io'];
 
-      if (!origin || allowedOrigins.some((allowed) => 
-        typeof allowed === 'string' ? allowed === origin : allowed.test(origin)
-      )) {
+      if (!origin || allowedOrigins.some((allowed) => (typeof allowed === 'string' ? allowed === origin : allowed.test(origin)))) {
         callback(null, true);
       } else {
+        console.error('Bloqueo por CORS: ', origin);
         callback(new Error('Not allowed by CORS'));
       }
     },
+    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
+    credentials: true, // Permitir cookies si es necesario
   })
 );
 
-
-
-// Middlewares
+// Middleware global
 app.use(bodyParser.json());
 
 // Ruta para obtener eventos
@@ -62,6 +57,7 @@ app.get('/events', async (req, res) => {
     const result = await pool.query('SELECT * FROM events ORDER BY date ASC');
     res.json(result.rows);
   } catch (err) {
+    console.error('Error al obtener eventos:', err.message);
     res.status(500).json({ error: err.message });
   }
 });
@@ -73,6 +69,7 @@ app.post('/events', async (req, res) => {
     const result = await pool.query('INSERT INTO events (date, name, location, map_link) VALUES ($1, $2, $3, $4) RETURNING *', [date, name, location, map_link]);
     res.json(result.rows[0]);
   } catch (err) {
+    console.error('Error al añadir evento:', err.message);
     res.status(500).json({ error: err.message });
   }
 });
@@ -84,9 +81,13 @@ app.delete('/events/:id', async (req, res) => {
     await pool.query('DELETE FROM events WHERE id = $1', [id]);
     res.json({ message: 'Evento eliminado exitosamente' });
   } catch (err) {
+    console.error('Error al borrar evento:', err.message);
     res.status(500).json({ error: err.message });
   }
 });
+
+// Manejo de solicitudes OPTIONS (pre-flight)
+app.options('*', cors());
 
 // Configuración del puerto
 const PORT = process.env.PORT || 5001;

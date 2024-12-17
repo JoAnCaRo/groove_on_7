@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LocationIcon from '../assets/icons/location.svg';
 import CalendarIcon from '../assets/icons/calendar.svg';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Events = () => {
   const { sections } = useScrollContext(); // Obtener las referencias del contexto
@@ -17,74 +13,89 @@ const Events = () => {
 
   const backendURL = process.env.NODE_ENV === 'development' ? 'http://localhost:5001/events' : 'https://grooveon7-production.up.railway.app/events';
 
+useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      console.log('Fetching events from:', backendURL);
+      const response = await fetch(backendURL);
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      setEvents(data);
+    } catch (error) {
+      console.error('Error al cargar eventos:', error.message);
+    }
+  };
+
+  fetchEvents();
+}, [backendURL]);
+
+
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch(backendURL);
-        if (!response.ok) throw new Error('Error al obtener los eventos');
-        const data = await response.json();
-        setEvents(data);
-      } catch (error) {
-        console.error('Error al cargar eventos:', error);
-      }
-    };
+    const { gsap } = window; // Accede a GSAP globalmente
+    const { ScrollTrigger } = window;
 
-    fetchEvents();
-  }, [backendURL]);
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
 
-  useEffect(() => {
-    const eventsSection = document.querySelector('.events-section');
+      const eventsSection = document.querySelector('.events-section');
 
-    // Primera línea (arriba a abajo)
-    gsap.fromTo(
-      verticalLine1Ref.current,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        duration: 2,
-        transformOrigin: 'top center',
-        scrollTrigger: {
-          trigger: eventsSection,
-          start: 'top center+=25',
-          end: 'bottom center',
-          scrub: true,
-        },
-      }
-    );
+      // Primera línea (arriba a abajo)
+      gsap.fromTo(
+        verticalLine1Ref.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          duration: 2,
+          transformOrigin: 'top center',
+          scrollTrigger: {
+            trigger: eventsSection,
+            start: 'top center+=25',
+            end: 'bottom center',
+            scrub: true,
+          },
+        }
+      );
 
-    // Segunda línea (abajo a arriba)
-    gsap.fromTo(
-      verticalLine2Ref.current,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        duration: 2,
-        transformOrigin: 'bottom center',
-        scrollTrigger: {
-          trigger: eventsSection,
-          start: 'top center+=250',
-          end: 'bottom cente+=350',
-          scrub: true,
-        },
-      }
-    );
+      // Segunda línea (abajo a arriba)
+      gsap.fromTo(
+        verticalLine2Ref.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          duration: 2,
+          transformOrigin: 'bottom center',
+          scrollTrigger: {
+            trigger: eventsSection,
+            start: 'top center+=250',
+            end: 'bottom center+=350',
+            scrub: true,
+          },
+        }
+      );
 
-    // Tercera línea (arriba a abajo)
-    gsap.fromTo(
-      verticalLine3Ref.current,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        duration: 2,
-        transformOrigin: 'top center',
-        scrollTrigger: {
-          trigger: eventsSection,
-          start: 'top center-=150',
-          end: 'bottom center-=150',
-          scrub: true,
-        },
-      }
-    );
+      // Tercera línea (arriba a abajo)
+      gsap.fromTo(
+        verticalLine3Ref.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          duration: 2,
+          transformOrigin: 'top center',
+          scrollTrigger: {
+            trigger: eventsSection,
+            start: 'top center-=150',
+            end: 'bottom center-=150',
+            scrub: true,
+          },
+        }
+      );
+    } else {
+      console.error('GSAP or ScrollTrigger not found!');
+    }
   }, []);
 
   const formatDate = (dateString) => {
