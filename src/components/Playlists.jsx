@@ -1,9 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Playlists = () => {
   const { sections } = useScrollContext();
@@ -13,45 +9,56 @@ const Playlists = () => {
   useEffect(() => {
     console.log('Initializing GSAP animation for Playlists section'); // Depuración
 
-    const playlistsSection = document.querySelector('.playlists-section'); // Sección Playlists
+    const { gsap } = window; // Accede a GSAP globalmente
+    const { ScrollTrigger } = window;
 
-    if (lineRef.current && reverseLineRef.current && playlistsSection) {
-      // Animación de la línea horizontal (izquierda a derecha)
-      gsap.fromTo(
-        lineRef.current,
-        {
-          scaleX: 0, // Comienza sin ancho
-        },
-        {
-          scaleX: 1, // Se expande completamente
-          duration: 2, // Añade duración para depuración
-          scrollTrigger: {
-            trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
-            start: 'top center', // Comienza cuando Playlists llega al centro del viewport
-            end: 'bottom center', // Termina cuando Playlists sale del viewport
-            scrub: true, // Sincroniza con el scroll
-          },
-        }
-      );
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
 
-      // Animación de la línea horizontal inversa (derecha a izquierda)
-      gsap.fromTo(
-        reverseLineRef.current,
-        {
-          scaleX: 0, // Comienza sin ancho
-        },
-        {
-          scaleX: 1, // Se expande completamente
-          duration: 2,
-          transformOrigin: 'right center', // Se expande desde la derecha
-          scrollTrigger: {
-            trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
-            start: 'top center-=500',
-            end: 'bottom center-=500',
-            scrub: true,
+      const playlistsSection = document.querySelector('.playlists-section'); // Sección Playlists
+
+      if (lineRef.current && playlistsSection) {
+        // Animación de la línea horizontal (izquierda a derecha)
+        gsap.fromTo(
+          lineRef.current,
+          {
+            scaleX: 0, // Comienza sin ancho
           },
-        }
-      );
+          {
+            scaleX: 1, // Se expande completamente
+            duration: 2, // Duración para depuración
+            scrollTrigger: {
+              trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
+              start: 'top center', // Comienza cuando Playlists llega al centro del viewport
+              end: 'bottom center', // Termina cuando Playlists sale del viewport
+              scrub: true, // Sincroniza con el scroll
+            },
+          }
+        );
+      }
+
+      if (reverseLineRef.current && playlistsSection) {
+        // Animación de la línea horizontal inversa (derecha a izquierda)
+        gsap.fromTo(
+          reverseLineRef.current,
+          {
+            scaleX: 0, // Comienza sin ancho
+          },
+          {
+            scaleX: 1, // Se expande completamente
+            duration: 2,
+            transformOrigin: 'right center', // Se expande desde la derecha
+            scrollTrigger: {
+              trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
+              start: 'top center-=500',
+              end: 'bottom center-=500',
+              scrub: true,
+            },
+          }
+        );
+      }
+    } else {
+      console.error('GSAP or ScrollTrigger not found!');
     }
   }, []);
 
