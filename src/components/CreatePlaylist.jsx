@@ -29,21 +29,22 @@ const CreatePlaylist = () => {
     window.location.href = spotifyAuthUrl.toString();
   };
 
-  // Capture Access Token from URL
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const params = new URLSearchParams(hash.substring(1));
-      const token = params.get('access_token');
-      if (token) {
-        setAccessToken(token);
-        console.log('Access Token:', token);
+useEffect(() => {
+  // Captura el access_token de la URL
+  const hash = window.location.hash;
+  if (hash) {
+    const params = new URLSearchParams(hash.substring(1));
+    const token = params.get('access_token');
+    if (token) {
+      setAccessToken(token);
+      console.log('Access Token:', token);
 
-        // Limpiar el hash de la URL para evitar redirección duplicada
-        window.history.replaceState({}, document.title, window.location.pathname);
-      }
+      // Limpia el hash de la URL sin recargar la página
+      window.history.replaceState(null, document.title, window.location.pathname);
     }
-  }, []);
+  }
+}, []);
+
 
   // Fetch Playlist Data
   const fetchPlaylist = async () => {
