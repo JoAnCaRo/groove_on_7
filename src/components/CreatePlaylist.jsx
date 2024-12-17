@@ -181,8 +181,7 @@ const CreatePlaylist = () => {
             src={`https://open.spotify.com/embed/playlist/${embedPlaylistId}`}
             width="100%"
             height="380"
-            style={{ marginTop: '20px' }}
-            border="none"
+            style={{ marginTop: '20px', border: 'none' }}
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
