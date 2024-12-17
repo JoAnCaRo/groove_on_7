@@ -15,43 +15,57 @@ const CreatePlaylist = () => {
   const horizontalLineRightRef = useRef(null);
 
   // Spotify Login Handler
-  const handleSpotifyLogin = () => {
-    const clientId = 'a1a40ff261a74446b82d30c304c3717b';
-    const redirectUri = 'https://joancaro.github.io/groove_on_7/';
+const handleSpotifyLogin = () => {
+  // Guarda la posición actual del scroll
+  const scrollPosition = window.scrollY;
+  localStorage.setItem('scrollPosition', scrollPosition);
 
-    const scope = 'playlist-read-private playlist-modify-private user-top-read';
+  const clientId = 'a1a40ff261a74446b82d30c304c3717b';
+  const redirectUri = 'https://joancaro.github.io/groove_on_7/';
 
-    const spotifyAuthUrl = new URL('https://accounts.spotify.com/authorize');
-    spotifyAuthUrl.searchParams.append('response_type', 'token');
-    spotifyAuthUrl.searchParams.append('client_id', clientId);
-    spotifyAuthUrl.searchParams.append('redirect_uri', redirectUri);
-    spotifyAuthUrl.searchParams.append('scope', scope);
+  const scope = 'playlist-read-private playlist-modify-private user-top-read';
 
-    window.location.href = spotifyAuthUrl.toString();
-  };
+  const spotifyAuthUrl = new URL('https://accounts.spotify.com/authorize');
+  spotifyAuthUrl.searchParams.append('response_type', 'token');
+  spotifyAuthUrl.searchParams.append('client_id', clientId);
+  spotifyAuthUrl.searchParams.append('redirect_uri', redirectUri);
+  spotifyAuthUrl.searchParams.append('scope', scope);
 
-  useEffect(() => {
-    const cleanUpToken = () => {
-      // Captura el access_token de la URL
-      const hash = window.location.hash;
-      if (hash) {
-        const params = new URLSearchParams(hash.substring(1));
-        const token = params.get('access_token');
-        if (token) {
-          setAccessToken(token);
-          console.log('Access Token:', token);
+  // Redirige a Spotify
+  window.location.href = spotifyAuthUrl.toString();
+};
 
-          // Abre la ventana emergente automáticamente
-          setIsPopupOpen(true);
 
-          // Limpia el hash de la URL sin recargar la página
-          window.history.replaceState(null, document.title, window.location.pathname);
+useEffect(() => {
+  const cleanUpToken = () => {
+    // Captura el access_token de la URL
+    const hash = window.location.hash;
+    if (hash) {
+      const params = new URLSearchParams(hash.substring(1));
+      const token = params.get('access_token');
+      if (token) {
+        setAccessToken(token);
+        console.log('Access Token:', token);
+
+        // Abre la ventana emergente automáticamente
+        setIsPopupOpen(true);
+
+        // Limpia el hash de la URL sin recargar la página
+        window.history.replaceState(null, document.title, window.location.pathname);
+
+        // Restaura la posición del scroll
+        const savedScrollPosition = localStorage.getItem('scrollPosition');
+        if (savedScrollPosition) {
+          window.scrollTo(0, parseInt(savedScrollPosition, 10));
+          localStorage.removeItem('scrollPosition'); // Limpia el localStorage
         }
       }
-    };
+    }
+  };
 
-    cleanUpToken();
-  }, []);
+  cleanUpToken();
+}, []);
+
 
   // Fetch Top Tracks and Create Playlist
   const fetchTopTracks = async () => {
@@ -174,7 +188,7 @@ const CreatePlaylist = () => {
       {/* Ventana emergente */}
       <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <button className="create-playlist-button" onClick={handleGeneratePlaylist}>
-          Generate My Top Tracks Playlist
+          Generate My Top 10 Tracks Playlist
         </button>
         {embedPlaylistId && (
           <iframe
