@@ -53,7 +53,7 @@ const CreatePlaylist = () => {
   const fetchPlaylist = async () => {
     if (!accessToken) return; // Evita la llamada si no hay token
 
-    const playlistId = '06TIJECvdE85VqhbMbp1OR?si=YDwHNTHwTgSnXhzR5kB_9g'; // Mi Playlist ID
+    const playlistId = '06TIJECvdE85VqhbMbp1OR'; // Mi Playlist ID
     const url = `https://api.spotify.com/v1/playlists/${playlistId}`;
 
     try {
