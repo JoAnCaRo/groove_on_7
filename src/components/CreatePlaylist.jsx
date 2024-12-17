@@ -51,7 +51,9 @@ const CreatePlaylist = () => {
 
   // Fetch Playlist Data
   const fetchPlaylist = async () => {
-    const playlistId = '37i9dQZF1DXcBWIGoYBM5M'; // Replace with your Playlist ID
+    if (!accessToken) return; // Evita la llamada si no hay token
+
+    const playlistId = '06TIJECvdE85VqhbMbp1OR?si=YDwHNTHwTgSnXhzR5kB_9g'; // Mi Playlist ID
     const url = `https://api.spotify.com/v1/playlists/${playlistId}`;
 
     try {
@@ -60,13 +62,25 @@ const CreatePlaylist = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+
       const data = await response.json();
       setPlaylistData(data);
-      console.log('Playlist Data:', data);
+      console.log('Playlist Data:', data); // Comentario: Playlist data obtenido correctamente
     } catch (error) {
-      console.error('Error fetching playlist:', error);
+      console.error('Error fetching playlist:', error.message); // Comentario: Manejo de error en fetch
     }
   };
+
+  // Fetch playlist cuando se obtenga el token
+  useEffect(() => {
+    if (accessToken) {
+      fetchPlaylist(); // Comentario: Llama a fetchPlaylist cuando hay token
+    }
+  }, [accessToken]);
 
   useEffect(() => {
     const createPlaylistSection = document.querySelector('.create-playlist-section');
