@@ -181,7 +181,7 @@ useEffect(() => {
       <div className="create-playlist-container">
         {/* Botón de login para Spotify */}
         <button className="login-spotify-button" onClick={handleSpotifyLogin}>
-          Login with Spotify
+          LOGIN WITH SPOTIFY
         </button>
       </div>
 
