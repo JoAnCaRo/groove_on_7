@@ -82,8 +82,8 @@ const CreatePlaylist = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: 'My Top 5 Tracks Playlist',
-          description: 'Playlist created from your top 5 tracks!',
+          name: 'My Top 10 Tracks Playlist',
+          description: 'Playlist created from your top 10 tracks!',
           public: false,
         }),
       });
@@ -161,17 +161,18 @@ const CreatePlaylist = () => {
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
         <h3>Create Your Own Playlist</h3>
-        <p>Check my top 10 tracks!</p>
+        <p>Generate your personalized Spotify playlist based on your top 10 tracks!</p>
       </div>
 
       <div className="create-playlist-container">
-        <button className="create-playlist-button" onClick={() => setIsPopupOpen(true)}>
-          CREATE YOUR PLAYLIST
+        {/* Botón de login para Spotify */}
+        <button className="create-playlist-button" onClick={handleSpotifyLogin}>
+          Login with Spotify
         </button>
       </div>
 
       {/* Ventana emergente */}
-      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleSpotifyLogin}>
+      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <button className="create-playlist-button" onClick={handleGeneratePlaylist}>
           Generate My Top Tracks Playlist
         </button>
