@@ -27,7 +27,7 @@ import './styles/playlists.css';
 const App = () => {
   return (
     <ScrollProvider>
-      <Router basename="/groove_on_7">
+      <Router>
         <Navbar />
         <Routes>
           <Route
