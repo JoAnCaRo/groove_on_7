@@ -53,7 +53,7 @@ const CreatePlaylist = () => {
   const fetchPlaylist = async () => {
     if (!accessToken) return; // Evita la llamada si no hay token
 
-    const playlistId = '06TIJECvdE85VqhbMbp1OR'; // Mi Playlist ID
+    const playlistId = '06TIJECvdE85VqhbMbp1OR'; // Actualizado con el nuevo Playlist ID
     const url = `https://api.spotify.com/v1/playlists/${playlistId}`;
 
     try {
@@ -142,22 +142,28 @@ const CreatePlaylist = () => {
         </button>
       </div>
 
-      {/* Mostrar Playlist Data */}
-      {playlistData && (
-        <div className="playlist-data">
-          <h4>{playlistData.name}</h4>
-          <ul>
-            {playlistData.tracks.items.map((item, index) => (
-              <li key={index}>
-                {item.track.name} - {item.track.artists[0].name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
       {/* Ventana emergente */}
-      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleSpotifyLogin} />
+      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleSpotifyLogin}>
+        {/* Playlist dentro de la ventana emergente */}
+        {playlistData && (
+          <div className="playlist-data">
+            <h4>{playlistData.name}</h4>
+            <ul>
+              {playlistData.tracks.items.map((item, index) => (
+                <li key={index}>
+                  {item.track.name} - {item.track.artists[0].name}
+                  {item.track.preview_url && (
+                    <audio controls>
+                      <source src={item.track.preview_url} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </PlaylistPopup>
     </section>
   );
 };
