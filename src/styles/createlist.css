@@ -1,5 +1,5 @@
 /* CREATE LIST SECTION */
-.create-playlist-section {
+.generate-playlist-section {
   background-color: var(--secondary-color); /* Fondo oscuro */
   color: var(--primary-color); /* Texto claro */
   margin: 0; /* Elimina márgenes automáticos */
@@ -8,14 +8,14 @@
   box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
 }
 
-.create-playlist-content {
+.generate-playlist-content {
   max-width: 90rem; 
   margin: 0 auto; /* Centra el contenido horizontalmente */
   padding: 0 var(--spacing); /* Espaciado interno a los lados */
   text-align: center; /* Alinea el texto al centro */
 }
 
-.create-playlist-content h3 {
+.generate-playlist-content h3 {
   text-align: left; /* Alineado a la izquierda */
   font-size: 1.5rem; /* Tamaño del texto del h3 */
   font-weight: bold; /* Hace el texto más prominente */
@@ -24,7 +24,7 @@
   color: var(--primary-color); /* Asegura que el texto del título sea claro */
 }
 
-.create-playlist-content h3::after {
+.generate-playlist-content h3::after {
   content: ''; /* Genera un pseudo-elemento para la línea */
   display: block; /* Asegura que ocupe toda la línea */
   width: 100%; /* La línea ocupa el ancho del contenedor h3 */
@@ -35,14 +35,14 @@
   margin-bottom: 2rem;
 }
 
-.create-playlist-content p {
+.generate-playlist-content p {
   font-size: 1rem; /* Tamaño del texto */
   line-height: 1.8; /* Espaciado entre líneas */
   color: var(--primary-color); /* Asegura que el texto sea claro */
   margin-top: 1rem;
 }
 
-.create-playlist-container {
+.generate-playlist-container {
   margin-top: 2rem;  
   text-align: center;
 }
@@ -116,7 +116,7 @@
 
 /* Responsive para móviles en vertical */
 @media (max-width: 767px) {
-  .create-playlist-section .line-container {
+  .generate-playlist-section .line-container {
     z-index: -1; 
   }
 .vertical-line-left {
@@ -161,7 +161,7 @@
     height: 90%; /* Controla la altura total de la línea vertical */
   }
 
-  .create-playlist-section .line-container {
+  .generate-playlist-section .line-container {
     z-index: -1; 
   }
   .vertical-line-left {
@@ -189,7 +189,7 @@
 }
 
 /* Contenedor de la sección */
-.create-playlist-section {
+.generate-playlist-section {
   position: relative;
   overflow: hidden; /* Evita que las líneas sobresalgan */
   padding: 4rem 0;

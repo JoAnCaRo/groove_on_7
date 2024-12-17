@@ -125,7 +125,7 @@ useEffect(() => {
   };
 
   useEffect(() => {
-    const createPlaylistSection = document.querySelector('.create-playlist-section');
+    const createPlaylistSection = document.querySelector('.generate-playlist-section');
 
     if (verticalLineLeftRef.current && horizontalLineRightRef.current) {
       // Animación para la línea izquierda (de arriba a abajo)
@@ -165,7 +165,7 @@ useEffect(() => {
   }, []);
 
   return (
-    <section id="create-playlist" className="create-playlist-section">
+    <section id="generate-playlist" className="generate-playlist-section">
       {/* Contenedores de las líneas */}
       <div className="line-container">
         <div ref={verticalLineLeftRef} className="vertical-line-left"></div>
@@ -173,12 +173,12 @@ useEffect(() => {
       </div>
 
       {/* Contenido de la sección */}
-      <div className="create-playlist-content">
+      <div className="generate-playlist-content">
         <h3>Check My Top-Ten Tracks</h3>
         <p>Check, play or save my top-10 tracks in your Spotify account!</p>
       </div>
 
-      <div className="create-playlist-container">
+      <div className="generate-playlist-container">
         {/* Botón de login para Spotify */}
         <button className="login-spotify-button" onClick={handleSpotifyLogin}>
           LOGIN WITH SPOTIFY
