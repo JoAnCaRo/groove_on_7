@@ -65,14 +65,14 @@ const LiveSessions = () => {
       title: 'Funk',
       description: 'Get down to the irresistible grooves of Funk — where deep basslines, soulful rhythms, and electrifying vibes take over!',
       thumbnail: 'img/thumbnails/session-02.png',
-      vimeoUrl: 'https://player.vimeo.com/video/580266492',
+      vimeoUrl: 'https://player.vimeo.com/video/290642100',
     },
     {
       id: 3,
       title: 'House',
       description: 'Immerse yourself in the pulsating beats of House music — uplifting melodies, hypnotic rhythms, and pure dancefloor energy!',
       thumbnail: 'img/thumbnails/session-03.png',
-      vimeoUrl: 'https://player.vimeo.com/video/290642100',
+      vimeoUrl: 'https://player.vimeo.com/video/580266492',
     },
   ];
 
