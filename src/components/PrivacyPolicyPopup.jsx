@@ -20,26 +20,29 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
           <h2>What Data We Collect</h2>
           <p>When you use our app, we may collect the following data from you:</p>
           <ul>
-            <li>- Basic profile information (name, email, etc.)</li>
-            <li>- Playlist information from Tidal</li>
-            <li>- Tracks selected for playlist creation</li>
+            <li>- Basic profile information from Spotify (name, email)</li>
+            <li>- Playlist information (playlist names, track details)</li>
           </ul>
 
           <h2>How We Use Your Data</h2>
           <p>The data collected is used exclusively for the following purposes:</p>
           <ul>
-            <li>- To allow you to view and interact with your playlists</li>
-            <li>- To create custom playlists based on your preferences</li>
-            <li>- To improve the app functionality</li>
+            <li>- To allow you to log in to your Spotify account</li>
+            <li>- To enable pre-listening of tracks from your playlists</li>
+            <li>- To provide redirection to Spotify for full track playback</li>
+            <li>- To allow you to copy playlist links for sharing</li>
           </ul>
 
           <h2>How We Protect Your Data</h2>
-          <p>We use industry-standard security measures to protect your data, such as encryption and secure access controls.</p>
+          <p>
+            We use industry-standard security measures to protect your data, such as encryption and secure access controls. Your Spotify login credentials (email and password) are handled securely
+            through Spotify's authorization process, and we do not store this information.
+          </p>
 
           <h2>Third-Party Services</h2>
           <p>
-            We use the Tidal API to access your playlists. Your data is processed according to Tidal’s{' '}
-            <a href="https://tidal.com/privacy" target="_blank" rel="noopener noreferrer">
+            We use the Spotify API to access your playlists and track details. Your data is processed according to Spotify’s{' '}
+            <a href="https://www.spotify.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">
               Privacy Policy
             </a>
             .
@@ -62,7 +65,7 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
           <p>We may update this Privacy Policy periodically. We will notify you of any significant changes.</p>
 
           <p>
-            <a href="/">Return to Home</a>
+            <a href="https://joancaro.github.io/groove_on_7/">Return to Home</a>
           </p>
         </div>
         <button className="close-popup-button-privacy" onClick={onClose}>
@@ -74,3 +77,8 @@ const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
 };
 
 export default PrivacyPolicyPopup;
+
+
+
+
+
