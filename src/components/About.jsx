@@ -1,9 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'; // IMPORTAR DESDE 'gsap/dist'
-
-gsap.registerPlugin(ScrollTrigger); // Registro seguro del plugin
 
 const About = () => {
   const { sections } = useScrollContext();
@@ -11,45 +7,46 @@ const About = () => {
   const verticalLineRef = useRef(null); // Referencia a la línea vertical
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const aboutSection = document.querySelector('.about-section'); // Sección About
+    const { gsap } = window; // Accede a GSAP global desde el CDN
+    const { ScrollTrigger } = window;
 
-      if (lineRef.current && aboutSection) {
-        // Animación de la línea horizontal
-        gsap.fromTo(
-          lineRef.current,
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            scrollTrigger: {
-              trigger: aboutSection,
-              start: 'top center',
-              end: 'bottom center',
-              scrub: true,
-            },
-          }
-        );
-      }
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger); // Asegura que esté registrado
 
-      if (verticalLineRef.current && aboutSection) {
-        // Animación de la línea vertical
-        gsap.fromTo(
-          verticalLineRef.current,
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            scrollTrigger: {
-              trigger: aboutSection,
-              start: 'top center',
-              end: 'bottom center',
-              scrub: true,
-            },
-          }
-        );
-      }
-    });
+      const aboutSection = document.querySelector('.about-section');
 
-    return () => ctx.revert(); // Limpia las animaciones
+      // Animación de la línea horizontal
+      gsap.fromTo(
+        lineRef.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          scrollTrigger: {
+            trigger: aboutSection,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+          },
+        }
+      );
+
+      // Animación de la línea vertical
+      gsap.fromTo(
+        verticalLineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: aboutSection,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+          },
+        }
+      );
+    } else {
+      console.error('GSAP or ScrollTrigger not found!');
+    }
   }, []);
 
   return (
