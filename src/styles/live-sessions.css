@@ -286,13 +286,17 @@ section.live-sessions-section {
     display: flex; /* Activa Flexbox */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    height: 250px; /* Reduce la altura a la mitad en dispositivos móviles */
+    /* height: 200px;  */
   }
 
-.live-sessions-section {
-  padding-top: 6rem; 
-  padding-bottom: 3rem;
-}
+  .session-content p {
+    margin: 0.5rem 0 ; 
+  }
+
+  .live-sessions-section {
+    padding-top: 6rem !important; 
+    padding-bottom: 3rem !important;
+  }
 
 
 
