@@ -61,6 +61,11 @@ h2 {
     max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
   }
 
+  .about-section {
+    padding-top: 4rem;
+    padding-bottom: 3rem; 
+  }
+
   .line-container-about {
     height: 3px; /* Ajusta el grosor de la línea horizontal */
     top: 70%; /* Ajusta la posición de la línea horizontal */
