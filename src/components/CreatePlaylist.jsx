@@ -175,7 +175,7 @@ useEffect(() => {
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
         <h3>Check My Top-Ten Tracks</h3>
-        <p>Check, play or save my top 10 tracks in your Spotify !</p>
+        <p>Check, play or save my top-10 tracks in your Spotify account!</p>
       </div>
 
       <div className="create-playlist-container">
