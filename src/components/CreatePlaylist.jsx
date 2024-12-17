@@ -56,7 +56,7 @@ const CreatePlaylist = () => {
   // Fetch Top Tracks and Create Playlist
   const fetchTopTracks = async () => {
     try {
-      const response = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=5', {
+      const response = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -161,7 +161,7 @@ const CreatePlaylist = () => {
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
         <h3>Create Your Own Playlist</h3>
-        <p>Generate your personalized Spotify playlist based on your top 5 tracks!</p>
+        <p>Check my top 10 tracks!</p>
       </div>
 
       <div className="create-playlist-container">
@@ -182,7 +182,7 @@ const CreatePlaylist = () => {
             width="100%"
             height="380"
             style={{ marginTop: '20px' }}
-            frameBorder="0"
+            border="none"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
