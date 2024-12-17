@@ -219,7 +219,7 @@ section.live-sessions-section {
 
   .session-content {
     padding: 0.5rem;
-    max-width: 16rem; /* Reduce ligeramente el ancho máximo en móviles */
+    max-width: 16rem; 
   }
 
   .session-content h4 {
@@ -286,7 +286,7 @@ section.live-sessions-section {
     display: flex; /* Activa Flexbox */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    /* height: 100%; */
+    max-width: 6rem; /* Reduce ligeramente el ancho máximo en móviles */
   }
 
   .video-popup-content {
