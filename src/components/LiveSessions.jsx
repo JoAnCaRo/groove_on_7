@@ -53,9 +53,27 @@ const LiveSessions = () => {
   }, []);
 
   const videos = [
-    { id: 1, title: 'Disco', description: 'Lorem ipsum dolor sit amet.', thumbnail: 'img/thumbnails/session-01.png', vimeoUrl: 'https://player.vimeo.com/video/290642100' },
-    { id: 2, title: 'Funk', description: 'Lorem ipsum dolor sit amet.', thumbnail: 'img/thumbnails/session-02.png', vimeoUrl: 'https://player.vimeo.com/video/580266492' },
-    { id: 3, title: 'House', description: 'Lorem ipsum dolor sit amet.', thumbnail: 'img/thumbnails/session-03.png', vimeoUrl: 'https://player.vimeo.com/video/290642100' },
+    {
+      id: 1,
+      title: 'Disco',
+      description: 'A journey through groovy Disco beats and timeless classics. Feel the rhythm and let the music move you!',
+      thumbnail: 'img/thumbnails/session-01.png',
+      vimeoUrl: 'https://player.vimeo.com/video/290642100',
+    },
+    {
+      id: 2,
+      title: 'Funk',
+      description: 'Get down to the irresistible grooves of Funk — where deep basslines, soulful rhythms, and electrifying vibes take over!',
+      thumbnail: 'img/thumbnails/session-02.png',
+      vimeoUrl: 'https://player.vimeo.com/video/580266492',
+    },
+    {
+      id: 3,
+      title: 'House',
+      description: 'Immerse yourself in the pulsating beats of House music — uplifting melodies, hypnotic rhythms, and pure dancefloor energy!',
+      thumbnail: 'img/thumbnails/session-03.png',
+      vimeoUrl: 'https://player.vimeo.com/video/290642100',
+    },
   ];
 
   return (
