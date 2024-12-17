@@ -1,9 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PlaylistPopup from './PlaylistPopup';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const CreatePlaylist = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -123,42 +119,51 @@ const CreatePlaylist = () => {
   };
 
   useEffect(() => {
-    const createPlaylistSection = document.querySelector('.generate-playlist-section');
+    const { gsap } = window; // Accede a GSAP globalmente
+    const { ScrollTrigger } = window;
 
-    if (verticalLineLeftRef.current && horizontalLineRightRef.current) {
-      // Animación para la línea izquierda (de arriba a abajo)
-      gsap.fromTo(
-        verticalLineLeftRef.current,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          duration: 2,
-          transformOrigin: 'top center',
-          scrollTrigger: {
-            trigger: createPlaylistSection,
-            start: 'top center',
-            end: 'bottom center',
-            scrub: true,
-          },
-        }
-      );
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
 
-      // Animación para la línea derecha (horizontal de derecha a izquierda)
-      gsap.fromTo(
-        horizontalLineRightRef.current,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 2,
-          transformOrigin: 'right center',
-          scrollTrigger: {
-            trigger: createPlaylistSection,
-            start: 'top center-=200',
-            end: 'bottom center-=400',
-            scrub: true,
-          },
-        }
-      );
+      const createPlaylistSection = document.querySelector('.generate-playlist-section');
+
+      if (verticalLineLeftRef.current && horizontalLineRightRef.current) {
+        // Animación para la línea izquierda (de arriba a abajo)
+        gsap.fromTo(
+          verticalLineLeftRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            duration: 2,
+            transformOrigin: 'top center',
+            scrollTrigger: {
+              trigger: createPlaylistSection,
+              start: 'top center',
+              end: 'bottom center',
+              scrub: true,
+            },
+          }
+        );
+
+        // Animación para la línea derecha (horizontal de derecha a izquierda)
+        gsap.fromTo(
+          horizontalLineRightRef.current,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            duration: 2,
+            transformOrigin: 'right center',
+            scrollTrigger: {
+              trigger: createPlaylistSection,
+              start: 'top center-=200',
+              end: 'bottom center-=400',
+              scrub: true,
+            },
+          }
+        );
+      }
+    } else {
+      console.error('GSAP or ScrollTrigger not found!');
     }
   }, []);
 

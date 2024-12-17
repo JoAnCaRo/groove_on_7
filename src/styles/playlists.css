@@ -110,7 +110,7 @@ section.playlists-section {
   background-color: #fce853; /* Color de la línea (izquierda a derecha) */
   transform-origin: left center; /* La animación se expande desde la izquierda */
   transform: scaleX(0); /* Comienza invisible */
-  top: 400px; /* Altura específica de la línea */
+  top: 500px; /* Altura específica de la línea */
 }
 
 .reverse-scroll-line-playlists {
@@ -120,7 +120,7 @@ section.playlists-section {
   background-color: #4caf50; /* Color de la línea (derecha a izquierda) */
   transform-origin: right center; /* La animación se expande desde la derecha */
   transform: scaleX(0); /* Comienza invisible */
-  bottom: -700px; /* Ajusta la altura de forma independiente respecto a la otra línea */
+  bottom: -600px; /* Ajusta la altura de forma independiente respecto a la otra línea */
 }
 
 
