@@ -149,15 +149,18 @@ useEffect(() => {
       {/* Ventana emergente */}
       <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleSpotifyLogin}>
         {/* Playlist dentro de la ventana emergente */}
+        {/* Playlist dentro de la ventana emergente */}
         {playlistData && (
           <div className="playlist-data">
-            <h4>{playlistData.name}</h4>
-            <ul>
+            <h4 style={{ marginBottom: '1rem' }}>{playlistData.name}</h4>
+            <ul className="playlist-list">
               {playlistData.tracks.items.map((item, index) => (
-                <li key={index}>
-                  {item.track.name} - {item.track.artists[0].name}
+                <li key={index} className="playlist-item">
+                  <div className="track-info">
+                    <strong>{item.track.name}</strong> - {item.track.artists[0].name}
+                  </div>
                   {item.track.preview_url && (
-                    <audio controls>
+                    <audio controls className="track-audio">
                       <source src={item.track.preview_url} type="audio/mpeg" />
                       Your browser does not support the audio element.
                     </audio>
