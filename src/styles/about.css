@@ -62,8 +62,7 @@ h2 {
   }
 
   .about-section {
-    padding-top: 2rem;
-    padding-bottom: 2rem; 
+    padding: 0;
   }
 
   .line-container-about {
