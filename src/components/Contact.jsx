@@ -101,7 +101,7 @@ const Contact = () => {
       <div className="contact-content">
         <h2>
           DISCOVER THE BEST MUSIC IN 7” FORMAT CURATED AND MIXED WITH LOVE <br />
-          ☮ȷ
+          ☮
         </h2>
         <p>Get in touch for collaborations or bookings.</p>
       </div>
