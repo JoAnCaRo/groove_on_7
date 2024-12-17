@@ -2,7 +2,7 @@
   "name": "groove_on_7",
   "version": "1.0.0",
   "main": "main.js",
-  "homepage": "/",
+  "homepage": "https://joancaro.github.io/groove_on_7/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -24,6 +24,7 @@
     "@mui/material": "^6.1.10",
     "antd": "^5.22.3",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "framer-motion": "^11.13.1",
     "gsap": "^3.12.5",
     "react": "^18.3.1",

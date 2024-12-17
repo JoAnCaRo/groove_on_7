@@ -29,24 +29,9 @@ pool.query('SELECT NOW()', (err, res) => {
   }
 });
 
-// Configuración de CORS
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Permite localhost y dominios dinámicos de ngrok
-      const allowedOrigins = ['http://localhost:3000', /^https:\/\/.*\.ngrok-free\.app$/];
-
-      if (!origin || allowedOrigins.some((allowed) => (typeof allowed === 'string' ? allowed === origin : allowed.test(origin)))) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-  })
-);
-
 
 // Middlewares
+app.use(cors({ origin: 'http://localhost:3000' })); // Permite solicitudes solo desde el frontend local
 app.use(bodyParser.json());
 
 // Ruta para obtener eventos

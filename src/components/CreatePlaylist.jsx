@@ -7,19 +7,61 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CreatePlaylist = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [accessToken, setAccessToken] = useState('');
+  const [playlistData, setPlaylistData] = useState(null);
 
   const verticalLineLeftRef = useRef(null);
   const horizontalLineRightRef = useRef(null);
 
-  const handleTidalLogin = () => {
-    const clientId = 'FsvXoX8IZ52EWmOV';
-    const redirectUri = 'https://00f1-77-183-190-220.ngrok-free.app/callback';
-    const tidalAuthUrl = new URL('https://login.tidal.com/oauth2/authorize');
-    tidalAuthUrl.searchParams.append('response_type', 'token');
-    tidalAuthUrl.searchParams.append('client_id', clientId);
-    tidalAuthUrl.searchParams.append('redirect_uri', redirectUri);
-    tidalAuthUrl.searchParams.append('scope', 'playlist.write playlist.read');
-    window.location.href = tidalAuthUrl.toString();
+  // Spotify Login Handler
+  const handleSpotifyLogin = () => {
+    const clientId = 'a1a40ff261a74446b82d30c304c3717b';
+    const redirectUri = 'https://joancaro.github.io/groove_on_7/';
+
+    const scope = 'playlist-read-private';
+
+    const spotifyAuthUrl = new URL('https://accounts.spotify.com/authorize');
+    spotifyAuthUrl.searchParams.append('response_type', 'token');
+    spotifyAuthUrl.searchParams.append('client_id', clientId);
+    spotifyAuthUrl.searchParams.append('redirect_uri', redirectUri);
+    spotifyAuthUrl.searchParams.append('scope', scope);
+
+    window.location.href = spotifyAuthUrl.toString();
+  };
+
+  // Capture Access Token from URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const params = new URLSearchParams(hash.substring(1));
+      const token = params.get('access_token');
+      if (token) {
+        setAccessToken(token);
+        console.log('Access Token:', token);
+
+        // Limpiar el hash de la URL para evitar redirección duplicada
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  }, []);
+
+  // Fetch Playlist Data
+  const fetchPlaylist = async () => {
+    const playlistId = '37i9dQZF1DXcBWIGoYBM5M'; // Replace with your Playlist ID
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}`;
+
+    try {
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const data = await response.json();
+      setPlaylistData(data);
+      console.log('Playlist Data:', data);
+    } catch (error) {
+      console.error('Error fetching playlist:', error);
+    }
   };
 
   useEffect(() => {
@@ -73,7 +115,7 @@ const CreatePlaylist = () => {
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
         <h3>Create Your Own Playlist</h3>
-        <p>Access my playlists and create your own with the best tracks on Tidal.</p>
+        <p>Access my Spotify playlists and create your own with the best tracks.</p>
       </div>
 
       <div className="create-playlist-container">
@@ -82,8 +124,22 @@ const CreatePlaylist = () => {
         </button>
       </div>
 
+      {/* Mostrar Playlist Data */}
+      {playlistData && (
+        <div className="playlist-data">
+          <h4>{playlistData.name}</h4>
+          <ul>
+            {playlistData.tracks.items.map((item, index) => (
+              <li key={index}>
+                {item.track.name} - {item.track.artists[0].name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Ventana emergente */}
-      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleTidalLogin} />
+      <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleSpotifyLogin} />
     </section>
   );
 };
