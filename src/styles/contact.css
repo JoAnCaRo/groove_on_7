@@ -1,15 +1,15 @@
 /* CONTACT SECTION */
 .contact-section {
-  background-color: var(--secondary-color); /* Fondo oscuro */
-  color: var(--primary-color); /* Texto claro */
-  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
-  margin: 0 auto; /* Elimina márgenes automáticos */
-  padding: 20rem var(--spacing); /* Espaciado interno */
-  padding-bottom: 8rem; /* Añade espaciado inferior */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-  display: flex; /* Activa Flexbox */
-  flex-direction: column; /* Organiza elementos en columna */
-  align-items: center; /* Centra horizontalmente */
+  background-color: var(--secondary-color); 
+  color: var(--primary-color); 
+  width: 100vw; 
+  margin: 0 auto; 
+  padding: 20rem var(--spacing); 
+  padding-bottom: 8rem; 
+  box-sizing: border-box; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .contact-content {
