@@ -174,13 +174,13 @@ useEffect(() => {
 
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
-        <h3>Create Your Own Playlist</h3>
+        <h3>Check My Top-Ten Tracks</h3>
         <p>Generate your personalized Spotify playlist based on your top 10 tracks!</p>
       </div>
 
       <div className="create-playlist-container">
         {/* Botón de login para Spotify */}
-        <button className="create-playlist-button" onClick={handleSpotifyLogin}>
+        <button className="login-spotify-button" onClick={handleSpotifyLogin}>
           Login with Spotify
         </button>
       </div>

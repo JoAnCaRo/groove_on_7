@@ -47,7 +47,7 @@
   text-align: center;
 }
 
-.create-playlist-button {
+.create-playlist-button, .login-spotify-button {
   font-family: var(--font-stack);
   background-color: var(--primary-color); /* Color de fondo del botón */
   color: var(--secondary-color); /* Color del texto */
@@ -61,7 +61,7 @@
   transition: background-color 0.3s ease; /* Animación para el hover */
 }
 
-.create-playlist-button:hover {
+.create-playlist-button, .login-spotify-button:hover {
   background-color: var(--secondary-color); /* Color de fondo al pasar el mouse */
   color: var(--primary-color); /* Cambia el color del texto */
   box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
@@ -83,8 +83,8 @@
 
 /* Contenido de la ventana emergente */
 .popup-content {
-  background: var(--primary-color);
-  color: var(--secondary-color);
+  background: var(--secondary-color);
+  color: var(--primary-color);
   border-radius: 8px;
   width: 1280px;
   height: 720px;
