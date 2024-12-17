@@ -278,6 +278,17 @@ section.live-sessions-section {
     max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
   }
 
+  .sessions {
+  gap: 1rem;
+  }
+
+  .session-content {
+    display: flex; /* Activa Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    /* height: 100%; */
+  }
+
   .video-popup-content {
     display: flex; /* Asegura que el contenido se alinee */
     flex-direction: column; /* Organiza el iframe y el botón en columna */
