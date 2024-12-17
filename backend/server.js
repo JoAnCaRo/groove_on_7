@@ -33,10 +33,16 @@ pool.query('SELECT NOW()', (err, res) => {
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Permite localhost y dominios dinámicos de ngrok
-      const allowedOrigins = ['http://localhost:3000', /^https:\/\/.*\.ngrok-free\.app$/];
+      // Permite localhost, dominios ngrok y GitHub Pages
+      const allowedOrigins = [
+        'http://localhost:3000',
+        /^https:\/\/.*\.ngrok-free\.app$/,
+        'https://joancaro.github.io'
+      ];
 
-      if (!origin || allowedOrigins.some((allowed) => (typeof allowed === 'string' ? allowed === origin : allowed.test(origin)))) {
+      if (!origin || allowedOrigins.some((allowed) => 
+        typeof allowed === 'string' ? allowed === origin : allowed.test(origin)
+      )) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
@@ -44,6 +50,7 @@ app.use(
     },
   })
 );
+
 
 
 // Middlewares
