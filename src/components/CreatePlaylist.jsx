@@ -187,7 +187,7 @@ useEffect(() => {
 
       {/* Ventana emergente */}
       <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-        <button className="create-playlist-button" onClick={handleGeneratePlaylist}>
+        <button className="generate-playlist-button" onClick={handleGeneratePlaylist}>
           Generate My Top 10 Tracks Playlist
         </button>
         {embedPlaylistId && (
