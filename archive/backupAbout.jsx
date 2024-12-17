@@ -7,12 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const { sections } = useScrollContext();
-  const lineRef = useRef(null); // Referencia a la línea
+  const lineRef = useRef(null); // Referencia a la línea horizontal
+  const verticalLineRef = useRef(null); // Referencia a la línea vertical
 
   useEffect(() => {
-    if (lineRef.current) {
+    if (lineRef.current && verticalLineRef.current) {
       const aboutSection = document.querySelector('.about-section'); // Sección About
 
+      // Animación de la línea horizontal
       gsap.fromTo(
         lineRef.current,
         {
@@ -28,14 +30,34 @@ const About = () => {
           },
         }
       );
+
+      // Animación de la línea vertical
+      gsap.fromTo(
+        verticalLineRef.current,
+        {
+          scaleY: 0, // Comienza sin altura
+        },
+        {
+          scaleY: 1, // Se expande completamente
+          scrollTrigger: {
+            trigger: aboutSection, // La animación está vinculada al contenedor About
+            start: 'top center', // Comienza cuando About llega al centro del viewport
+            end: 'bottom center', // Termina cuando About sale del viewport
+            scrub: true, // Sincroniza con el scroll
+          },
+        }
+      );
     }
   }, []);
 
   return (
     <section ref={sections.about} id="about" className="about-section">
-      {/* Contenedor para la línea animada */}
-      <div className="line-container">
-        <div ref={lineRef} className="scroll-line"></div>
+      {/* Contenedor para las líneas animadas */}
+      <div className="line-container-about">
+        <div ref={lineRef} className="scroll-line-about"></div>
+      </div>
+      <div className="vertical-line-container-about">
+        <div ref={verticalLineRef} className="vertical-scroll-line-about"></div>
       </div>
 
       {/* Contenedor para el contenido del texto */}

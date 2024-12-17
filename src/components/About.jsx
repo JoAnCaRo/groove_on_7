@@ -3,13 +3,20 @@ import { useScrollContext } from '../context/ScrollContext';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-console.log('GSAP Version:', gsap.version); // Fuerza la inclusión en el build
+console.log('GSAP Version:', gsap.version);
+
+// Verifica si ScrollTrigger existe
+if (!ScrollTrigger) {
+  console.warn('ScrollTrigger no está presente. Asegúrate de incluirlo correctamente.');
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Fuerza la inclusión en el objeto global para evitar problemas en producción
+// Fuerza la referencia global
 window.gsap = gsap;
 window.ScrollTrigger = ScrollTrigger;
+
+console.log('ScrollTrigger registrado:', ScrollTrigger);
 
 const About = () => {
   const { sections } = useScrollContext();
