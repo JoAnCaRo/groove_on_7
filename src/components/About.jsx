@@ -5,16 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 console.log('GSAP Version:', gsap.version);
 
-// Verifica si ScrollTrigger existe
-if (!ScrollTrigger) {
-  console.warn('ScrollTrigger no está presente. Asegúrate de incluirlo correctamente.');
+// Verifica si ScrollTrigger existe y registra el plugin solo si no está registrado
+if (!gsap.core.globals().ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
 }
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Fuerza la referencia global
-window.gsap = gsap;
-window.ScrollTrigger = ScrollTrigger;
 
 console.log('ScrollTrigger registrado:', ScrollTrigger);
 
@@ -24,7 +18,8 @@ const About = () => {
   const verticalLineRef = useRef(null); // Referencia a la línea vertical
 
   useEffect(() => {
-    if (lineRef.current && verticalLineRef.current) {
+    // GSAP Context para limpiar las animaciones
+    const ctx = gsap.context(() => {
       const aboutSection = document.querySelector('.about-section'); // Sección About
 
       // Animación de la línea horizontal
@@ -60,7 +55,9 @@ const About = () => {
           },
         }
       );
-    }
+    });
+
+    return () => ctx.revert(); // Limpia las animaciones al desmontar el componente
   }, []);
 
   return (
