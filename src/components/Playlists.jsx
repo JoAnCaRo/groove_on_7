@@ -7,26 +7,68 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Playlists = () => {
   const { sections } = useScrollContext();
-  const mixcloudRefs = useRef([]); // Referencia a los iFrames
-  const currentPlayingRef = useRef(null); // Guarda la referencia del iframe en reproducción
+  const lineRef = useRef(null); // Referencia a la línea horizontal
+  const reverseLineRef = useRef(null); // Referencia a la línea que se mueve de derecha a izquierda
+
+  const mixcloudRefs = useRef([]); // Referencia a los iFrames de Mixcloud
+  const currentPlayer = useRef(null); // Guarda el iFrame actualmente reproduciendo
 
   useEffect(() => {
-    // Escuchar los mensajes de Mixcloud
+    console.log('Initializing GSAP animation for Playlists section');
+
+    const playlistsSection = document.querySelector('.playlists-section');
+
+    if (lineRef.current && reverseLineRef.current && playlistsSection) {
+      // Animación línea horizontal (izquierda a derecha)
+      gsap.fromTo(
+        lineRef.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          scrollTrigger: {
+            trigger: playlistsSection,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+          },
+        }
+      );
+
+      // Animación línea inversa (derecha a izquierda)
+      gsap.fromTo(
+        reverseLineRef.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          transformOrigin: 'right center',
+          scrollTrigger: {
+            trigger: playlistsSection,
+            start: 'top center-=500',
+            end: 'bottom center-=500',
+            scrub: true,
+          },
+        }
+      );
+    }
+
+    // Lógica para controlar la reproducción única de los iframes
     const handleMessage = (event) => {
       if (event.origin.includes('mixcloud.com')) {
-        const { method, playerId } = event.data;
+        const { method, player_id } = event.data;
 
         if (method === 'play') {
-          // Pausar el iframe actualmente en reproducción si existe
-          if (currentPlayingRef.current && currentPlayingRef.current !== playerId) {
+          // Pausar el iframe anterior si existe
+          if (currentPlayer.current && currentPlayer.current !== player_id) {
             mixcloudRefs.current.forEach((iframe) => {
-              if (iframe.dataset.playerId === currentPlayingRef.current) {
+              if (iframe.dataset.playerId === currentPlayer.current) {
                 iframe.contentWindow.postMessage({ method: 'pause' }, '*');
               }
             });
           }
-          // Actualizar el iframe actual en reproducción
-          currentPlayingRef.current = playerId;
+          // Actualizar el iframe en reproducción
+          currentPlayer.current = player_id;
         }
       }
     };
@@ -38,7 +80,6 @@ const Playlists = () => {
     };
   }, []);
 
-  // Agregar atributos únicos para identificar los iframes
   const playlistUrls = [
     'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Fdisco-3%2F',
     'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Fshake-it-malafakas%2F',
@@ -47,15 +88,22 @@ const Playlists = () => {
 
   return (
     <section ref={sections.playlists} id="playlists" className="playlists-section">
+      {/* Contenedores para las líneas animadas */}
+      <div className="line-container-playlists">
+        <div ref={lineRef} className="scroll-line-playlists"></div>
+        <div ref={reverseLineRef} className="reverse-scroll-line-playlists"></div>
+      </div>
+
+      {/* Contenedor para el contenido */}
       <div className="playlists-content-container">
         <h3>Playlists</h3>
         <p>Discover my curated playlists across styles like Disco, Funk, House, and more!</p>
 
         {playlistUrls.map((src, index) => (
-          <div className="mixcloud-embed" key={index}>
+          <div key={index} className="mixcloud-embed">
             <iframe
               ref={(el) => (mixcloudRefs.current[index] = el)}
-              src={`${src}&player_id=player-${index}`} // Agregamos un player_id único
+              src={`${src}&player_id=player-${index}`}
               width="100%"
               height="120"
               title={`Mixcloud Playlist ${index + 1}`}
