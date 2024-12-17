@@ -7,6 +7,10 @@ console.log('GSAP Version:', gsap.version); // Fuerza la inclusión en el build
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Fuerza la inclusión en el objeto global para evitar problemas en producción
+window.gsap = gsap;
+window.ScrollTrigger = ScrollTrigger;
+
 const About = () => {
   const { sections } = useScrollContext();
   const lineRef = useRef(null); // Referencia a la línea horizontal
