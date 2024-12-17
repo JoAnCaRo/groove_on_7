@@ -286,12 +286,12 @@ section.live-sessions-section {
     display: flex; /* Activa Flexbox */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    height: 50vh; /* Reduce la altura a la mitad en dispositivos móviles */
+    height: 250px; /* Reduce la altura a la mitad en dispositivos móviles */
   }
 
 .live-sessions-section {
-  padding-top: 6rem; /* Espaciado superior */
-  padding-bottom: 6rem;
+  padding-top: 6rem; 
+  padding-bottom: 3rem;
 }
 
 
