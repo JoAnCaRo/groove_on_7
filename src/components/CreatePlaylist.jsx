@@ -9,6 +9,7 @@ const CreatePlaylist = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [accessToken, setAccessToken] = useState('');
   const [playlistData, setPlaylistData] = useState(null);
+  const [embedPlaylistId, setEmbedPlaylistId] = useState(null);
 
   const verticalLineLeftRef = useRef(null);
   const horizontalLineRightRef = useRef(null);
@@ -18,7 +19,7 @@ const CreatePlaylist = () => {
     const clientId = 'a1a40ff261a74446b82d30c304c3717b';
     const redirectUri = 'https://joancaro.github.io/groove_on_7/';
 
-    const scope = 'playlist-read-private';
+    const scope = 'playlist-read-private playlist-modify-private user-top-read';
 
     const spotifyAuthUrl = new URL('https://accounts.spotify.com/authorize');
     spotifyAuthUrl.searchParams.append('response_type', 'token');
@@ -29,62 +30,85 @@ const CreatePlaylist = () => {
     window.location.href = spotifyAuthUrl.toString();
   };
 
-useEffect(() => {
-  const cleanUpToken = () => {
-    // Captura el access_token de la URL
-    const hash = window.location.hash;
-    if (hash) {
-      const params = new URLSearchParams(hash.substring(1));
-      const token = params.get('access_token');
-      if (token) {
-        setAccessToken(token);
-        console.log('Access Token:', token);
+  useEffect(() => {
+    const cleanUpToken = () => {
+      // Captura el access_token de la URL
+      const hash = window.location.hash;
+      if (hash) {
+        const params = new URLSearchParams(hash.substring(1));
+        const token = params.get('access_token');
+        if (token) {
+          setAccessToken(token);
+          console.log('Access Token:', token);
 
-        // Abre la ventana emergente automáticamente
-        setIsPopupOpen(true);
+          // Abre la ventana emergente automáticamente
+          setIsPopupOpen(true);
 
-        // Limpia el hash de la URL sin recargar la página
-        window.history.replaceState(null, document.title, window.location.pathname);
+          // Limpia el hash de la URL sin recargar la página
+          window.history.replaceState(null, document.title, window.location.pathname);
+        }
       }
-    }
-  };
+    };
 
-  cleanUpToken();
-}, []);
+    cleanUpToken();
+  }, []);
 
-
-  // Fetch Playlist Data
-  const fetchPlaylist = async () => {
-    if (!accessToken) return; // Evita la llamada si no hay token
-
-    const playlistId = '06TIJECvdE85VqhbMbp1OR'; // Actualizado con el nuevo Playlist ID
-    const url = `https://api.spotify.com/v1/playlists/${playlistId}`;
-
+  // Fetch Top Tracks and Create Playlist
+  const fetchTopTracks = async () => {
     try {
-      const response = await fetch(url, {
+      const response = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=5', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}: ${response.statusText}`);
-      }
-
       const data = await response.json();
-      setPlaylistData(data);
-      console.log('Playlist Data:', data); // Comentario: Playlist data obtenido correctamente
+      const tracksUri = data.items.map((track) => track.uri);
+      return { tracksUri, tracks: data.items };
     } catch (error) {
-      console.error('Error fetching playlist:', error.message); // Comentario: Manejo de error en fetch
+      console.error('Error fetching top tracks:', error);
     }
   };
 
-  // Fetch playlist cuando se obtenga el token
-  useEffect(() => {
-    if (accessToken) {
-      fetchPlaylist(); // Comentario: Llama a fetchPlaylist cuando hay token
+  const createPlaylistWithTopTracks = async (tracksUri) => {
+    try {
+      const userResponse = await fetch('https://api.spotify.com/v1/me', {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      const userData = await userResponse.json();
+      const playlistResponse = await fetch(`https://api.spotify.com/v1/users/${userData.id}/playlists`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: 'My Top 5 Tracks Playlist',
+          description: 'Playlist created from your top 5 tracks!',
+          public: false,
+        }),
+      });
+      const playlist = await playlistResponse.json();
+      await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ uris: tracksUri }),
+      });
+      setEmbedPlaylistId(playlist.id);
+    } catch (error) {
+      console.error('Error creating playlist:', error);
     }
-  }, [accessToken]);
+  };
+
+  const handleGeneratePlaylist = async () => {
+    if (!accessToken) return;
+    const { tracksUri } = await fetchTopTracks();
+    if (tracksUri) {
+      await createPlaylistWithTopTracks(tracksUri);
+    }
+  };
 
   useEffect(() => {
     const createPlaylistSection = document.querySelector('.create-playlist-section');
@@ -137,7 +161,7 @@ useEffect(() => {
       {/* Contenido de la sección */}
       <div className="create-playlist-content">
         <h3>Create Your Own Playlist</h3>
-        <p>Access my Spotify playlists and create your own with the best tracks.</p>
+        <p>Generate your personalized Spotify playlist based on your top 5 tracks!</p>
       </div>
 
       <div className="create-playlist-container">
@@ -148,27 +172,20 @@ useEffect(() => {
 
       {/* Ventana emergente */}
       <PlaylistPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onLogin={handleSpotifyLogin}>
-        {/* Playlist dentro de la ventana emergente */}
-        {/* Playlist dentro de la ventana emergente */}
-        {playlistData && (
-          <div className="playlist-data">
-            <h4 style={{ marginBottom: '1rem' }}>{playlistData.name}</h4>
-            <ul className="playlist-list">
-              {playlistData.tracks.items.map((item, index) => (
-                <li key={index} className="playlist-item">
-                  <div className="track-info">
-                    <strong>{item.track.name}</strong> - {item.track.artists[0].name}
-                  </div>
-                  {item.track.preview_url && (
-                    <audio controls className="track-audio">
-                      <source src={item.track.preview_url} type="audio/mpeg" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <button className="create-playlist-button" onClick={handleGeneratePlaylist}>
+          Generate My Top Tracks Playlist
+        </button>
+        {embedPlaylistId && (
+          <iframe
+            title="Spotify Playlist Embed"
+            src={`https://open.spotify.com/embed/playlist/${embedPlaylistId}`}
+            width="100%"
+            height="380"
+            style={{ marginTop: '20px' }}
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
         )}
       </PlaylistPopup>
     </section>
