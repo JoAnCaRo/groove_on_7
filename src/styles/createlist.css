@@ -95,7 +95,7 @@
   height: 720px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px; /* Añade espacio uniforme alrededor del contenido */
+  padding: 30px; /* Añade espacio uniforme alrededor del contenido */
   box-sizing: border-box; /* Garantiza que el padding no aumente el tamaño total */
 }
 
