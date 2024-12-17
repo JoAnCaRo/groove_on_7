@@ -10,41 +10,42 @@ const Playlists = () => {
   const lineRef = useRef(null); // Referencia a la línea horizontal
   const reverseLineRef = useRef(null); // Referencia a la línea que se mueve de derecha a izquierda
 
-  const mixcloudRefs = useRef([]); // Referencia a los iFrames de Mixcloud
-  const currentPlayer = useRef(null); // Guarda el iFrame actualmente reproduciendo
-
   useEffect(() => {
-    console.log('Initializing GSAP animation for Playlists section');
+    console.log('Initializing GSAP animation for Playlists section'); // Depuración
 
-    const playlistsSection = document.querySelector('.playlists-section');
+    const playlistsSection = document.querySelector('.playlists-section'); // Sección Playlists
 
     if (lineRef.current && reverseLineRef.current && playlistsSection) {
-      // Animación línea horizontal (izquierda a derecha)
+      // Animación de la línea horizontal (izquierda a derecha)
       gsap.fromTo(
         lineRef.current,
-        { scaleX: 0 },
         {
-          scaleX: 1,
-          duration: 2,
+          scaleX: 0, // Comienza sin ancho
+        },
+        {
+          scaleX: 1, // Se expande completamente
+          duration: 2, // Añade duración para depuración
           scrollTrigger: {
-            trigger: playlistsSection,
-            start: 'top center',
-            end: 'bottom center',
-            scrub: true,
+            trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
+            start: 'top center', // Comienza cuando Playlists llega al centro del viewport
+            end: 'bottom center', // Termina cuando Playlists sale del viewport
+            scrub: true, // Sincroniza con el scroll
           },
         }
       );
 
-      // Animación línea inversa (derecha a izquierda)
+      // Animación de la línea horizontal inversa (derecha a izquierda)
       gsap.fromTo(
         reverseLineRef.current,
-        { scaleX: 0 },
         {
-          scaleX: 1,
+          scaleX: 0, // Comienza sin ancho
+        },
+        {
+          scaleX: 1, // Se expande completamente
           duration: 2,
-          transformOrigin: 'right center',
+          transformOrigin: 'right center', // Se expande desde la derecha
           scrollTrigger: {
-            trigger: playlistsSection,
+            trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
             start: 'top center-=500',
             end: 'bottom center-=500',
             scrub: true,
@@ -52,39 +53,7 @@ const Playlists = () => {
         }
       );
     }
-
-    // Lógica para controlar la reproducción única de los iframes
-    const handleMessage = (event) => {
-      if (event.origin.includes('mixcloud.com')) {
-        const { method, player_id } = event.data;
-
-        if (method === 'play') {
-          // Pausar el iframe anterior si existe
-          if (currentPlayer.current && currentPlayer.current !== player_id) {
-            mixcloudRefs.current.forEach((iframe) => {
-              if (iframe.dataset.playerId === currentPlayer.current) {
-                iframe.contentWindow.postMessage({ method: 'pause' }, '*');
-              }
-            });
-          }
-          // Actualizar el iframe en reproducción
-          currentPlayer.current = player_id;
-        }
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-
-    return () => {
-      window.removeEventListener('message', handleMessage);
-    };
   }, []);
-
-  const playlistUrls = [
-    'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Fdisco-3%2F',
-    'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Fshake-it-malafakas%2F',
-    'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Ffunkywankenoby%2F',
-  ];
 
   return (
     <section ref={sections.playlists} id="playlists" className="playlists-section">
@@ -99,18 +68,17 @@ const Playlists = () => {
         <h3>Playlists</h3>
         <p>Discover my curated playlists across styles like Disco, Funk, House, and more!</p>
 
-        {playlistUrls.map((src, index) => (
-          <div key={index} className="mixcloud-embed">
-            <iframe
-              ref={(el) => (mixcloudRefs.current[index] = el)}
-              src={`${src}&player_id=player-${index}`}
-              width="100%"
-              height="120"
-              title={`Mixcloud Playlist ${index + 1}`}
-              data-player-id={`player-${index}`}
-            ></iframe>
-          </div>
-        ))}
+        <div className="mixcloud-embed">
+          <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Fdisco-3%2F"></iframe>
+        </div>
+
+        <div className="mixcloud-embed">
+          <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Fshake-it-malafakas%2F"></iframe>
+        </div>
+
+        <div className="mixcloud-embed">
+          <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FJauseJones%2Ffunkywankenoby%2F"></iframe>
+        </div>
 
         <div className="see-all-container">
           <a href="https://www.mixcloud.com/JauseJones/" target="_blank" rel="noopener noreferrer" className="see-all-button-play">

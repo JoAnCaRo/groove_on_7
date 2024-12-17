@@ -115,9 +115,11 @@ const Contact = () => {
       <div>
         <h1 className="main-title-black">GROOVE ON 7"</h1>
       </div>
-      <button className="social-media">
-        <img src={InstagramIcon} alt="Instagram" />
-      </button>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+        <button className="social-media">
+          <img src={InstagramIcon} alt="Instagram" />
+        </button>
+      </a>
 
       {/* Ventana emergente */}
       <ContactPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
