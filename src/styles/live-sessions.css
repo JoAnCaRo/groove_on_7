@@ -61,7 +61,7 @@ section.live-sessions-section {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: left; /* Alineado a la izquierda */
-  padding-left: 3rem;
+  /* padding-left: 3rem; */
 }
 
 .session-content p {
@@ -69,7 +69,7 @@ section.live-sessions-section {
   line-height: 1.8; /* Espaciado entre líneas */
   margin: 0.5rem 0 15rem; /* Espaciado debajo del texto */
   text-align: left; /* Alineado a la izquierda */
-  padding-left: 3rem;
+  /* padding-left: 3rem; */
 }
 
 .play-button {
