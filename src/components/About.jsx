@@ -1,16 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'; // IMPORTAR DESDE 'gsap/dist'
 
-console.log('GSAP Version:', gsap.version);
-
-// Verifica si ScrollTrigger existe y registra el plugin solo si no está registrado
-if (!gsap.core.globals().ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-console.log('ScrollTrigger registrado:', ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger); // Registro seguro del plugin
 
 const About = () => {
   const { sections } = useScrollContext();
@@ -18,46 +11,45 @@ const About = () => {
   const verticalLineRef = useRef(null); // Referencia a la línea vertical
 
   useEffect(() => {
-    // GSAP Context para limpiar las animaciones
     const ctx = gsap.context(() => {
       const aboutSection = document.querySelector('.about-section'); // Sección About
 
-      // Animación de la línea horizontal
-      gsap.fromTo(
-        lineRef.current,
-        {
-          scaleX: 0, // Comienza sin ancho
-        },
-        {
-          scaleX: 1, // Se expande completamente
-          scrollTrigger: {
-            trigger: aboutSection, // La animación está vinculada al contenedor About
-            start: 'top center', // Comienza cuando About llega al centro del viewport
-            end: 'bottom center', // Termina cuando About sale del viewport
-            scrub: true, // Sincroniza con el scroll
-          },
-        }
-      );
+      if (lineRef.current && aboutSection) {
+        // Animación de la línea horizontal
+        gsap.fromTo(
+          lineRef.current,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            scrollTrigger: {
+              trigger: aboutSection,
+              start: 'top center',
+              end: 'bottom center',
+              scrub: true,
+            },
+          }
+        );
+      }
 
-      // Animación de la línea vertical
-      gsap.fromTo(
-        verticalLineRef.current,
-        {
-          scaleY: 0, // Comienza sin altura
-        },
-        {
-          scaleY: 1, // Se expande completamente
-          scrollTrigger: {
-            trigger: aboutSection, // La animación está vinculada al contenedor About
-            start: 'top center', // Comienza cuando About llega al centro del viewport
-            end: 'bottom center', // Termina cuando About sale del viewport
-            scrub: true, // Sincroniza con el scroll
-          },
-        }
-      );
+      if (verticalLineRef.current && aboutSection) {
+        // Animación de la línea vertical
+        gsap.fromTo(
+          verticalLineRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            scrollTrigger: {
+              trigger: aboutSection,
+              start: 'top center',
+              end: 'bottom center',
+              scrub: true,
+            },
+          }
+        );
+      }
     });
 
-    return () => ctx.revert(); // Limpia las animaciones al desmontar el componente
+    return () => ctx.revert(); // Limpia las animaciones
   }, []);
 
   return (
