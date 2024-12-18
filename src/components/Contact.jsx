@@ -1,20 +1,24 @@
+/* Importa React, hooks e iconos */
 import React, { useState, useRef, useEffect } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import ContactPopup from './ContactPopup';
 import InstagramIcon from '../assets/icons/instagram.svg';
 
+/* Declara referencias para manipular elementos DOM directamente */
 const Contact = () => {
-  const { sections } = useScrollContext(); // Obtener las referencias del contexto
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const { sections } = useScrollContext(); // Obtiene las referencias del contexto
+  const [isPopupOpen, setIsPopupOpen] = useState(false); // Controla la ventana emergente
 
+  // Referencias para las líneas 
   const contactLine1Ref = useRef(null);
   const contactLine2Ref = useRef(null);
   const contactLine3Ref = useRef(null);
   const contactLine4Ref = useRef(null);
 
+  // Efecto para animar las líneas horizontales con GSAP y ScrollTrigger
   useEffect(() => {
     const { gsap } = window; // Accede a GSAP globalmente
-    const { ScrollTrigger } = window;
+    const { ScrollTrigger } = window; // Accede a ScrollTrigger desde GSAP
 
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
@@ -89,19 +93,16 @@ const Contact = () => {
         }
       );
     } else {
-      console.error('GSAP or ScrollTrigger not found!');
+      console.error('GSAP or ScrollTrigger not found!'); // Muestra un error si GSAP no está disponible
     }
   }, []);
 
   return (
     <section id="contact" className="contact-section" ref={sections.contact}>
       {/* Contenedor para las líneas */}
-
-      {/* Contenido */}
       <div className="contact-content">
         <h2>
-          DISCOVER THE BEST MUSIC IN 7” FORMAT CURATED AND MIXED WITH LOVE <br />
-          ☮
+          DISCOVER THE BEST MUSIC IN 7” FORMAT CURATED AND MIXED WITH LOVE <br />☮
         </h2>
         <p>Get in touch for collaborations or bookings.</p>
       </div>
@@ -113,6 +114,7 @@ const Contact = () => {
           <div ref={contactLine4Ref} className="contact-horizontal-line contact-line-4"></div>
         </div>
 
+        {/* Contenido principal de la sección */}
         <button className="contact-button" onClick={() => setIsPopupOpen(true)}>
           CONTACT
         </button>

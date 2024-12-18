@@ -1,8 +1,9 @@
+/* Importa React, hooks y material del formulario */
 import React, { useState } from 'react';
 import { TextField, Button, FormControl, FormLabel, Checkbox, FormGroup, FormControlLabel, Box, CircularProgress } from '@mui/material';
 import emailjs from '@emailjs/browser';
 
-// Componente reutilizable para TextField con estilos personalizados
+// Componente  para TextField con estilos personalizados
 const StyledTextField = ({ label, required = false, type = 'text', multiline = false, rows = 1, ...props }) => (
   <FormControl fullWidth>
     <TextField
@@ -40,6 +41,7 @@ const StyledTextField = ({ label, required = false, type = 'text', multiline = f
   </FormControl>
 );
 
+/* Componente principal ContactForm */
 const ContactForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
     eventLocation: '',
@@ -55,12 +57,14 @@ const ContactForm = ({ onClose }) => {
   const [formErrors, setFormErrors] = useState({}); // Estado para rastrear errores en los campos
   const [isLoading, setIsLoading] = useState(false); // Estado para manejar el indicador de carga
 
+  // Maneja los cambios en los campos de entrada
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setFormErrors((prev) => ({ ...prev, [name]: false })); // Limpiar error al escribir
   };
 
+  // Maneja los cambios en los checkboxes de estilos de música
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
     setFormData((prevState) => ({
@@ -69,6 +73,7 @@ const ContactForm = ({ onClose }) => {
     }));
   };
 
+  // Envía el formulario usando EmailJS
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -94,8 +99,8 @@ const ContactForm = ({ onClose }) => {
 
     try {
       const result = await emailjs.send(
-        'service_d7giud3', // Service ID
-        'template_xp5hfvk', // Template ID
+        'service_d7giud3', // Service ID EmailJS
+        'template_xp5hfvk', // Template ID EmailJS
         {
           eventLocation: formData.eventLocation,
           city: formData.city,
@@ -106,7 +111,7 @@ const ContactForm = ({ onClose }) => {
           musicStyle: formData.musicStyle.join(', '),
           additionalInfo: formData.additionalInfo,
         },
-        'HF-xxiAVFtmRZ0Snv' // Tu Public Key de EmailJS
+        'HF-xxiAVFtmRZ0Snv' // Clave pública de EmailJS
       );
       console.log('Email enviado:', result.text);
       alert('Email enviado exitosamente.');
@@ -137,6 +142,7 @@ const ContactForm = ({ onClose }) => {
         textAlign: 'center',
       }}
     >
+      {/* Campos de texto con validación */}
       <StyledTextField
         label="Event Location"
         name="eventLocation"
@@ -181,6 +187,8 @@ const ContactForm = ({ onClose }) => {
         error={!!formErrors.email} // Cambia el color si hay error
       />
       <StyledTextField label="Cell" name="cell" type="tel" value={formData.cell} onChange={handleInputChange} />
+
+      {/* Selección de estilos de música con checkboxes */}
       <FormControl component="fieldset">
         <FormLabel
           component="legend"
@@ -214,6 +222,8 @@ const ContactForm = ({ onClose }) => {
           ))}
         </FormGroup>
       </FormControl>
+
+      {/* Campo de información adicional */}
       <StyledTextField
         label="Additional Information"
         name="additionalInfo"
@@ -223,6 +233,8 @@ const ContactForm = ({ onClose }) => {
         onChange={handleInputChange}
         placeholder="Write any additional details here..."
       />
+
+      {/* Botón de enviar con indicador de carga */}
       <Button
         type="submit"
         variant="contained"
@@ -235,6 +247,8 @@ const ContactForm = ({ onClose }) => {
       >
         {isLoading ? <CircularProgress size={24} sx={{ color: 'var(--primary-color)' }} /> : 'Submit'}
       </Button>
+
+      {/* Botón para cerrar el formulario */}
       <Button
         onClick={onClose}
         variant="outlined"

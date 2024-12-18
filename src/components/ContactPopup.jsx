@@ -1,7 +1,9 @@
+/* Importa React y Motion archivos necesario */
 import React from 'react';
 import { motion } from 'framer-motion';
-import ContactForm from './ContactForm'; 
+import ContactForm from './ContactForm';
 
+/* Componente de React que muestra una ventana emergente animada para mostrar un formulario de contacto. Utiliza la biblioteca Framer Motion para animaciones de entrada y salida */
 const ContactPopup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
