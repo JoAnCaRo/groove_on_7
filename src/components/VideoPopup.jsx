@@ -10,7 +10,7 @@ const VideoPopup = ({ videoUrl, onClose }) => {
     <motion.div className="video-popup" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.5 }}>
       <div className="video-popup-content">
 
-        {/* Contenedor del iframe con el video */}
+        {/* Contenedor iframe con el video */}
         <iframe src={videoUrl} width="1280" height="720" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Live Session Video"></iframe>
 
         {/* Botón para cerrar el popup */}
