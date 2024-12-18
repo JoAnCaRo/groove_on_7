@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@900&display=swap');
+
+:root {
+  --primary-color: #f2f2f2; /* Fondo claro */
+  --secondary-color: #151515; /* Texto oscuro */
+  --font-stack: 'Inter', sans-serif; /* Fuente global */
+  --font-h1: 'Lexend Zetta', sans-serif; /* Fuente para títulos */
+  --spacing: 2rem; /* Espaciado base */
+  --container-width: 50rem; /* Ancho máximo del contenedor */
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Asegura que ocupe toda la altura de la ventana */
+  overflow-x: hidden; /* Evita scroll lateral */
+}
+
+
+
+body {
+  font-family: var(--font-stack);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Asegura que el contenido se apile desde la parte superior */
+  align-items: stretch; /* Permite que los hijos ocupen todo el ancho */
+  min-height: 100vh;
+  padding: 0; /* Elimina cualquier relleno innecesario */
+  position: relative; /* Necesario para el contenedor de líneas */
+  overflow-x: hidden; /* Evita desplazamiento horizontal por líneas animadas */
+}
+
+/* Contenedor de las líneas */
+.lines-container {
+  position: fixed; /* Permite que las líneas sigan el viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho del viewport */
+  height: 100%; /* Ocupa todo el alto del viewport */
+  z-index: 10; /* Debajo del contenido principal */
+  pointer-events: none; /* Evita que interfiera con la interacción del usuario */
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo gris claro con transparencia */
+}
+
+/* Líneas individuales */
+.line {
+  position: absolute;
+  height: 3px; /* Grosor de la línea */
+  background-color: red; /* Color rojo */
+  opacity: 1; /* Completamente visible */
+  top: 50%; /* Aparece en el medio vertical */
+  left: 0; /* Comienza desde el borde izquierdo */
+  pointer-events: none; /* No interfiere con interacciones del usuario */
+}
+
+/* Sin borde en los iframes */
+iframe {
+  border: none;
+}
+
+/* Breakpoints */
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 950px) {
+  :root {
+    --spacing: 1rem; /* Espaciado reducido */
+    --container-width: 90%; /* Contenedor más estrecho */
+  }
+
+  body {
+    font-size: 14px; /* Fuente más pequeña */
+  }
+
+  .about-section {
+  max-width: 45rem; 
+  margin: 0 auto; /* Centra horizontalmente la sección */
+  text-align: center; /* Alinea el texto al centro */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+  .lines-container {
+    background-color: rgba(0, 0, 0, 0.05); /* Menor intensidad en móviles */
+  }
+}
+
+/* Tablets (pantallas medianas) */
+@media (min-width: 955px) and (max-width: 1023px) {
+  :root {
+    --spacing: 1.5rem; /* Espaciado intermedio */
+    --container-width: 40rem; /* Ajuste del ancho del contenedor */
+  }
+
+  body {
+    font-size: 16px; /* Fuente ligeramente más grande */
+  }
+
+  .lines-container {
+    background-color: rgba(0, 0, 0, 0.08); /* Intensidad moderada */
+  }
+}
+
+/* Desktop (pantallas grandes) */
+@media (min-width: 1024px) {
+  :root {
+    --spacing: 2rem; /* Espaciado estándar */
+    --container-width: 50rem; /* Ancho máximo del contenedor */
+  }
+
+  body {
+    font-size: 18px; /* Fuente estándar */
+  }
+
+  .lines-container {
+    background-color: rgba(0, 0, 0, 0.1); /* Intensidad estándar */
+  }
+}
