@@ -1,42 +1,47 @@
+/* Importa React, hooks e iconos */
 import React, { useState, useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import LocationIcon from '../assets/icons/location.svg';
 import CalendarIcon from '../assets/icons/calendar.svg';
 
+/* Declara referencias para manipular elementos DOM directamente */
 const Events = () => {
-  const { sections } = useScrollContext(); // Obtener las referencias del contexto
-  const [events, setEvents] = useState([]); // Estado para almacenar eventos
+  const { sections } = useScrollContext();
+  const [events, setEvents] = useState([]);
 
+  // Referencias para las líneas verticales
   const verticalLine1Ref = useRef(null);
   const verticalLine2Ref = useRef(null);
   const verticalLine3Ref = useRef(null);
 
+  // URL del backend
   const backendURL = process.env.NODE_ENV === 'development' ? 'http://localhost:5001/events' : 'https://grooveon7-production.up.railway.app/events';
 
-useEffect(() => {
-  const fetchEvents = async () => {
-    try {
-      console.log('Fetching events from:', backendURL);
-      const response = await fetch(backendURL);
+  // Carga eventos desde el servidor
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        console.log('Fetching events from:', backendURL);
+        const response = await fetch(backendURL);
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        setEvents(data); // Almacena los eventos obtenidos en el estado
+      } catch (error) {
+        console.error('Error al cargar eventos:', error.message);
       }
+    };
 
-      const data = await response.json();
-      setEvents(data);
-    } catch (error) {
-      console.error('Error al cargar eventos:', error.message);
-    }
-  };
+    fetchEvents();
+  }, [backendURL]);
 
-  fetchEvents();
-}, [backendURL]);
-
-
+  /* Registra el plugin ScrollTrigger en gsap y definir el área de activación de las animaciones. */
   useEffect(() => {
     const { gsap } = window; // Accede a GSAP globalmente
-    const { ScrollTrigger } = window;
+    const { ScrollTrigger } = window; // Accede a ScrollTrigger desde GSAP
 
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
@@ -98,11 +103,13 @@ useEffect(() => {
     }
   }, []);
 
+  // Formatear fecha en formato dd-mm-yyyy
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
   };
 
+  // Formatear hora en formato hh:mm
   const formatTime = (timeString) => {
     const [hours, minutes] = timeString.split(':');
     return `${hours}:${minutes}`;
@@ -117,9 +124,9 @@ useEffect(() => {
 
     // Formato de la fecha y hora para .ics
     const startDateTime = `${eventDate.toISOString().replace(/-|:|\.\d+/g, '')}`;
-    const endDateTime = `${eventDate.toISOString().replace(/-|:|\.\d+/g, '')}`; // Ajusta la duración del evento si lo necesitas
+    const endDateTime = `${eventDate.toISOString().replace(/-|:|\.\d+/g, '')}`; 
 
-    // Generar contenido para el archivo .ics
+    // Genera contenido para el archivo .ics
     const icsContent = `
 BEGIN:VCALENDAR
 VERSION:2.0
@@ -145,7 +152,7 @@ END:VCALENDAR
     document.body.appendChild(a);
     a.click();
 
-    // Limpiar el DOM y liberar memoria
+    // Limpia el DOM y libera memoria
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
@@ -159,11 +166,12 @@ END:VCALENDAR
         <div ref={verticalLine3Ref} className="vertical-line line-3"></div>
       </div>
 
-      {/* Contenido */}
+      {/* Título de la sección */}
       <div className="events-title">
         <h3>Events</h3>
       </div>
 
+      {/* Contenido de los eventos */}
       <div className="events-content">
         {events.length > 0 ? (
           events.map((event, index) => (

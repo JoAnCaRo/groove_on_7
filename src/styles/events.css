@@ -1,111 +1,112 @@
-/* Events Section */
+/* EVENTS SECTION */
 .events-section {
-  background-color: var(--secondary-color); /* Fondo oscuro */
-  color: var(--primary-color); /* Texto claro */
-  width: 100vw; /* Asegura que el fondo ocupe todo el ancho del viewport */
-  margin: 0; /* Sin márgenes */
-  padding: 12rem var(--spacing); /* Espaciado superior e inferior */
-  box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+  background-color: var(--secondary-color); 
+  color: var(--primary-color); 
+  width: 100vw; 
+  margin: 0; 
+  padding: 12rem var(--spacing); 
+  box-sizing: border-box;
 }
 
 /* Título de la sección */
 .events-title {
-  max-width: 90rem; /* Ancho máximo del título */
-  margin: 0 auto; /* Centra el contenedor del título */
-  padding: 0 var(--spacing); /* Espaciado lateral */
-  text-align: left; /* Alinea el título a la izquierda */
+  max-width: 90rem; 
+  margin: 0 auto; 
+  padding: 0 var(--spacing); 
+  text-align: left; 
 }
 
 .events-title h3 {
-  font-size: 1.5rem; /* Tamaño del texto */
-  font-weight: bold; /* Hace el texto más prominente */
-  margin: 0 auto 1rem; /* Espaciado entre el texto y la línea */
-  margin-bottom: 0.5rem; /* Espaciado debajo del título */
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  margin: 0 auto 1rem; 
+  margin-bottom: 0.5rem; 
   position: relative;
-  color: var(--primary-color); /* Texto claro */
+  color: var(--primary-color); 
 }
 
 .events-title h3::after {
-  content: ''; /* Genera el pseudo-elemento para la línea */
-  display: block; /* Asegura que ocupe toda la línea */
-  width: 100%; /* La línea ocupa todo el ancho del contenedor */
-  height: 0.05rem; /* Grosor de la línea */
-  background-color: var(--primary-color); /* Línea clara */
-  margin-top: 2rem; /* Espaciado entre el texto y la línea */
-  margin-bottom: 2rem; /* Espaciado entre el texto y la línea */
-  opacity: 0.5; /* Opacidad de la línea */
+  content: ''; 
+  display: block; 
+  width: 100%; 
+  height: 0.05rem; 
+  background-color: var(--primary-color); 
+  margin-top: 2rem; 
+  margin-bottom: 2rem; 
+  opacity: 0.5; 
 }
 
 /* Contenido de los eventos */
 .events-content {
-  max-width: 90rem; /* Limita el contenido a un ancho máximo */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  display: flex; /* Activa Flexbox */
-  justify-content: space-between; /* Espacia uniformemente los elementos */
-  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
-  gap: 2rem; /* Espaciado uniforme entre los elementos */
+  max-width: 90rem; 
+  margin: 0 auto; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 2rem; 
   
 }
 
 .event {
-  flex: 1; /* Cada elemento ocupa el mismo ancho */
-  background-color: var(--primary-color); /* Fondo claro para diferenciar eventos */
-  color: var(--secondary-color); /* Texto oscuro */
-  padding: 1rem; /* Espaciado interno */
-  border-radius: 0.5rem; /* Bordes redondeados */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para diferenciar eventos */
-  display: flex; /* Organiza el contenido del evento en columna */
-  flex-direction: column; /* Organiza los elementos verticalmente */
-  align-items: center; /* Centra el contenido horizontalmente */
-  text-align: center; /* Alinea el texto en el centro */
+  flex: 1; 
+  background-color: var(--primary-color); 
+  color: var(--secondary-color); 
+  padding: 1rem; 
+  border-radius: 0.5rem; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
   z-index: 1;
 }
 
 .event p {
-  margin: 0.5rem 0; /* Espaciado entre las líneas */
-  /* font-family: var(--font-h1); */
+  margin: 0.5rem 0; 
 }
 
 .event-name {
   font-family: var(--font-h1);
-  font-size: 1.1rem; /* Ajusta el tamaño si es necesario */
-  font-weight: bold; /* Si necesitas hacerlo más prominente */
+  font-size: 1.1rem; 
+  font-weight: bold; 
 }
 
+/* Botón Calendario */
 .add-to-calendar-container {
-  margin-top: 1rem; /* Espaciado superior antes del botón */
+  margin-top: 1rem; 
 }
 
 .add-to-calendar-button {
   font-family: var(--font-stack);
-  background-color: var(--secondary-color); /* Fondo oscuro */
-  color: var(--primary-color); /* Texto claro */
-  padding: 0.75rem 1.5rem; /* Espaciado interno */
-  border: none; /* Sin bordes */
-  border-radius: 0.5rem; /* Bordes redondeados */
+  background-color: var(--secondary-color); 
+  color: var(--primary-color); 
+  padding: 0.75rem 1.5rem; 
+  border: none; 
+  border-radius: 0.5rem; 
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Efecto de transición */
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .add-to-calendar-button:hover {
-  background-color: var(--primary-color); /* Cambia a fondo claro */
-  color: var(--secondary-color); /* Cambia el texto a oscuro */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  background-color: var(--primary-color); 
+  color: var(--secondary-color); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); 
 }
 
-/* Responsive: eventos en columna para móviles */
+/* RESPONSIVE */
+/* Móviles horizontal */
 @media (max-width: 950px) {
-  .events-section {
-   padding: 40px var(--spacing); /* Espaciado superior e inferior */
+    .events-section {
+    padding: 40px var(--spacing); 
   }
 
   .events-content {
-    flex-direction: column; /* Cambia el diseño a columna */
-    gap: 2rem; /* Reduce el espacio entre eventos */
+    flex-direction: column; 
+    gap: 2rem; 
   }
 
   .event {
-    width: 100%; /* Cada evento ocupa todo el ancho del contenedor */
+    width: 100%; 
     padding: 0; 
     z-index: 1;
   }
@@ -124,7 +125,6 @@
 }
 
 /* ADMIN PANEL para introducir eventos */
-/* Panel de administración */
 .admin-panel {
   margin: 2rem 0;
   padding: 1rem;
@@ -185,15 +185,15 @@
 }
 
 .map-link img:hover {
-  transform: scale(1.2); /* Agranda el icono al pasar el cursor */
+  transform: scale(1.2); 
 }
 
 
 .icons-container {
   display: flex;
-  gap: 1rem; /* Espaciado uniforme entre los iconos */
-  justify-content: center; /* Centra los iconos horizontalmente */
-  align-items: center; /* Alinea los iconos verticalmente */
+  gap: 1rem; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 .icons-container .icon-link {
@@ -211,14 +211,10 @@
 }
 
 .icons-container .icon-link:hover img {
-  transform: scale(1.2); /* Agranda el icono al pasar el cursor */
+  transform: scale(1.2); 
 }
 
-
-
-/* Estilo Lineas */
-
-/* Sección de eventos */
+/* ESTILOS LINEAS DE DECORACIÓN */
 .events-section {
   position: relative;
   overflow: hidden;
@@ -246,21 +242,21 @@
 
 /* Primera línea */
 .line-1 {
-  left: 38%; /* Ajusta la posición */
-  background-color: #4caf50; /* Verde */
+  left: 38%; 
+  background-color: #4caf50; 
   transform-origin: top center;
 }
 
 /* Segunda línea */
 .line-2 {
-  left: 50%; /* Ajusta la posición */
-  background-color: #FBF1A9; /* Rosa */
+  left: 50%; 
+  background-color: #FBF1A9; 
   transform-origin: bottom center;
 }
 
 /* Tercera línea */
 .line-3 {
-  left: 62%; /* Ajusta la posición */
-  background-color: #D82E45; /* Naranja */
+  left: 62%; 
+  background-color: #D82E45; 
   transform-origin: top center;
 }
