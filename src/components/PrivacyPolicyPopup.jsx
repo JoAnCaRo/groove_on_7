@@ -1,7 +1,9 @@
+/* Importa React y Motion */
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../styles/privacy-policy.css'; // Archivo de estilos para este componente
 
+/* Componente React que muestra una ventana emergente animada con la política de privacidad.  */
 const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
