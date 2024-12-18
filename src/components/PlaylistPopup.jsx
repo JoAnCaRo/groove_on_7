@@ -1,6 +1,8 @@
+/* Importa React */
 import React from 'react';
 import { motion } from 'framer-motion';
 
+/* Componente React que crea una ventana emergente (popup) con animaciones de entrada y salida, utilizando la biblioteca Framer Motion. */
 const PlaylistPopup = ({ isOpen, onClose, onLogin, children }) => {
   if (!isOpen) return null;
 

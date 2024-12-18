@@ -1,26 +1,31 @@
+/* Importa React, hooks y contexto personalizado */
 import React, { useEffect, useRef, useState } from 'react';
 import PlaylistPopup from './PlaylistPopup';
 
+/* Declara referencias para gestionar la ventana emergente, token y datos de la playlist */
 const CreatePlaylist = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [accessToken, setAccessToken] = useState('');
   const [playlistData, setPlaylistData] = useState(null);
   const [embedPlaylistId, setEmbedPlaylistId] = useState(null);
 
+  // Referencias para las líneas
   const verticalLineLeftRef = useRef(null);
   const horizontalLineRightRef = useRef(null);
 
-  // Spotify Login Handler
+  // Función para iniciar el proceso de login en Spotify
   const handleSpotifyLogin = () => {
     // Guarda la posición actual del scroll
     const scrollPosition = window.scrollY;
     localStorage.setItem('scrollPosition', scrollPosition);
 
+    // Mi N° Cliente de app de Spotify y URL de redirección
     const clientId = 'a1a40ff261a74446b82d30c304c3717b';
     const redirectUri = 'https://joancaro.github.io/groove_on_7/';
 
     const scope = 'playlist-read-private playlist-modify-private user-top-read';
 
+    // Muestra la URL de autenticación de Spotify
     const spotifyAuthUrl = new URL('https://accounts.spotify.com/authorize');
     spotifyAuthUrl.searchParams.append('response_type', 'token');
     spotifyAuthUrl.searchParams.append('client_id', clientId);
@@ -31,22 +36,19 @@ const CreatePlaylist = () => {
     window.location.href = spotifyAuthUrl.toString();
   };
 
+  // Hook para capturar el token de la URL después del login
   useEffect(() => {
     const cleanUpToken = () => {
-      // Captura el access_token de la URL
-      const hash = window.location.hash;
+      const hash = window.location.hash; // Captura el access_token de la URL
       if (hash) {
         const params = new URLSearchParams(hash.substring(1));
-        const token = params.get('access_token');
+        const token = params.get('access_token'); // Extrae el token
         if (token) {
-          setAccessToken(token);
-          console.log('Access Token:', token);
+          setAccessToken(token); // Almacena el token
+          console.log('Access Token:', token); /* Manejo de errores */
+          setIsPopupOpen(true); // Abre la ventana emergente automáticamente
 
-          // Abre la ventana emergente automáticamente
-          setIsPopupOpen(true);
-
-          // Limpia el hash de la URL sin recargar la página
-          window.history.replaceState(null, document.title, window.location.pathname);
+          window.history.replaceState(null, document.title, window.location.pathname); // Limpia el hash de la URL sin recargar la página
 
           // Restaura la posición del scroll
           const savedScrollPosition = localStorage.getItem('scrollPosition');
@@ -61,7 +63,7 @@ const CreatePlaylist = () => {
     cleanUpToken();
   }, []);
 
-  // Fetch Top Tracks and Create Playlist
+  // Función para obtener mis ttop tracks de Spotify
   const fetchTopTracks = async () => {
     try {
       const response = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10', {
@@ -70,13 +72,14 @@ const CreatePlaylist = () => {
         },
       });
       const data = await response.json();
-      const tracksUri = data.items.map((track) => track.uri);
+      const tracksUri = data.items.map((track) => track.uri); // Extrae URIs de las canciones
       return { tracksUri, tracks: data.items };
     } catch (error) {
       console.error('Error fetching top tracks:', error);
     }
   };
 
+  // Crea una playlist y añade las canciones principales
   const createPlaylistWithTopTracks = async (tracksUri) => {
     try {
       const userResponse = await fetch('https://api.spotify.com/v1/me', {
@@ -96,6 +99,8 @@ const CreatePlaylist = () => {
         }),
       });
       const playlist = await playlistResponse.json();
+
+      // Añade las canciones a la playlist creada
       await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
         method: 'POST',
         headers: {
@@ -104,12 +109,13 @@ const CreatePlaylist = () => {
         },
         body: JSON.stringify({ uris: tracksUri }),
       });
-      setEmbedPlaylistId(playlist.id);
+      setEmbedPlaylistId(playlist.id); // Almacena el ID para incrustar la playlist
     } catch (error) {
       console.error('Error creating playlist:', error);
     }
   };
 
+  // Genera la playlist a partir de las canciones principales
   const handleGeneratePlaylist = async () => {
     if (!accessToken) return;
     const { tracksUri } = await fetchTopTracks();
@@ -118,9 +124,10 @@ const CreatePlaylist = () => {
     }
   };
 
+  // Animaciones GSAP para las líneas decorativas
   useEffect(() => {
     const { gsap } = window; // Accede a GSAP globalmente
-    const { ScrollTrigger } = window;
+    const { ScrollTrigger } = window; // Accede a ScrollTrigger desde GSAP
 
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado

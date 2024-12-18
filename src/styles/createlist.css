@@ -1,44 +1,44 @@
 /* CREATE LIST SECTION */
 .generate-playlist-section {
-  background-color: var(--secondary-color); /* Fondo oscuro */
-  color: var(--primary-color); /* Texto claro */
-  margin: 0; /* Elimina márgenes automáticos */
-  padding: 6rem var(--spacing); /* Espaciado interno */
-  padding-bottom: 8rem; /* Añade espaciado inferior */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+  background-color: var(--secondary-color); 
+  color: var(--primary-color); 
+  margin: 0; 
+  padding: 6rem var(--spacing); 
+  padding-bottom: 8rem; 
+  box-sizing: border-box; 
 }
 
 .generate-playlist-content {
   max-width: 90rem; 
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 0 var(--spacing); /* Espaciado interno a los lados */
-  text-align: center; /* Alinea el texto al centro */
+  margin: 0 auto; 
+  padding: 0 var(--spacing); 
+  text-align: center; 
 }
 
 .generate-playlist-content h3 {
-  text-align: left; /* Alineado a la izquierda */
-  font-size: 1.5rem; /* Tamaño del texto del h3 */
-  font-weight: bold; /* Hace el texto más prominente */
-  margin-bottom: 0.5rem; /* Espaciado debajo del título */
+  text-align: left; 
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  margin-bottom: 0.5rem; 
   position: relative;
-  color: var(--primary-color); /* Asegura que el texto del título sea claro */
+  color: var(--primary-color); 
 }
 
 .generate-playlist-content h3::after {
-  content: ''; /* Genera un pseudo-elemento para la línea */
-  display: block; /* Asegura que ocupe toda la línea */
-  width: 100%; /* La línea ocupa el ancho del contenedor h3 */
-  height: 0.05rem; /* Grosor de la línea */
-  background-color: var(--primary-color); /* Línea clara */
-  opacity: 0.5; /* Opacidad de la línea */
-  margin-top: 2rem; /* Espaciado entre el texto y la línea */
+  content: ''; 
+  display: block; 
+  width: 100%; 
+  height: 0.05rem; 
+  background-color: var(--primary-color); 
+  opacity: 0.5; 
+  margin-top: 2rem; 
   margin-bottom: 2rem;
 }
 
 .generate-playlist-content p {
-  font-size: 1rem; /* Tamaño del texto */
-  line-height: 1.8; /* Espaciado entre líneas */
-  color: var(--primary-color); /* Asegura que el texto sea claro */
+  font-size: 1rem; 
+  line-height: 1.8; 
+  color: var(--primary-color); 
   margin-top: 1rem;
 }
 
@@ -51,24 +51,24 @@
 .generate-playlist-button,
 .login-spotify-button {
   font-family: var(--font-stack);
-  background-color: var(--primary-color); /* Color de fondo base */
-  color: var(--secondary-color); /* Color del texto base */
-  width: 15rem; /* Tamaño del botón */
+  background-color: var(--primary-color); 
+  color: var(--secondary-color); 
+  width: 15rem; 
   height: 4rem;
-  font-size: 1rem; /* Tamaño del texto */
-  padding: 0.75rem 1rem; /* Espaciado interno */
-  border: none; /* Sin bordes */
-  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  font-size: 1rem; 
+  padding: 0.75rem 1rem; 
+  border: none; 
+  border-radius: 0.5rem; 
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Animación suave */
-  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Sombra sutil */
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); 
 }
 
 /* Hover: se invierten los colores */
 .generate-playlist-button:hover,
 .login-spotify-button:hover {
-  background-color: var(--secondary-color); /* Nuevo fondo */
-  color: var(--primary-color); /* Texto invertido */
+  background-color: var(--secondary-color); 
+  color: var(--primary-color); 
 }
 
 
@@ -95,8 +95,8 @@
   height: 720px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 30px; /* Añade espacio uniforme alrededor del contenido */
-  box-sizing: border-box; /* Garantiza que el padding no aumente el tamaño total */
+  padding: 30px; 
+  box-sizing: border-box; 
 }
 
 
@@ -117,23 +117,23 @@
   color: var(--secondary-color);
 }
 
-/* Responsive para móviles en vertical */
+/* RESPONSIVE */
+/* Móviles vertical */
 @media (max-width: 767px) {
   .generate-playlist-section .line-container {
     z-index: -1; 
   }
 .vertical-line-left {
-  left: 40%; /* Ajusta la posición de la línea vertical */
+  left: 40%; 
   
   }
 .horizontal-line-right {
-  top: 99%; /* Controla la altura total de la línea vertical */
+  top: 99%; 
   }
 }
 
-/* Ajustes específicos para móviles en horizontal */
+/* Móviles Horizontal */
 @media (max-width: 950px) and (max-height: 500px) {
- /* Fondo oscuro de la ventana emergente */
   .popup-overlay {
     position: fixed;
     top: 0;
@@ -146,55 +146,54 @@
     z-index: 1000;
   }
 
-/* Contenido de la ventana emergente */
   .popup-content {
     background: var(--secondary-color);
     color: var(--primary-color);
     border-radius: 8px;
-    width: 100vw; /* Ajusta el ancho al 90% del viewport */
+    width: 100vw;
     max-width: 1280px;
-    height: 100vh; /* Permite que la altura se ajuste automáticamente */
+    height: 100vh; 
   }
 
   .vertical-line-left {
-    left: 40%; /* Ajusta la posición de la línea vertical */
+    left: 40%; 
   }
 
   .horizontal-line-right {
-    height: 90%; /* Controla la altura total de la línea vertical */
+    height: 90%; 
   }
 
   .generate-playlist-section .line-container {
     z-index: -1; 
   }
   .vertical-line-left {
-    left: 40%; /* Ajusta la posición de la línea vertical */
-    
+    left: 40%; 
   }
 
   .horizontal-line-right {
-    top: 99%; /* Controla la altura total de la línea vertical */
+    top: 99%; 
   }
 }
 
-/* Ajustes específicos para tablets en vertical */
+/* Tablets vertical */
 @media (max-width: 1025px) {
   .vertical-line-left, .horizontal-line-right {
     opacity: 0;
   }
 }
 
-/* Ajustes específicos para tablets en horizontal */
+/* Móviles Horizontal */
 @media (max-width: 1366px) {
   .vertical-line-left, .horizontal-line-right {
     opacity: 0;
   }
 }
 
+/* ESTILOS LINEAS DE DECORACIÓN */
 /* Contenedor de la sección */
 .generate-playlist-section {
   position: relative;
-  overflow: hidden; /* Evita que las líneas sobresalgan */
+  overflow: hidden; 
   padding: 4rem 0;
 }
 
@@ -224,10 +223,10 @@
 /* Línea derecha (horizontal) */
 .horizontal-line-right {
   position: absolute;
-  bottom: 10%; /* Ajusta la posición vertical */
-  right: 0; /* Empieza desde el borde derecho */
-  width: 100%; /* Ancho completo del contenedor */
-  height: 4px; /* Grosor de la línea */
+  bottom: 10%; 
+  right: 0; 
+  width: 100%; 
+  height: 4px; 
   background-color: #e277b9;
   transform: scaleX(0);
   transform-origin: right center;
