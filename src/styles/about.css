@@ -36,7 +36,6 @@ h2 {
   h2 {
     font-size: 1.9rem;
     max-width: 18rem; 
-    
   }
 
   .about-section p {
@@ -52,7 +51,6 @@ h2 {
   .scroll-line-about, .vertical-line-container-about {
     opacity: 0;
   }
-
 }
 
 /* Móviles en horizontal */
@@ -90,6 +88,13 @@ h2 {
 
 /* Tablets Vertical */
 @media (max-width: 1025px) {
+  .about-section p { 
+    line-height: 2; 
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .scroll-line-about, .vertical-line-container-about {
     opacity: 0;  
   }
@@ -97,6 +102,13 @@ h2 {
 
 /* Tablets Horizontal */
 @media (max-width: 1366px) {
+  .about-section p { 
+    line-height: 2; 
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .scroll-line-about, .vertical-line-container-about {
     opacity: 0;  
   }
