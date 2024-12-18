@@ -32,7 +32,7 @@ const Playlists = () => {
             duration: 2, 
             scrollTrigger: {
               trigger: playlistsSection, 
-              start: 'top center', viewport,
+              start: 'top center',
               end: 'bottom center', 
               scrub: true, 
             },
