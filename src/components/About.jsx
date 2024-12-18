@@ -1,11 +1,15 @@
+
+/* Importa React, hooks y contexto personalizado */
 import React, { useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 
+/* Declara referencias para manipular elementos DOM directamente */
 const About = () => {
   const { sections } = useScrollContext();
-  const lineRef = useRef(null); // Referencia a la línea horizontal
-  const verticalLineRef = useRef(null); // Referencia a la línea vertical
+  const lineRef = useRef(null);
+  const verticalLineRef = useRef(null);
 
+  /* Registra el plugin ScrollTrigger en gsap. Obtiene la sección .about-section para definir el área de activación de las animaciones. */
   useEffect(() => {
     const { gsap } = window; // Accede a GSAP global desde el CDN
     const { ScrollTrigger } = window;
@@ -13,9 +17,9 @@ const About = () => {
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que esté registrado
 
-      const aboutSection = document.querySelector('.about-section');
+      const aboutSection = document.querySelector('.about-section'); // Obtiene la sección de referencia
 
-      // Animación de la línea horizontal
+      /* Animación de la línea horizontal: escala horizontal desde 0 a 1 al hacer scroll */
       gsap.fromTo(
         lineRef.current,
         { scaleX: 0 },
@@ -30,7 +34,7 @@ const About = () => {
         }
       );
 
-      // Animación de la línea vertical
+      /* Animación de la línea vertical: escala vertical desde 0 a 1 al hacer scroll */
       gsap.fromTo(
         verticalLineRef.current,
         { scaleY: 0 },
@@ -45,7 +49,7 @@ const About = () => {
         }
       );
     } else {
-      console.error('GSAP or ScrollTrigger not found!');
+      console.error('GSAP or ScrollTrigger not found!'); /* Manejo de errores si GSAP o ScrollTrigger no están disponibles */
     }
   }, []);
 
