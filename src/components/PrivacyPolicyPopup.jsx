@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../styles/privacy-policy.css'; // Asegúrate de tener un archivo de estilos para este componente
+import '../styles/privacy-policy.css'; // Archivo de estilos para este componente
 
 const PrivacyPolicyPopup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
