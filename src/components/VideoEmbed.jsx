@@ -1,5 +1,7 @@
+/* Importa React */
 import React from 'react';
 
+/* Componente que toma un videoId y genera un reproductor de video responsivo y accesible para reproducir contenido de Vimeo. */
 const VideoEmbed = ({ videoId }) => {
   return (
     <div

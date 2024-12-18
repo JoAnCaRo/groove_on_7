@@ -1,15 +1,14 @@
 /* LIVE SESSION SECTION */
 .live-sessions-section {
-  /* Ancho máximo para el diseño */
   max-width: 87.5rem; 
-  margin: 0 auto; /* Centra horizontalmente la sección */
-  text-align: center; /* Alinea el texto al centro */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-  z-index: 1; /* Asegura que esté encima de todo */
-  padding-top: 6rem; /* Espaciado superior */
-  padding-bottom: var(--spacing); /* Mantiene el padding inferior */
-  padding-left: 0; /* Quita el padding lateral izquierdo */
-  padding-right: 0; /* Quita el padding lateral derecho */
+  margin: 0 auto; 
+  text-align: center; 
+  box-sizing: border-box; 
+  z-index: 1; 
+  padding-top: 6rem; 
+  padding-bottom: var(--spacing); 
+  padding-left: 0; 
+  padding-right: 0; 
   background-color: transparent;
   position: relative; 
 }
@@ -19,23 +18,23 @@ section.live-sessions-section {
 }
 
 .live-sessions-section h3 {
-  text-align: left; /* Justifica el texto a la izquierda */
-  font-size: 1.5rem; /* Tamaño del texto del h3 */
-  font-weight: bold; /* Opcional: hace el texto más prominente */
-  margin-bottom: 0.5rem; /* Espaciado debajo del título */
-  position: relative; /* Necesario para colocar la línea */
+  text-align: left; 
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  margin-bottom: 0.5rem; 
+  position: relative; 
   padding: 0 30px;
 }
 
 .live-sessions-section h3::after {
-  content: ''; /* Genera un pseudo-elemento para la línea */
-  display: block; /* Asegura que ocupe toda la línea */
-  width: 100%; /* La línea ocupa el ancho del contenedor h3 */
-  height: 0.05rem; /* Grosor de la línea */
-  background-color: var(--secondary-color); /* Color de la línea */
-  opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
-  margin-top: 2rem; /* Espaciado entre el texto y la línea */
-  margin-bottom: 2rem; /* Espaciado entre el texto y la línea */
+  content: ''; 
+  display: block; 
+  width: 100%; 
+  height: 0.05rem; 
+  background-color: var(--secondary-color); 
+  opacity: 0.2; 
+  margin-top: 2rem; 
+  margin-bottom: 2rem; 
 }
 
 .session-image {
@@ -50,83 +49,81 @@ section.live-sessions-section {
 }
 
 .session-content {
-  flex: 1; /* Contenido ocupa la mitad derecha */
+  flex: 1; 
   display: flex;
-  flex-direction: column; /* Organiza el contenido verticalmente */
-  justify-content: space-between; /* Separa título/texto del botón */
-  position: relative; /* Necesario para colocar el botón */
+  flex-direction: column; 
+  justify-content: space-between; 
+  position: relative; 
 }
 
 .session-content h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  text-align: left; /* Alineado a la izquierda */
-  /* padding-left: 3rem; */
+  text-align: left; 
 }
 
 .session-content p {
   font-size: 1rem;
-  line-height: 1.8; /* Espaciado entre líneas */
-  margin: 0.5rem 0 15rem; /* Espaciado debajo del texto */
-  text-align: left; /* Alineado a la izquierda */
-  /* padding-left: 3rem; */
+  line-height: 1.8;
+  margin: 0.5rem 0 15rem; 
+  text-align: left; 
 }
 
 .play-button {
-  background-color: transparent; /* Fondo transparente */
-  border: none; /* Sin bordes */
-  border-radius: 50%; /* Botón redondo */
-  width: 3rem; /* Tamaño del botón */
+  background-color: transparent; 
+  border: none; 
+  border-radius: 50%; 
+  width: 3rem;
   height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   padding: 0;
-  position: absolute; /* Coloca el botón de manera absoluta */
-  bottom: 0; /* Alinea el botón con la parte inferior */
-  left: 2rem; /* Alinea el botón con el padding izquierdo del texto */
+  position: absolute; 
+  bottom: 0; 
+  left: 2rem; 
 }
 
 .play-button img {
-  width: 3rem; /* Tamaño deseado del SVG (ajusta este valor) */
-  height: auto; /* Tamaño proporcional del SVG */
+  width: 3rem; 
+  height: auto; 
 }
 
 .see-all-container {
   text-align: center;
   height: 100%;
-  display: flex; /* Activa Flexbox */
-  justify-content: center; /* Centra horizontalmente el contenido */
-  align-items: center; /* Centra verticalmente el contenido */
-  padding: 30px 0; /* Espaciado interno */
-  margin-top: 4rem; /* Separación superior */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 30px 0;
+  margin-top: 4rem; 
 }
 
 .see-all-container .see-all-button-live {
-  background-color: var(--secondary-color); /* Color de fondo del botón */
-  color: var(--primary-color); /* Color del texto */
-  text-decoration: none; /* Elimina la línea de subrayado */
-  font-size: 1rem; /* Tamaño del texto */
-  padding: 1.3rem 5rem; /* Espaciado interno */
-  border: none; /* Sin bordes */
-  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  background-color: var(--secondary-color);
+  color: var(--primary-color); 
+  text-decoration: none; 
+  font-size: 1rem; 
+  padding: 1.3rem 5rem; 
+  border: none; 
+  border-radius: 0.5rem; 
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Animación para el hover */
+  transition: background-color 0.3s ease; 
 }
 
 .see-all-container .see-all-button-live:hover {
-  background-color: var(--primary-color); /* Color de fondo al pasar el mouse */
-  color: var(--secondary-color); /* Cambia el color del texto */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  background-color: var(--primary-color); 
+  color: var(--secondary-color); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .sessions {
-  position: relative; /* Necesario para contener la línea */
+  position: relative; 
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  z-index: 0; /* Mantiene el contenido por encima de la línea */
+  z-index: 0; 
 }
 
 .sessions h3 {
@@ -137,20 +134,20 @@ section.live-sessions-section {
   display: flex; 
   align-items: center; 
   position: relative; 
-  width: 100%; /* Asegura que cada sesión ocupe todo el ancho */
+  width: 100%; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background: var(--primary-color);
 }
 
 .session img {
-  width: 100%; /* Ajusta la miniatura al ancho del contenedor */
-  height: auto; /* Mantiene la proporción */
+  width: 100%; 
+  height: auto; 
   cursor: pointer;
 }
 
 .session-content {
-  padding: 1rem; /* Espaciado interno para el contenido */
-  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 1rem; 
+  text-align: left; 
 }
 
 /* VIDEOS */
@@ -165,7 +162,7 @@ section.live-sessions-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10; /* Asegura que esté encima de otros elementos */
+  z-index: 10; 
 }
 
 .video-popup-content {
@@ -191,19 +188,19 @@ section.live-sessions-section {
   color: var(--secondary-color);
 }
 
-
-/* Responsive para móviles en vertical */
+/* RESPONSIVE */
+/* Móviles vertical */
 @media (max-width: 767px) {
   .session {
-    width: 100%; /* La imagen ocupa todo el ancho en móviles */
-    flex-direction: column; /* Video arriba y descripción abajo */
-    align-items: center; /* Centra los elementos en columna */
-    text-align: center; /* Alinea texto e imágenes al centro */
+    width: 100%; 
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
   }
 
   .session-image {
-    width: 100%; /* El contenedor de la imagen ocupa todo el ancho */
-    max-width: 100%; /* Evita desbordamientos */
+    width: 100%; 
+    max-width: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,10 +208,10 @@ section.live-sessions-section {
   }
 
   .session-image img {
-    width: 100%; /* La imagen llena el ancho del contenedor */
-    height: auto; /* Mantiene la proporción */
-    max-width: none; /* Asegura que no haya límites de tamaño */
-    object-fit: cover; /* Escala la imagen sin distorsión */
+    width: 100%; 
+    height: auto; 
+    max-width: none; 
+    object-fit: cover; 
   }
 
   .session-content {
@@ -228,7 +225,7 @@ section.live-sessions-section {
   }
 
   .session-content p {
-    font-size: 0.9rem; /* Aumenta el tamaño del h2 en móviles */
+    font-size: 0.9rem; 
     margin: 0.5rem 0;
     padding:0;
     text-align: justify;
@@ -240,22 +237,22 @@ section.live-sessions-section {
     top: 0; 
     left: 0;
     width: 100vw;
-    height: 100%; /* Altura automática */
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10; /* Asegura que esté encima de todo */
+    z-index: 10;
   }
 
     .video-popup-content {
-    display: flex; /* Asegura que el contenido se alinee */
-    flex-direction: column; /* Organiza el iframe y el botón en columna */
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: center; /* Centra el contenido horizontalmente */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    padding: 1rem; /* Espaciado interno opcional */
-    box-sizing: border-box; /* Incluye padding en el cálculo del ancho/alto */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    height: 100vh; 
+    padding: 1rem; 
+    box-sizing: border-box; 
   }
 
   .video-popup-content iframe {
@@ -270,11 +267,11 @@ section.live-sessions-section {
 
 }
 
-/* Ajustes específicos para móviles en horizontal */
+/* Móviles Horizontal */
 @media (max-width: 950px) and (max-height: 500px) {
   h2 {
-    font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
-    max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
+    font-size: 1.9rem; 
+    max-width: 18rem; 
   }
 
   .sessions {
@@ -282,15 +279,15 @@ section.live-sessions-section {
   }
 
   .session-content {
-    display: flex; /* Activa Flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: left; /* Centra verticalmente */
+    display: flex; 
+    justify-content: center; 
+    align-items: left; 
 
   }
 
   .session-content h4 {
     font-size: 1.2rem;
-    padding: 20px 0; /* 10px arriba y abajo, 0 en izquierda y derecha */
+    padding: 20px 0; 
   }
 
   .session-content p {
@@ -298,51 +295,51 @@ section.live-sessions-section {
   }
 
   .video-popup-content {
-    display: flex; /* Asegura que el contenido se alinee */
-    flex-direction: column; /* Organiza el iframe y el botón en columna */
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: center; /* Centra el contenido horizontalmente */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    padding: 1rem; /* Espaciado interno opcional */
-    box-sizing: border-box; /* Incluye padding en el cálculo del ancho/alto */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    height: 100vh; 
+    padding: 1rem; 
+    box-sizing: border-box; 
   }
 
   .video-popup-content iframe {
-    width: 70%; /* Ajusta el ancho al 90% del contenedor */
-    height: auto; /* Mantiene la proporción del video */
-    max-width: 1280px; /* Ancho máximo del iframe */
-    aspect-ratio: 16 / 9; /* Mantiene proporciones estándar de video */
-    border: none; /* Elimina bordes del iframe */
+    width: 70%; 
+    height: auto; 
+    max-width: 1280px; 
+    aspect-ratio: 16 / 9; 
+    border: none; 
   }
   .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
     opacity: 0;
   }
 }
 
-/* Ajustes específicos para tablets en vertical */
+/* Tablets Vertical */
 @media (max-width: 1025px) {
   .video-popup-content {
-    display: flex; /* Asegura que el contenido se alinee */
-    flex-direction: column; /* Organiza el iframe y el botón en columna */
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: center; /* Centra el contenido horizontalmente */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    padding: 1rem; /* Espaciado interno opcional */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    height: 100vh; 
+    padding: 1rem; 
   }
 
   .video-popup-content iframe {
-    width: 90%; /* Ajusta el ancho al 90% del contenedor */
-    height: auto; /* Mantiene la proporción del video */
-    aspect-ratio: 16 / 9; /* Mantiene proporciones estándar de video */
-    border: none; /* Elimina bordes del iframe */
+    width: 90%; 
+    height: auto;
+    aspect-ratio: 16 / 9; 
+    border: none; 
   }
 
   .session-content {
-    display: flex; /* Activa Flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: left; /* Centra verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: left;
 
   }
 
@@ -362,16 +359,16 @@ section.live-sessions-section {
   }
 }
 
-/* Ajustes específicos para tablets en horizontal */
+/* Tablets Horizontal */
 @media (max-width: 1366px) {
   .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
     opacity: 0;
   }
 
     .session-content {
-    display: flex; /* Activa Flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: left; /* Centra verticalmente */
+    display: flex; 
+    justify-content: center; 
+    align-items: left; 
 
   }
 
@@ -387,48 +384,47 @@ section.live-sessions-section {
   }
 }
 
-/* Estilos para las líneas verticales */
-
-/* Primera línea vertical */
+/* ESTILOS LINEAS DE DECORACIÓN */
+/* Primera Línea Vertical */
 .first-vertical-line-container-livesessions {
   position: absolute;
-  width: 6px; /* Grosor de la línea */
+  width: 6px; 
   right: 8.85%;     
-  height: 100%; /* Abarca toda la altura de la sección */
-  top: 0; /* Comienza desde la parte superior */
-  z-index: -1; /* Detrás del contenido */
+  height: 100%; 
+  top: 0; 
+  z-index: -1; 
 }
 
 .first-vertical-scroll-line-livesessions {
   position: absolute;
   top: 0;
-  width: 100%; /* Ajusta al ancho del contenedor */
-  height: 100%; /* Altura total del contenedor */
-  background-color: #3498db; /* Color azul */
-  transform-origin: top center; /* Animación desde la parte superior */
-  transform: scaleY(0); /* Escala inicial */
-  pointer-events: none; /* No interactúa con el cursor */
+  width: 100%; 
+  height: 100%; 
+  background-color: #3498db; 
+  transform-origin: top center; 
+  transform: scaleY(0); 
+  pointer-events: none; 
 }
 
-/* Segunda línea vertical */
+/* Segunda Línea Vertical */
 .second-vertical-line-container-livesessions{
   position: absolute;
-  width: 6px; /* Grosor de la línea */
+  width: 6px;
   left: 15%;
-  height: 100%; /* Abarca toda la altura de la sección */
-  top: 0; /* Comienza desde la parte superior */
-  z-index: -1; /* Detrás del contenido */
+  height: 100%; 
+  top: 0; 
+  z-index: -1; 
 }
 
 .second-vertical-scroll-line-livesessions {
   position: absolute;
   top: 0;
-  width: 100%; /* Ajusta al ancho del contenedor */
-  height: 100%; /* Altura total del contenedor */
-  background-color: #D82E45; /* Color rojo */
-  transform-origin: top center; /* Animación desde la parte superior */
-  transform: scaleY(0); /* Escala inicial */
-  pointer-events: none; /* No interactúa con el cursor */
+  width: 100%; 
+  height: 100%; 
+  background-color: #D82E45; 
+  transform-origin: top center; 
+  transform: scaleY(0); 
+  pointer-events: none; 
 }
 
 

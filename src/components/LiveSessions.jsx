@@ -1,7 +1,10 @@
+/* Importa React, hooks y archivos necesario */
 import React, { useRef, useEffect, useState } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import VideoPopup from './VideoPopup';
 
+/* Función para gestionar referencias de secciones y  video actual en reproducción
+ */
 const LiveSessions = () => {
   const { sections } = useScrollContext();
   const [currentVideo, setCurrentVideo] = useState(null);
@@ -10,9 +13,10 @@ const LiveSessions = () => {
   const firstVerticalLineRef = useRef(null);
   const secondVerticalLineRef = useRef(null);
 
+  /* Registra el plugin ScrollTrigger en gsap y definir el área de activación de las animaciones. */
   useEffect(() => {
     const { gsap } = window; // Accede a GSAP globalmente
-    const { ScrollTrigger } = window;
+    const { ScrollTrigger } = window; // Accede a ScrollTrigger desde GSAP
 
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
@@ -36,7 +40,7 @@ const LiveSessions = () => {
         );
       }
 
-      // Animación para la segunda línea vertical (rojo)
+      // Animación para la segunda línea vertical (roja)
       if (secondVerticalLineRef.current) {
         gsap.fromTo(
           secondVerticalLineRef.current,
@@ -53,7 +57,7 @@ const LiveSessions = () => {
         );
       }
     } else {
-      console.error('GSAP or ScrollTrigger not found!');
+      console.error('GSAP or ScrollTrigger not found!'); /* Manejo de errores */
     }
   }, []);
 
@@ -93,6 +97,7 @@ const LiveSessions = () => {
         <div ref={secondVerticalLineRef} className="second-vertical-scroll-line-livesessions"></div>
       </div>
 
+      {/* Contenedor de sesiones en vivo */}
       <div className="sessions">
         <h3>Live Sessions</h3>
         {videos.map((video) => (
@@ -108,12 +113,14 @@ const LiveSessions = () => {
         ))}
       </div>
 
+      {/* Botón para ver todas las sesiones */}
       <div className="see-all-container">
         <a href="https://vimeo.com/jausejones" target="_blank" rel="noopener noreferrer" className="see-all-button-live">
           SEE ALL
         </a>
       </div>
 
+      {/* Popup de video */}
       <VideoPopup videoUrl={currentVideo} onClose={() => setCurrentVideo(null)} />
     </section>
   );

@@ -11,7 +11,7 @@ const About = () => {
   /* Registra el plugin ScrollTrigger en gsap. Obtiene la sección .about-section para definir el área de activación de las animaciones. */
   useEffect(() => {
     const { gsap } = window; // Accede a GSAP global desde el CDN
-    const { ScrollTrigger } = window;
+    const { ScrollTrigger } = window; // Accede a ScrollTrigger desde GSAP
 
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que esté registrado
