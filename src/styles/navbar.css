@@ -5,27 +5,12 @@
   margin: 0 auto;
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
-  position: relative; /* Necesario para posicionar el icono de hamburguesa */
-}
-
-/* Icono de hamburguesa (solo en móviles) */
-.hamburger-icon {
-  display: none; /* Oculto por defecto */
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1001; /* Asegura que esté encima del menú */
-  cursor: pointer;
-}
-
-.hamburger-icon img {
-  width: 24px; /* Tamaño del icono */
-  height: 24px;
+  position: relative;
 }
 
 /* Menú en desktop */
 .menu {
-  display: flex; /* Siempre visible en desktop */
+  display: flex; 
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -74,14 +59,30 @@
   width: 100%;
 }
 
-/* Responsive: ajustes para móviles */
+/* Icono de hamburguesa (solo en móviles) */
+.hamburger-icon {
+  display: none; 
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001; 
+  cursor: pointer;
+}
+
+.hamburger-icon img {
+  width: 24px; 
+  height: 24px;
+}
+
+/* RESPONSIVE */
+/* Móviles Vertical */
 @media (max-width: 950px) {
   .hamburger-icon {
-    display: block; /* Muestra el icono de hamburguesa */
+    display: block;
   }
 
   .menu {
-    display: none; /* Oculta el menú por defecto */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 3rem;
@@ -93,7 +94,7 @@
   }
 
   .menu.open {
-    display: flex; /* Muestra el menú cuando está abierto */
+    display: flex; 
   }
 
   .menu li {
@@ -102,38 +103,38 @@
   }
 
   .menu a {
-    font-size: 1rem; /* Ajusta el tamaño del texto */
+    font-size: 1rem; 
   }
-    /* Quitar líneas decorativas en móviles */
+  
   .menu a::after,
   .menu a::before {
     content: none;
   }
 
   .main-title {
-  margin: 2rem 0;
-  width: 100vw; 
+    margin: 2rem 0;
+    width: 100vw; 
   }
 }
 
-/* Ajustes específicos para móviles en horizontal */
+/* Móviles Horizontal */
 @media (max-width: 950px) and (max-height: 500px) {
   .hamburger-icon {
-    position:absolute; /* Elimina la influencia del contenido circundante */
-    right: -3.5rem; /* Mueve el icono más a la derecha */
-    top: 1.5rem; /* Asegura que esté alineado correctamente */
+    position:absolute; 
+    right: -3.5rem; 
+    top: 1.5rem; 
   }
 
   .menu {
-    position:relative; /* Asegura que el menú ocupe toda la pantalla */
-    top: 0; /* Ajusta la posición del menú si es necesario */
+    position:relative;
+    top: 0; 
     left: 0;
     width: 100%;
     height: 100vh;
   }
 
     .menu li {
-    padding: 1.4rem; /* Espaciado uniforme entre los elementos */
-    text-align: center; /* Centra los textos */
+    padding: 1.4rem; 
+    text-align: center; 
   }
 }

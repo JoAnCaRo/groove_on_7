@@ -1,4 +1,3 @@
-
 /* Importa React, hooks y contexto personalizado */
 import React, { useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
