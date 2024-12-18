@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 import Callback from './components/Callback'; // Importar el componente Callback
 import { ScrollProvider } from './context/ScrollContext';
 
-import './styles/globals.css';
+/* import './styles/globals.css'; */
 import './styles/navbar.css';
 import './styles/hero.css';
 import './styles/about.css';
