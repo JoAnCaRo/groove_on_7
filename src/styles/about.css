@@ -11,17 +11,18 @@
 
 .text-container p {
   max-width: 45rem;
-  margin: 0 auto; /* Centra horizontalmente la sección */
-  text-align: center; /* Alinea el texto al centro */
+  margin: 0 auto; 
+  text-align: center; 
 }
 
 h2 {
-  font-size: clamp(1rem, 2vw, 5rem); /* Tamaño dinámico */
-  margin: 0 auto; /* Centra el h2 horizontalmente */
+  font-size: clamp(1rem, 2vw, 5rem);
+  margin: 0 auto; 
   max-width: 45rem;
 }
 
-/* Responsive para móviles en vertical */
+/* RESPONSIVE */
+/* Móviles vertical */
 @media (max-width: 767px) {
   .text-container {
     padding: 0!important;
@@ -33,15 +34,15 @@ h2 {
   }
 
   h2 {
-    font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
-    max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
+    font-size: 1.9rem;
+    max-width: 18rem; 
     
   }
 
   .about-section p {
-    font-size: 0.9rem; /* Ajusta el tamaño del texto en móviles */
-    line-height: 2; /* Reduce ligeramente el interlineado */
-    max-width: 21rem; /* Reduce ligeramente el ancho máximo en móviles */
+    font-size: 0.9rem; 
+    line-height: 2; 
+    max-width: 21rem;
     margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -54,11 +55,11 @@ h2 {
 
 }
 
-/* Ajustes específicos para móviles en horizontal */
+/* Móviles en horizontal */
 @media (max-width: 950px) and (max-height: 500px) {
   h2 {
-    font-size: 1.9rem; /* Aumenta el tamaño del h2 en móviles */
-    max-width: 18rem; /* Reduce ligeramente el ancho máximo en móviles */
+    font-size: 1.9rem; 
+    max-width: 18rem; 
   }
 
   .about-section {
@@ -66,55 +67,55 @@ h2 {
   }
 
   .line-container-about {
-    height: 3px; /* Ajusta el grosor de la línea horizontal */
-    top: 70%; /* Ajusta la posición de la línea horizontal */
+    height: 3px; 
+    top: 70%; 
   }
 
   .vertical-line-container-about {
-    left: 40%; /* Ajusta la posición de la línea vertical */
-    height: 90%; /* Controla la altura total de la línea vertical */
+    left: 40%; 
+    height: 90%; 
   }
 
   .scroll-line-about, .vertical-line-container-about {
     opacity: 0;
   }
-  
 }
 
-/* Ajustes específicos para tablets en vertical */
+/* Tablets Vertical */
 @media (max-width: 1025px) {
   .scroll-line-about, .vertical-line-container-about {
     opacity: 0;  
   }
 }
 
-/* Ajustes específicos para tablets en horizontal */
+/* Tablets Horizontal */
 @media (max-width: 1366px) {
   .scroll-line-about, .vertical-line-container-about {
     opacity: 0;  
   }
 }
 
-/* Lineas Estilos */
+/* ESTILOS LINEAS DE DECORACIÓN */
 .about-section {
   position: relative;
 }
 
 .text-container {
   max-width: 87.5rem; 
-  margin: 0 auto; /* Centra horizontalmente la sección */
-  text-align: center; /* Alinea el texto al centro */
+  margin: 0 auto; 
+  text-align: center; 
   padding-top: 6rem;
   padding-bottom: 6rem;
-  position: relative; /* Necesario para posicionar la línea dentro */
+  position: relative; 
   line-height: 1.8;
 }
 
+/* Linea Horizontal */
 .line-container-about {
   position: absolute;
   height: 4px;
   width: 100vw;
-  top: 90%; /* Ajusta según tu diseño */
+  top: 90%; 
   left: 0;
   transform: translateY(-50%);
 }
@@ -132,15 +133,13 @@ h2 {
   pointer-events: none;
 }
 
-/* Contenedor de la línea animada vertical */
+/* Linea Vertical */
 .vertical-line-container-about {
   position: absolute;
-  height: 100%; /* Abarca toda la altura de la sección */
+  height: 100%; 
   top: 0;
   width: 6px;
-  right: 30%; 
-  /* left: calc((100% - 87.5rem) / 2 + 70% * 87.5rem);  */
-  
+  right: 30%;   
   transform: translateX(-50%);
 }
 
@@ -150,7 +149,7 @@ h2 {
   top: 0;
   width: 6px;
   height: 100%;
-  background-color: #4caf50; /* Color de la línea vertical */
+  background-color: #4caf50;
   transform-origin: top center;
   transform: scaleY(0);
   z-index: -1;
