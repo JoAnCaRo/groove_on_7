@@ -1,5 +1,6 @@
+/* IMPORTACIONES */
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importar router
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importa router React
 import Navbar from './components/Navbar';
 import HeaderTitle from './components/HeaderTitle';
 import Hero from './components/Hero';
@@ -10,7 +11,7 @@ import CreatePlaylist from './components/CreatePlaylist';
 import Events from './components/Events';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Callback from './components/Callback'; // Importar el componente Callback
+import Callback from './components/Callback'; // Importa el componente Callback
 import { ScrollProvider } from './context/ScrollContext';
 
 /* import './styles/globals.css'; */
@@ -24,6 +25,7 @@ import './styles/footer.css';
 import './styles/live-sessions.css';
 import './styles/playlists.css';
 
+/* Componente principal de la aplicación React que organiza y gestiona la estructura y la navegación de toda la web */
 const App = () => {
   return (
     <ScrollProvider>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+/* Componente React que gestiona el proceso de autenticación Spotify. Manejar el access_token y muestra error devuelto en la URL después de una redirección de autenticación. */
 const Callback = () => {
   const navigate = useNavigate();
 
@@ -23,8 +24,8 @@ const Callback = () => {
       } else if (error) {
         console.error('Error al autenticar:', error);
 
-        // Manejar errores, podrías redirigir al usuario o mostrar un mensaje
-        alert('Error al autenticar con Tidal. Por favor, inténtalo de nuevo.');
+        // Manejar errores
+        alert('Error al autenticar con Spotify. Por favor, inténtalo de nuevo.');
         navigate('/');
       }
     }
@@ -33,7 +34,7 @@ const Callback = () => {
   return (
     <div>
       <h1>Autenticando...</h1>
-      <p>Por favor, espera mientras procesamos tu autenticación con Tidal.</p>
+      <p>Por favor, espera mientras procesamos tu autenticación con Spotify.</p>
     </div>
   );
 };
