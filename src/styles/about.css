@@ -66,6 +66,13 @@ h2 {
     padding: 0;
   }
 
+    .about-section p { 
+    line-height: 2; 
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .line-container-about {
     height: 3px; 
     top: 70%; 
