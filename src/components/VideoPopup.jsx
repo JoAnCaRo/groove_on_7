@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-/* Componente  que muestra un video en un popup con animaciones de aparición y desaparición. Incluye una función para cerrarlo. */
+/* Componente que muestra video en un popup con animaciones de aparición y desaparición. Incluye una función para cerrarlo. */
 const VideoPopup = ({ videoUrl, onClose }) => {
   if (!videoUrl) return null;
 
