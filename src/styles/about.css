@@ -13,6 +13,9 @@
   max-width: 45rem;
   margin: 0 auto; 
   text-align: center; 
+  line-height: 2; 
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 h2 {
