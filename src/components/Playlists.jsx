@@ -1,37 +1,40 @@
+/* Importa React, hooks y contexto personalizado */
 import React, { useEffect, useRef } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 
+/* Función para gestionar referencias de secciones y lineas de decoración */
 const Playlists = () => {
   const { sections } = useScrollContext();
-  const lineRef = useRef(null); // Referencia a la línea horizontal
-  const reverseLineRef = useRef(null); // Referencia a la línea que se mueve de derecha a izquierda
+  const lineRef = useRef(null);
+  const reverseLineRef = useRef(null);
 
+  /* Registra el plugin ScrollTrigger en gsap y definir el área de activación de las animaciones. */
   useEffect(() => {
     console.log('Initializing GSAP animation for Playlists section'); // Depuración
 
     const { gsap } = window; // Accede a GSAP globalmente
-    const { ScrollTrigger } = window;
+    const { ScrollTrigger } = window; // Accede a ScrollTrigger desde GSAP
 
     if (gsap && ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger); // Asegura que ScrollTrigger esté registrado
 
-      const playlistsSection = document.querySelector('.playlists-section'); // Sección Playlists
+      const playlistsSection = document.querySelector('.playlists-section'); // Obtiene la sección de referencia
 
       if (lineRef.current && playlistsSection) {
         // Animación de la línea horizontal (izquierda a derecha)
         gsap.fromTo(
           lineRef.current,
           {
-            scaleX: 0, // Comienza sin ancho
+            scaleX: 0, 
           },
           {
-            scaleX: 1, // Se expande completamente
-            duration: 2, // Duración para depuración
+            scaleX: 1, 
+            duration: 2, 
             scrollTrigger: {
-              trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
-              start: 'top center', // Comienza cuando Playlists llega al centro del viewport
-              end: 'bottom center', // Termina cuando Playlists sale del viewport
-              scrub: true, // Sincroniza con el scroll
+              trigger: playlistsSection, 
+              start: 'top center', viewport,
+              end: 'bottom center', 
+              scrub: true, 
             },
           }
         );
@@ -42,14 +45,14 @@ const Playlists = () => {
         gsap.fromTo(
           reverseLineRef.current,
           {
-            scaleX: 0, // Comienza sin ancho
+            scaleX: 0, 
           },
           {
-            scaleX: 1, // Se expande completamente
+            scaleX: 1, 
             duration: 2,
-            transformOrigin: 'right center', // Se expande desde la derecha
+            transformOrigin: 'right center', 
             scrollTrigger: {
-              trigger: playlistsSection, // La animación está vinculada al contenedor Playlists
+              trigger: playlistsSection,
               start: 'top center-=500',
               end: 'bottom center-=500',
               scrub: true,

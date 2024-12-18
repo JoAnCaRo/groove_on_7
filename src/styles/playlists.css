@@ -4,24 +4,37 @@ section.playlists-section {
 }
 
 .playlists-section h3 {
-  text-align: left; /* Justifica el texto a la izquierda */
-  font-size: 1.5rem; /* Tamaño del texto del h3 */
-  font-weight: bold; /* Opcional: hace el texto más prominente */
-  margin-bottom: 0.5rem; /* Espaciado debajo del título */
-  position: relative; /* Necesario para colocar la línea */
+  text-align: left; 
+  font-size: 1.5rem; 
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  position: relative; 
 }
 
 .playlists-section h3::after {
-  content: ''; /* Genera un pseudo-elemento para la línea */
-  display: block; /* Asegura que ocupe toda la línea */
-  width: 100%; /* La línea ocupa el ancho del contenedor h3 */
-  height: 0.05rem; /* Grosor de la línea */
-  background-color: var(--secondary-color); /* Color de la línea */
-  opacity: 0.2; /* Cambia la opacidad de la línea (50% visible) */
-  margin-top: 1rem; /* Espaciado entre el texto y la línea */
-  margin-bottom: 1rem; /* Espaciado entre el texto y la línea */
+  content: ''; 
+  display: block; 
+  width: 100%;
+  height: 0.05rem; 
+  background-color: var(--secondary-color); 
+  opacity: 0.2; 
+  margin-top: 1rem; 
+  margin-bottom: 1rem; 
 }
 
+/* Contenedor para el contenido de Playlists */
+.playlists-section {
+  position: relative; 
+}
+
+.playlists-content-container {
+  max-width: 90rem; 
+  margin: 0 auto; 
+  padding: 20px var(--spacing); 
+  box-sizing: border-box;
+}
+
+/* Estilo Mixcloud iframe */
 .mixcloud-embed {
   padding: 6rem 0;
   margin: 0;
@@ -29,98 +42,83 @@ section.playlists-section {
 }
 
 .see-all-container .see-all-button-play {
-  background-color: var(--secondary-color); /* Color de fondo del botón */
-  color: var(--primary-color); /* Color del texto */
-  text-decoration: none; /* Elimina la línea de subrayado */
-  /* width: 15rem;
-  height: 4rem; */
-  font-size: 1rem; /* Tamaño del texto */
-  padding: 1.3rem 5rem; /* Espaciado interno */
-  border: none; /* Sin bordes */
-  border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+  background-color: var(--secondary-color); 
+  color: var(--primary-color); 
+  text-decoration: none; 
+  font-size: 1rem; 
+  padding: 1.3rem 5rem; 
+  border: none; 
+  border-radius: 0.5rem; 
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Animación para el hover */
+  transition: background-color 0.3s ease; 
 }
 
 .see-all-container .see-all-button-play:hover {
-  background-color: var(--primary-color); /* Color de fondo al pasar el mouse */
-  color: var(--secondary-color); /* Cambia el color del texto */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  background-color: var(--primary-color); 
+  color: var(--secondary-color); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
-/* Responsive: ajustes para móviles */
+/* RESPONSIVE */
+/* Móviles Horizontal */
 @media (max-width: 950px) {
-  
-.mixcloud-embed {
-  padding: 3rem 0;
-  margin: 0;
-  max-height: 100px;
+  .mixcloud-embed {
+    padding: 3rem 0;
+    margin: 0;
+    max-height: 100px;
+  }
+
+  .scroll-line-playlists, .reverse-scroll-line-playlists {
+    opacity: 0;
+  }
 }
 
-.scroll-line-playlists, .reverse-scroll-line-playlists {
-  opacity: 0;
-}
-}
-
+/* Tablets Vertical */
 @media (max-width: 1025px) {
-.scroll-line-playlists, .reverse-scroll-line-playlists {
-  opacity: 0;
-}
+  .scroll-line-playlists, .reverse-scroll-line-playlists {
+    opacity: 0;
+  }
 }
 
-/* Ajustes específicos para tablets en horizontal */
+/* Tablets Horizontal */
 @media (max-width: 1366px) {
-.scroll-line-playlists, .reverse-scroll-line-playlists {
-  opacity: 0;
-}
+  .scroll-line-playlists, .reverse-scroll-line-playlists {
+    opacity: 0;
+  }
 }
 
-/* PLAYLISTS Lines */
+/* ESTILOS LINEAS DE DECORACIÓN */
 .playlists-section {
-  position: relative; /* Necesario para que la línea animada sea relativa a esta sección */
-}
-
-/* Contenedor para el contenido de Playlists */
-.playlists-section {
-  position: relative; /* Necesario para que la línea animada sea relativa a esta sección */
-}
-
-/* Contenedor para el contenido de Playlists */
-.playlists-content-container {
-  max-width: 90rem; /* Limita el ancho del contenido */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 20px var(--spacing); /* Espaciado horizontal */
-  box-sizing: border-box;
+  position: relative; 
 }
 
 /* Contenedor de las líneas animadas */
 .line-container-playlists {
-
   position: absolute;
-  width: 100vw; /* La línea ocupa todo el ancho del viewport */
-  left: 0; /* La línea empieza desde el borde izquierdo */
-  pointer-events: none; /* La línea no interactúa con el cursor */
-  z-index: -1; /* Coloca la línea detrás del contenido */
+  width: 100vw; 
+  left: 0; 
+  pointer-events: none; 
+  z-index: -1; 
 }
 
 .scroll-line-playlists {
   position: absolute;
-  width: 100vw; /* La línea cubre todo el ancho del contenedor */
-  height: 6px; /* Grosor de la línea principal */
-  background-color: #fce853; /* Color de la línea (izquierda a derecha) */
-  transform-origin: left center; /* La animación se expande desde la izquierda */
-  transform: scaleX(0); /* Comienza invisible */
-  top: 450px; /* Altura específica de la línea */
+  width: 100vw; 
+  height: 6px; 
+  background-color: #fce853;
+  transform-origin: left center;
+  transform: scaleX(0); 
+  top: 450px; 
 }
 
 .reverse-scroll-line-playlists {
   position: absolute;
-  width: 100vw; /* La línea cubre todo el ancho del contenedor */
-  height: 6px; /* Grosor de la línea inversa */
-  background-color: #4caf50; /* Color de la línea (derecha a izquierda) */
-  transform-origin: right center; /* La animación se expande desde la derecha */
-  transform: scaleX(0); /* Comienza invisible */
-  bottom: -750px; /* Ajusta la altura de forma independiente respecto a la otra línea */
+  width: 100vw; 
+  height: 6px; 
+  background-color: #4caf50; 
+  transform-origin: right center; 
+  transform: scaleX(0); 
+  bottom: -750px; 
 }
 
 
