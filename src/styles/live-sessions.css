@@ -308,10 +308,13 @@ section.live-sessions-section {
   .video-popup-content iframe {
     width: 70%; 
     height: auto; 
-    max-width: 1280px; 
+    /* max-width: 1280px; */ 
+      max-width: 90%;
+      max-height: 80%; 
     aspect-ratio: 16 / 9; 
     border: none; 
   }
+
   .first-vertical-scroll-line-livesessions, .second-vertical-scroll-line-livesessions {
     opacity: 0;
   }
