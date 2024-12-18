@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+/* Componente React que utiliza framer-motion para animar las líneas al hacer scroll */
 const LineAnimation = () => {
   return (
     <motion.div
