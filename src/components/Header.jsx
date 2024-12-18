@@ -1,5 +1,7 @@
+/* Importa React */
 import React from 'react';
 
+/* Función para manejar barra de navegación principal */
 const Header = () => {
   return (
     <header>

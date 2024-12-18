@@ -1,5 +1,7 @@
+/* Importa React */
 import React from 'react';
 
+/* Función para manejar el hero */
 const Hero = () => {
   return (
     <section className="hero">
