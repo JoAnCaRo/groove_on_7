@@ -9,10 +9,12 @@ const Navbar = () => {
   const { scrollToSection } = useScrollContext();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  /*Función abrir menú (móvil)*/
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  /*Función cerrar menú (móvil)*/
   const closeMenu = () => {
     setMenuOpen(false);
   };
