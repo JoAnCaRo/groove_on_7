@@ -21,14 +21,14 @@ const About = () => {
       /* Animación de la línea horizontal: escala horizontal desde 0 a 1 al hacer scroll */
       gsap.fromTo(
         lineRef.current,
-        { scaleX: 0 },
+        { scaleX: 0 }, // Estado inicial: no visible
         {
-          scaleX: 1,
+          scaleX: 1, // Estado final: ancho completo
           scrollTrigger: {
-            trigger: aboutSection,
-            start: 'top center',
-            end: 'bottom center',
-            scrub: true,
+            trigger: aboutSection, // Activa la animación
+            start: 'top center', // Inicia cuando la parte superior de la sección entra en el centro del viewport
+            end: 'bottom center', // Termina cuando la parte inferior de la sección llega al centro del viewport
+            scrub: true, // Sincroniza la animación con el scroll
           },
         }
       );
@@ -48,7 +48,7 @@ const About = () => {
         }
       );
     } else {
-      console.error('GSAP or ScrollTrigger not found!'); /* Manejo de errores si GSAP o ScrollTrigger no están disponibles */
+      console.error('GSAP or ScrollTrigger not found!'); // Manejo de errores si GSAP o ScrollTrigger no están disponibles
     }
   }, []);
 

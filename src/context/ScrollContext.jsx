@@ -4,6 +4,7 @@ import React, { createContext, useContext, useRef } from 'react';
 /* Crea contexto para manejar el scroll entre secciones */
 const ScrollContext = createContext();
 
+/* Función que provee el contexto otros componentes que lo necesitan */
 export const ScrollProvider = ({ children }) => {
   /* Se crean referencias para cada sección y se utilizarán para identificar las posiciones de las secciones en el DOM */
   const sections = {
@@ -14,7 +15,7 @@ export const ScrollProvider = ({ children }) => {
     contact: useRef(null),
   };
 
-  /* Función para desplazar la vista a una sección específica */
+  /* Función para desplazar suavemente la vista a la sección específica */
   const scrollToSection = (sectionId) => {
     const target = sections[sectionId]?.current;
     const adjustment = 60; // Avanza 10px más

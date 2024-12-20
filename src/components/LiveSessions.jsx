@@ -3,13 +3,12 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useScrollContext } from '../context/ScrollContext';
 import VideoPopup from './VideoPopup';
 
-/* Función para gestionar referencias de secciones y  video actual en reproducción
- */
+/* Función para gestionar referencias de secciones y video actual en reproducción */
 const LiveSessions = () => {
   const { sections } = useScrollContext();
   const [currentVideo, setCurrentVideo] = useState(null);
 
-  // Referencias para las líneas verticales
+  /* Referencias para las líneas verticales */
   const firstVerticalLineRef = useRef(null);
   const secondVerticalLineRef = useRef(null);
 
@@ -23,7 +22,7 @@ const LiveSessions = () => {
 
       const liveSessionsSection = document.querySelector('.live-sessions-section');
 
-      // Animación para la primera línea vertical (azul)
+      /* Animación para la primera línea vertical (azul) */
       if (firstVerticalLineRef.current) {
         gsap.fromTo(
           firstVerticalLineRef.current,
@@ -40,7 +39,7 @@ const LiveSessions = () => {
         );
       }
 
-      // Animación para la segunda línea vertical (roja)
+      /* Animación para la segunda línea vertical (roja) */
       if (secondVerticalLineRef.current) {
         gsap.fromTo(
           secondVerticalLineRef.current,
@@ -57,7 +56,7 @@ const LiveSessions = () => {
         );
       }
     } else {
-      console.error('GSAP or ScrollTrigger not found!'); /* Manejo de errores */
+      console.error('GSAP or ScrollTrigger not found!'); // Manejo de errores
     }
   }, []);
 
