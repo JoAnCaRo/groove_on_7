@@ -6,7 +6,7 @@ const Callback = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Obtener el fragmento de la URL (#access_token=...)
+    // Obtener el fragmento de la URL 
     const hash = window.location.hash;
     if (hash) {
       const params = new URLSearchParams(hash.substring(1)); // Quitar el "#"

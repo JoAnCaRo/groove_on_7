@@ -20,7 +20,7 @@ const pool = new Pool({
   database: 'railway',
 });
 
-// Prueba conexión
+/* Prueba conexión */
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
     console.error('Error al conectar con la base de datos:', err.message);
@@ -29,7 +29,7 @@ pool.query('SELECT NOW()', (err, res) => {
   }
 });
 
-// Configuración de CORS
+/* Configuración de CORS */
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -48,10 +48,9 @@ app.use(
   })
 );
 
-// Middleware global
 app.use(bodyParser.json());
 
-// Ruta para obtener eventos
+/* Ruta para obtener eventos */
 app.get('/events', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM events ORDER BY date ASC');
@@ -62,7 +61,7 @@ app.get('/events', async (req, res) => {
   }
 });
 
-// Ruta para añadir un evento
+/* Ruta para añadir un evento */
 app.post('/events', async (req, res) => {
   const { date, name, location, map_link } = req.body;
   try {
@@ -74,7 +73,7 @@ app.post('/events', async (req, res) => {
   }
 });
 
-// Ruta para borrar un evento
+/* Ruta para borrar un evento */
 app.delete('/events/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -86,10 +85,10 @@ app.delete('/events/:id', async (req, res) => {
   }
 });
 
-// Manejo de solicitudes OPTIONS (pre-flight)
+/* Manejo de solicitudes */
 app.options('*', cors());
 
-// Configuración del puerto
+/* Configuración del puerto */
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);

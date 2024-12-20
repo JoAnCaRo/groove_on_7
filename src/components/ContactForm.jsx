@@ -137,7 +137,7 @@ const ContactForm = ({ onClose }) => {
         backgroundColor: 'var(--primary-color)',
         color: 'var(--secondary-color)',
         borderRadius: '8px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+        boxShadow: '0 4px 8px hsla(0, 0.00%, 0.00%, 0.20)',
         width: '96%',
         textAlign: 'center',
       }}

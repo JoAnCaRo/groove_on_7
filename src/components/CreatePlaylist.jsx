@@ -22,7 +22,6 @@ const CreatePlaylist = () => {
     // Mi N° Cliente de app de Spotify y URL de redirección
     const clientId = 'a1a40ff261a74446b82d30c304c3717b';
     const redirectUri = 'https://joancaro.github.io/groove_on_7/';
-
     const scope = 'playlist-read-private playlist-modify-private user-top-read';
 
     // Muestra la URL de autenticación de Spotify

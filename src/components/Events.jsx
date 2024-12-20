@@ -124,7 +124,7 @@ const Events = () => {
 
     // Formato de la fecha y hora para .ics
     const startDateTime = `${eventDate.toISOString().replace(/-|:|\.\d+/g, '')}`;
-    const endDateTime = `${eventDate.toISOString().replace(/-|:|\.\d+/g, '')}`; 
+    const endDateTime = `${eventDate.toISOString().replace(/-|:|\.\d+/g, '')}`;
 
     // Genera contenido para el archivo .ics
     const icsContent = `
