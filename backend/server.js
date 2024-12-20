@@ -88,7 +88,7 @@ app.delete('/events/:id', async (req, res) => {
 /* Manejo de solicitudes */
 app.options('*', cors());
 
-/* Configuración del puerto */
+/* Configuración del puerto. */
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
